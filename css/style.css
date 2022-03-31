@@ -1267,6 +1267,33 @@ a {
 #article-nav #article-nav-older {
   float: right;
 }
+.category-all-page {
+  margin-top: 50px;
+}
+.category-all-page .category-all-title {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+.category-all-page .category-list-item {
+  font-weight: 500;
+  font-size: 20px;
+}
+.category-all-page .category-list-item:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.category-all-page .category-list-count {
+  float: right;
+  margin-left: 5px;
+}
+.category-all-page .category-list-count:before {
+  content: '一共 ';
+}
+.category-all-page .category-list-count:after {
+  content: ' 篇文章';
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;
