@@ -705,6 +705,26 @@ a {
 #header .header-nav .social a.zhihu:hover {
   border: 1px solid #0078d8;
 }
+#header .header-nav .social a.CSDN {
+  background: url("/img/CSDN.png") center no-repeat #0078d8;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  border: 1px solid #0078d8;
+}
+#header .header-nav .social a.CSDN:hover {
+  border: 1px solid #0078d8;
+}
+#header .header-nav .social a.cnblogs {
+  background: url("/img/cnblogs.png") center no-repeat #0078d8;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  border: 1px solid #0078d8;
+}
+#header .header-nav .social a.cnblogs:hover {
+  border: 1px solid #0078d8;
+}
 #header .header-nav .social a.douban {
   background: url("/img/douban.png") center no-repeat #06c611;
   border: 1px solid #06c611;
@@ -1145,10 +1165,10 @@ a {
   height: 35px;
 }
 .article-entry table thead tr {
-  background: #f8f8f8;
+  background: #000;
 }
 .article-entry table tbody tr:hover {
-  background: #efefef;
+  background: #000;
 }
 .article-entry table td,
 .article-entry table th {
