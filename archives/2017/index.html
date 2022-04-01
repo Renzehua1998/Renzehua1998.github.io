@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2022/3 | Zehua的个人博客</title>
+  <title>Archives: 2017 | Zehua的个人博客</title>
 
   <!-- keywords -->
   
@@ -12,7 +12,7 @@
   <meta name="description" content="西北某高校系统工程硕士在读">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Zehua的个人博客">
-<meta property="og:url" content="https://renzehua1998.github.io/archives/2022/03/index.html">
+<meta property="og:url" content="https://renzehua1998.github.io/archives/2017/index.html">
 <meta property="og:site_name" content="Zehua的个人博客">
 <meta property="og:description" content="西北某高校系统工程硕士在读">
 <meta property="og:locale">
@@ -99,7 +99,10 @@
 				</div>
 			</div>
 		
-
+		<div>
+			<input type="checkbox" checked onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
 		<div class="switch-area">
 			<div class="switch-wrap">
 				<section class="switch-part switch-part1">
@@ -143,6 +146,10 @@
 					
 			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
 			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos</a>
+			        
 			        </div>
 				</section>
 				
@@ -158,6 +165,138 @@
 		</div>
 	</header>				
 </div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			require(['/js/particles.js'], function(particlesJS) {
+				window.particlesJS('particles-js',
+
+				{
+					"particles": {
+					"number": {
+						"value": 80,
+						"density": {
+						"enable": true,
+						"value_area": 800
+						}
+					},
+					"color": {
+						"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']
+					},
+					"shape": {
+						"type": "circle",
+						"stroke": {
+						"width": 0,
+						"color": "#000000"
+						},
+						"polygon": {
+						"nb_sides": 5
+						},
+						"image": {
+						"src": "img/github.svg",
+						"width": 100,
+						"height": 100
+						}
+					},
+					"opacity": {
+						"value": 0.5,
+						"random": false,
+						"anim": {
+						"enable": false,
+						"speed": 1,
+						"opacity_min": 0.1,
+						"sync": false
+						}
+					},
+					"size": {
+						"value": 5,
+						"random": true,
+						"anim": {
+						"enable": false,
+						"speed": 40,
+						"size_min": 0.1,
+						"sync": false
+						}
+					},
+					"line_linked": {
+						"enable": true,
+						"distance": 150,
+						"color": "#ff945c",
+						"opacity": 0.4,
+						"width": 1
+					},
+					"move": {
+						"enable": true,
+						"speed": 6,
+						"direction": "none",
+						"random": false,
+						"straight": false,
+						"out_mode": "out",
+						"attract": {
+						"enable": false,
+						"rotateX": 600,
+						"rotateY": 1200
+						}
+					}
+					},
+					"interactivity": {
+					"detect_on": "canvas",
+					"events": {
+						"onhover": {
+						"enable": true,
+						"mode": "repulse"
+						},
+						"onclick": {
+						"enable": true,
+						"mode": "push"
+						},
+						"resize": true
+					},
+					"modes": {
+						"grab": {
+						"distance": 400,
+						"line_linked": {
+							"opacity": 1
+						}
+						},
+						"bubble": {
+						"distance": 400,
+						"size": 40,
+						"duration": 2,
+						"opacity": 8,
+						"speed": 3
+						},
+						"repulse": {
+						"distance": 200
+						},
+						"push": {
+						"particles_nb": 4
+						},
+						"remove": {
+						"particles_nb": 2
+						}
+					}
+					},
+					"retina_detect": true,
+					"config_demo": {
+					"hide_card": false,
+					"background_color": "#b61924",
+					"background_image": "",
+					"background_position": "50% 50%",
+					"background_repeat": "no-repeat",
+					"background_size": "cover"
+					}
+				}
+
+				);
+			});
+		}else{
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();
+		}
+	}
+</script>
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -211,7 +350,7 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
+          <a href="/archives/2017" class="archive-year">2017</a>
         </div>
         <div class="archives">
     
@@ -219,14 +358,14 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
       	<div class="article-meta">
-	      	<a href="/2022/03/28/hello-world/" class="archive-article-date">
-  	<time datetime="2022-03-28T03:57:43.427Z" itemprop="datePublished">Mar 28</time>
+	      	<a href="/2017/09/01/hello-world/" class="archive-article-date">
+  	<time datetime="2017-09-01T01:00:00.000Z" itemprop="datePublished">Sep 1</time>
 </a>
         </div>
     	 
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/28/hello-world/">
+      <a class="archive-article-title" href="/2017/09/01/hello-world/">
         Hello World
         
       </a>
