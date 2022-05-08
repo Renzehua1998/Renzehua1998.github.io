@@ -275,6 +275,9 @@ a {
   #container .left-col {
     display: none;
   }
+  #container .mymenucontainer {
+    display: none;
+  }
   #container .mid-col {
     left: 0;
   }
