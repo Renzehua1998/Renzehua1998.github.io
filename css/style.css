@@ -956,6 +956,12 @@ body.bright .bar2 {
 body.bright .bar3 {
   background: #7b5d5f;
 }
+body.bright table thead tr {
+  background: #eaeaea;
+}
+body.bright table tbody tr:hover {
+  background: #eaeaea;
+}
 .archives-wrap {
   position: relative;
   margin: 0 30px;
