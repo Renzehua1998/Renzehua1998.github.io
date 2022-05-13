@@ -1459,7 +1459,7 @@ body.bright table tbody tr:hover {
   margin-left: 5px;
 }
 .category-all-page .category-list-count:before {
-  content: '一共 ';
+  content: '共 ';
 }
 .category-all-page .category-list-count:after {
   content: ' 篇文章';

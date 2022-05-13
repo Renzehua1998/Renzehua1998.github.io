@@ -14,7 +14,9 @@ require([], function (){
 			isPCInit = true;
 		});
 	}
-	if ((localStorage.getItem('noanimation') === '0')) {
+	if ((localStorage.getItem('noanimation') === '1')) {
+		$("#live2d-widget").css('display', 'none');  // live2d隐藏
+	} else {
 		$("#animation").attr('checked', 'true');
 		$(".live2d-widget-container").css('display', 'inline');  // live2d显示
 		if (localStorage.getItem('bright') === '1') {
@@ -26,8 +28,6 @@ require([], function (){
 			var linecolor="#ff945c";
 			particlesJS(circlecolor, linecolor);
 		}
-	} else {
-		$("#live2d-widget").css('display', 'none');  // live2d隐藏
 	}
 	function particlesJS(circlecolor, linecolor) {
 		require(['/js/particles.js'], function(particlesJS) {
