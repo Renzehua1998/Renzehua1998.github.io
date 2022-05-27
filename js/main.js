@@ -14,7 +14,27 @@ require([], function (){
 			isPCInit = true;
 		});
 	}
-	if ((localStorage.getItem('noanimation') === '1')) {
+
+	if (!localStorage.hasOwnProperty('content')) {  // 请求搜索资源
+		window.fetch('content.json', {
+			method: 'get',
+		}).then((res) => {
+			return res.json()
+		}).then((data) => {
+			// data.forEach((em) => {
+			// em.isShow = true
+			// })
+			data = JSON.stringify(data);
+			localStorage.setItem('content',data)
+		}).catch((err) => {
+			// window.jsonFail = true
+			console.log('未安装hexo-generator-json-content模块')
+		});
+	}
+
+	jQuery("#local-search-input").val('') // 清除搜索内容
+
+	if ((localStorage.getItem('noanimation') === '1')) {  // 全局特效变量
 		$("#live2d-widget").css('display', 'none');  // live2d隐藏
 	} else {
 		$("#animation").attr('checked', 'true');
@@ -188,59 +208,18 @@ require([], function (){
 	}else{
 		loadPC();
 	}
-
-	//是否使用fancybox
-	if(yiliaConfig.fancybox === true){
-		require(['/fancybox/jquery.fancybox.js'], function(pc){
-			var isFancy = $(".isFancy");
-			if(isFancy.length != 0){
-				var imgArr = $(".article-inner img");
-				for(var i=0,len=imgArr.length;i<len;i++){
-					var src = imgArr.eq(i).attr("src");
-					var title = imgArr.eq(i).attr("alt");
-					imgArr.eq(i).replaceWith("<a href='"+src+"' title='"+title+"' rel='fancy-group' class='fancy-ctn fancybox'><img src='"+src+"' title='"+title+"'></a>");
-				}
-				$(".article-inner .fancy-ctn").fancybox();
-			}
-		});
-
-	}
-	//是否开启动画
-	if(yiliaConfig.animate === true){
-
-		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
-			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-			$(".js-avatar")[0].onload = function(){
-				$(".profilepic").addClass("show");
-			}
-		});
-
-		if(yiliaConfig.isHome === true){
-			//content
-			function showArticle(){
-				$(".article").each(function(){
-					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
-						$(this).removeClass("hidden").addClass("show");
-						$(this).addClass("is-hiddened");
-					}else{
-						if(!$(this).hasClass("is-hiddened")){
-							$(this).addClass("hidden");
-						}
-					}
-				});
-			}
-			$(window).on('scroll', function(){
-				showArticle();
-			});
-			showArticle();
-		}
-
-	}
-
-	//是否新窗口打开链接
-	if(yiliaConfig.open_in_new == true){
-		$(".article a[href]").attr("target", "_blank")
-	}
-
+	// 字符字母信息
+	console.log('\n\
+	 _       __     __                   \n\
+	| |     / /__  / /________  ____ ___ \n\
+	| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\\n\
+	| |/ |/ /  __/ / /__/ /_/ / / / / / /\n\
+	|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/ \n\
+	 _____                   \n\
+	|_   _|                       ____                \n\
+	  | |     __ _ _ __ ___      / __ \\___  ____  ____™\n\
+	  | |    / _` | \'_ ` _ \\    / /_/ / _ \\/ __ \\/_  /\n\
+	 _| |_  | (_| | | | | | |  / _, _/  __/ / / / / /_\n\
+	|_____|  \\__,_|_| |_| |_| /_/ |_|\\___/_/ /_/ /___/\n\
+	')
 });
