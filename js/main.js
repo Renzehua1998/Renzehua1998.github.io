@@ -36,9 +36,11 @@ require([], function (){
 
 	if ((localStorage.getItem('noanimation') === '1')) {  // 全局特效变量
 		$("#live2d-widget").css('display', 'none');  // live2d隐藏
+		$("#animation-button").attr('class','animation-on'); // 手机端checkbutton样式
 	} else {
 		$("#animation").attr('checked', 'true');
 		$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+		$("#animation-button").attr('class','animation-off'); // 手机端checkbutton样式
 		if (localStorage.getItem('bright') === '1') {
 			var circlecolor={"value": ['#999']};
 			var linecolor="#999";

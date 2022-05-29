@@ -311,6 +311,108 @@ a {
     margin-top: 14px;
     display: block;
   }
+  #container .overlay .search-icon {
+    position: absolute;
+    display: block;
+    z-index: 101;
+    bottom: 12px;
+    left: 30px;
+    margin-top: 2px;
+    margin-left: 3px;
+    width: 12px;
+    height: 12px;
+    border: solid 2px #ddd;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  #container .overlay .search-icon:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    height: 6px;
+    width: 1px;
+    background-color: #ddd;
+  }
+  #container .overlay .animation-info {
+    position: absolute;
+    color: #ddd;
+    right: 30px;
+    bottom: 10px;
+  }
+  #container .overlay .animation-on {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px #ddd;
+    margin-left: 2px;
+    margin-top: 2px;
+    background: #ddd;
+  }
+  #container .overlay .animation-on:before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 7px;
+    height: 4px;
+    border-bottom: solid 1px #ddd;
+    border-bottom-color: #333;
+    border-left: solid 1px #ddd;
+    border-left-color: #333;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  #container .overlay .animation-off {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 1px #ddd;
+    margin-left: 2px;
+    margin-top: 2px;
+    background: #ddd;
+  }
+  #container .overlay .animation-off:before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 7px;
+    width: 9px;
+    height: 1px;
+    background-color: #333;
+    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  #container .overlay .animation-off:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 7px;
+    width: 9px;
+    height: 1px;
+    background-color: #333;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
   #container .article-header {
     padding-top: 0;
     padding-bottom: 0;
@@ -338,6 +440,53 @@ a {
   }
   #container #viewer-box .viewer-box-l {
     font-size: 14px;
+  }
+  #container .search-delete {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+  #container .search-delete .search-bar1 {
+    background: #fff;
+    width: 25px;
+    height: 2px;
+    -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+    -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+    -moz-transform: rotate(-45deg) translate(-8px, 8px);
+    -ms-transform: rotate(-45deg) translate(-8px, 8px);
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  #container .search-delete .search-bar2 {
+    background: #fff;
+    width: 25px;
+    height: 2px;
+    -webkit-transform: rotate(45deg) translate(6px, 6px);
+    -webkit-transform: rotate(45deg) translate(6px, 6px);
+    -moz-transform: rotate(45deg) translate(6px, 6px);
+    -ms-transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  #container .search-delete:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  #container #local-search-input {
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-family: dos;
+    width: 200px;
+    height: 30px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #fff;
   }
   #container .article {
     padding: 10px;
@@ -915,6 +1064,7 @@ a {
   color: #0ff;
   content: "\f073";
   font: 16px FontAwesome;
+  margin-left: 5px;
   margin-right: 5px;
 }
 #header .switch-part2 #local-search-result .search-tag {
@@ -926,6 +1076,7 @@ a {
   color: #fffdd8;
   content: "\f06c";
   font: 16px FontAwesome;
+  margin-left: 5px;
   margin-right: 5px;
 }
 #header .switch-part3 {
@@ -1611,7 +1762,7 @@ body.bright table tbody tr:hover {
   padding: 10px;
   position: fixed;
   right: 30px;
-  top: 80px;
+  top: 100px;
 }
 .toc-article .toc-close {
   font-weight: 700;
@@ -1765,7 +1916,7 @@ body.bright table tbody tr:hover {
   width: 20px;
   position: fixed;
   right: 0px;
-  top: 80px;
+  top: 100px;
   border: 1px solid #ccc;
   background: rgba(255,255,255,0);
 }
