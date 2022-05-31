@@ -23,9 +23,9 @@
 <meta property="article:published_time" content="2018-11-28T15:29:00.000Z">
 <meta property="article:modified_time" content="2022-05-20T13:00:06.157Z">
 <meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="C语言">
 <meta property="article:tag" content="实验报告">
 <meta property="article:tag" content="算法">
-<meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://renzehua1998.github.io/2018/11/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C3/wps27.jpg">
   
@@ -41,21 +41,26 @@
   
 
   
+  
+<script src="/js/av-min.js"></script>
+ <!--评论模块-->
+  
+<script src="/js/Valine.min.js"></script>
+
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
 <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
+ -->
+  <!-- 
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
+ -->
+  
+<script src="/js/require.min.js"></script>
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<script src="/js/jquery.min.js"></script>
 
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
 
   
 <meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
@@ -462,7 +467,7 @@ mjx-container[display="true"] + br {
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -581,7 +586,7 @@ mjx-container[display="true"] + br {
 			}
 
 			);
-		})
+		// })
 	}
 </script>
     </div>
@@ -775,7 +780,7 @@ mjx-container[display="true"] + br {
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -894,7 +899,7 @@ mjx-container[display="true"] + br {
 			}
 
 			);
-		})
+		// })
 	}
 </script>
       <div class="body-wrap"><article id="post-数据结构实验3" class="article article-type-post" itemscope itemprop="blogPost">
@@ -932,16 +937,6 @@ mjx-container[display="true"] + br {
 	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%BA%8C%E4%B8%8A/">大二上</a>
 	</div>
 
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2018/11/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C3/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="数据结构实验3——树的遍历操作及基于霍夫曼树的编码/译码">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -1105,6 +1100,35 @@ mjx-container[display="true"] + br {
 
 
 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1191,6 +1215,9 @@ mjx-container[display="true"] + br {
 		$(".article a[href]").attr("target", "_blank")
 	}
 </script>
+
+<script src="/js/particles.js"></script>
+
 
 <script src="/js/main.js"></script>
 

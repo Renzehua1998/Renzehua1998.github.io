@@ -35,21 +35,26 @@
   
 
   
+  
+<script src="/js/av-min.js"></script>
+ <!--评论模块-->
+  
+<script src="/js/Valine.min.js"></script>
+
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
 <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
+ -->
+  <!-- 
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
+ -->
+  
+<script src="/js/require.min.js"></script>
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<script src="/js/jquery.min.js"></script>
 
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
 
   
 <meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
@@ -456,7 +461,7 @@ mjx-container[display="true"] + br {
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -575,7 +580,7 @@ mjx-container[display="true"] + br {
 			}
 
 			);
-		})
+		// })
 	}
 </script>
     </div>
@@ -769,7 +774,7 @@ mjx-container[display="true"] + br {
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -888,7 +893,7 @@ mjx-container[display="true"] + br {
 			}
 
 			);
-		})
+		// })
 	}
 </script>
       <div class="body-wrap"><article id="post-哈工大人工智能暑期学校作业" class="article article-type-post" itemscope itemprop="blogPost">
@@ -926,16 +931,6 @@ mjx-container[display="true"] + br {
 	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%BA%8C%E4%B8%8B/">大二下</a>
 	</div>
 
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2019/06/05/%E5%93%88%E5%B7%A5%E5%A4%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1%E4%BD%9C%E4%B8%9A/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="哈工大人工智能暑期学校作业">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -1079,6 +1074,35 @@ Report on Paper “Adaptive Deep Reuse: Accelerating CNN Training on the Fly”
 
 
 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1165,6 +1189,9 @@ Report on Paper “Adaptive Deep Reuse: Accelerating CNN Training on the Fly”
 		$(".article a[href]").attr("target", "_blank")
 	}
 </script>
+
+<script src="/js/particles.js"></script>
+
 
 <script src="/js/main.js"></script>
 

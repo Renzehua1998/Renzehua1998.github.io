@@ -70,7 +70,7 @@
 	})
 	// 特效函数
 	function particlesJS(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -189,6 +189,6 @@
 			}
 
 			);
-		})
+		// })
 	}
 })(jQuery);

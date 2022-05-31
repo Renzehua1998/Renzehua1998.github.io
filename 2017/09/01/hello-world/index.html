@@ -33,21 +33,26 @@
   
 
   
+  
+<script src="/js/av-min.js"></script>
+ <!--评论模块-->
+  
+<script src="/js/Valine.min.js"></script>
+
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
 <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
+ -->
+  <!-- 
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
+ -->
+  
+<script src="/js/require.min.js"></script>
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<script src="/js/jquery.min.js"></script>
 
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
 
   
 <meta name="generator" content="Hexo 6.1.0"></head>
@@ -342,7 +347,7 @@
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -461,7 +466,7 @@
 			}
 
 			);
-		})
+		// })
 	}
 </script>
     </div>
@@ -655,7 +660,7 @@
 	}
 	// 特效函数
 	function particlesJS0(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -774,7 +779,7 @@
 			}
 
 			);
-		})
+		// })
 	}
 </script>
       <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
@@ -804,16 +809,6 @@
       <div class="article-info article-info-post">
         
         
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2017/09/01/hello-world/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="Hello World">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -915,6 +910,35 @@
 
 
 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1001,6 +1025,9 @@
 		$(".article a[href]").attr("target", "_blank")
 	}
 </script>
+
+<script src="/js/particles.js"></script>
+
 
 <script src="/js/main.js"></script>
 

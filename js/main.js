@@ -52,7 +52,7 @@ require([], function (){
 		}
 	}
 	function particlesJS(circlecolor, linecolor) {
-		require(['/js/particles.js'], function(particlesJS) {
+		// require(['/js/particles.js'], function(particlesJS) {
 			window.particlesJS('particles-js',
 
 			{
@@ -171,7 +171,7 @@ require([], function (){
 			}
 
 			);
-		})
+		// })
 	}
 	var browser={
 	    versions:function(){
