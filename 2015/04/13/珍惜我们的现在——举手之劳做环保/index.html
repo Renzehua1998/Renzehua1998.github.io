@@ -57,16 +57,6 @@
 
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
-
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
-
-  
 <meta name="generator" content="Hexo 6.1.0"></head>
 <body>
   <div id="container">
@@ -804,8 +794,6 @@
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
     
       <header class="article-header">
         
@@ -829,16 +817,6 @@
 	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E9%AB%98%E4%B8%AD%E8%B5%84%E6%96%99/">高中资料</a>
 	</div>
 
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2015/04/13/%E7%8F%8D%E6%83%9C%E6%88%91%E4%BB%AC%E7%9A%84%E7%8E%B0%E5%9C%A8%E2%80%94%E2%80%94%E4%B8%BE%E6%89%8B%E4%B9%8B%E5%8A%B3%E5%81%9A%E7%8E%AF%E4%BF%9D/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="珍惜我们的现在——举手之劳做环保">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -1020,14 +998,9 @@
 </footer>
     </div>
     
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
 
 <script>
 	var yiliaConfig = {
-		fancybox: true,
 		//mathjax: [object Object],
 		animate: true,
 		isHome: false,
@@ -1037,32 +1010,17 @@
 		isCategory: false,
 		open_in_new: false
 	}
-	//是否使用fancybox
-	if(yiliaConfig.fancybox === true){
-		require(['/fancybox/jquery.fancybox.js'], function(pc){
-			var isFancy = $(".isFancy");
-			if(isFancy.length != 0){
-				var imgArr = $(".article-inner img");
-				for(var i=0,len=imgArr.length;i<len;i++){
-					var src = imgArr.eq(i).attr("src");
-					var title = imgArr.eq(i).attr("alt");
-					imgArr.eq(i).replaceWith("<a href='"+src+"' title='"+title+"' rel='fancy-group' class='fancy-ctn fancybox'><img src='"+src+"' title='"+title+"'></a>");
-				}
-				$(".article-inner .fancy-ctn").fancybox();
-			}
-		});
 
-	}
 	//是否开启动画
 	if(yiliaConfig.animate === true){
 
-		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
-			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-			$(".js-avatar")[0].onload = function(){
-				$(".profilepic").addClass("show");
-			}
-		});
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
 
 		if(yiliaConfig.isHome === true){
 			//content

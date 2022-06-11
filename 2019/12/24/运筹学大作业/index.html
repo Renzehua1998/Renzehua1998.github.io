@@ -57,16 +57,6 @@
 
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
-
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
-
-  
 <meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -916,8 +906,6 @@ mjx-container[display="true"] + br {
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
     
       <header class="article-header">
         
@@ -941,16 +929,6 @@ mjx-container[display="true"] + br {
 	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%B8%89%E4%B8%8A/">大三上</a>
 	</div>
 
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2019/12/24/%E8%BF%90%E7%AD%B9%E5%AD%A6%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="运筹学大作业">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -1110,14 +1088,9 @@ mjx-container[display="true"] + br {
 </footer>
     </div>
     
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
 
 <script>
 	var yiliaConfig = {
-		fancybox: true,
 		//mathjax: [object Object],
 		animate: true,
 		isHome: false,
@@ -1127,32 +1100,17 @@ mjx-container[display="true"] + br {
 		isCategory: false,
 		open_in_new: false
 	}
-	//是否使用fancybox
-	if(yiliaConfig.fancybox === true){
-		require(['/fancybox/jquery.fancybox.js'], function(pc){
-			var isFancy = $(".isFancy");
-			if(isFancy.length != 0){
-				var imgArr = $(".article-inner img");
-				for(var i=0,len=imgArr.length;i<len;i++){
-					var src = imgArr.eq(i).attr("src");
-					var title = imgArr.eq(i).attr("alt");
-					imgArr.eq(i).replaceWith("<a href='"+src+"' title='"+title+"' rel='fancy-group' class='fancy-ctn fancybox'><img src='"+src+"' title='"+title+"'></a>");
-				}
-				$(".article-inner .fancy-ctn").fancybox();
-			}
-		});
 
-	}
 	//是否开启动画
 	if(yiliaConfig.animate === true){
 
-		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
-			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-			$(".js-avatar")[0].onload = function(){
-				$(".profilepic").addClass("show");
-			}
-		});
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
 
 		if(yiliaConfig.isHome === true){
 			//content

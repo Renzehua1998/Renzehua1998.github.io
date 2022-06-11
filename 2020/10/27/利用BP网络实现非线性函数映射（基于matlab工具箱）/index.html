@@ -82,16 +82,6 @@
 
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
-
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
-
-  
 <meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -941,8 +931,6 @@ mjx-container[display="true"] + br {
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
     
       <header class="article-header">
         
@@ -966,16 +954,6 @@ mjx-container[display="true"] + br {
 	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a>
 	</div>
 
-
-        
-          
-<div class="counter-tag counter">
-    <span id="/2020/10/27/%E5%88%A9%E7%94%A8BP%E7%BD%91%E7%BB%9C%E5%AE%9E%E7%8E%B0%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0%E6%98%A0%E5%B0%84%EF%BC%88%E5%9F%BA%E4%BA%8Ematlab%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%89/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="利用BP网络实现非线性函数映射（基于matlab工具箱）">
-         &nbsp;
-        阅读
-    </span>
-</div>
 
         
         <div class="clearfix"></div>
@@ -1203,11 +1181,11 @@ Net6：10-10-1，1000个样本
     
 <nav id="article-nav">
   
-    <a href="/2022/05/01/leetcode/2022%E5%B9%B45%E6%9C%88/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/01/leetcode/2022%E5%B9%B46%E6%9C%88/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          2022年5月
+          2022年6月
         
       </div>
     </a>
@@ -1293,14 +1271,9 @@ Net6：10-10-1，1000个样本
 </footer>
     </div>
     
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
 
 <script>
 	var yiliaConfig = {
-		fancybox: true,
 		//mathjax: [object Object],
 		animate: true,
 		isHome: false,
@@ -1310,32 +1283,17 @@ Net6：10-10-1，1000个样本
 		isCategory: false,
 		open_in_new: false
 	}
-	//是否使用fancybox
-	if(yiliaConfig.fancybox === true){
-		require(['/fancybox/jquery.fancybox.js'], function(pc){
-			var isFancy = $(".isFancy");
-			if(isFancy.length != 0){
-				var imgArr = $(".article-inner img");
-				for(var i=0,len=imgArr.length;i<len;i++){
-					var src = imgArr.eq(i).attr("src");
-					var title = imgArr.eq(i).attr("alt");
-					imgArr.eq(i).replaceWith("<a href='"+src+"' title='"+title+"' rel='fancy-group' class='fancy-ctn fancybox'><img src='"+src+"' title='"+title+"'></a>");
-				}
-				$(".article-inner .fancy-ctn").fancybox();
-			}
-		});
 
-	}
 	//是否开启动画
 	if(yiliaConfig.animate === true){
 
-		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
-			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-			$(".js-avatar")[0].onload = function(){
-				$(".profilepic").addClass("show");
-			}
-		});
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
 
 		if(yiliaConfig.isHome === true){
 			//content
