@@ -1,5 +1,5 @@
 function showTime(Counter) {
-    var query = new AV.Query(Counter);
+    var query = new AV0.Query(Counter);
     $(".leancloud_visitors").each(function () {
         var url = $(this).attr("id").trim();
         query.equalTo("url", url);
@@ -25,12 +25,12 @@ function showTime(Counter) {
 }
 
 function addCount(Counter) {
-    var Counter = AV.Object.extend("Counter");
+    var Counter = AV0.Object.extend("Counter");
     // 注意 选择子 选择的类名，如果你想自定义类名，别忘记修改这里
     url = $(".leancloud_visitors").attr('id').trim();
     title = $(".leancloud_visitors").attr('data-flag-title').trim();
     
-    var query = new AV.Query(Counter);
+    var query = new AV0.Query(Counter);
     query.equalTo("url", url);
     query.find({
         success: function (results) {
@@ -77,7 +77,7 @@ function addCount(Counter) {
     });
 }
 $(function () {
-    var Counter = AV.Object.extend("Counter");
+    var Counter = AV0.Object.extend("Counter");
     if ($('.leancloud_visitors').length == 1) {
         console.log($('.leancloud_visitors'));
         addCount(Counter);
