@@ -867,13 +867,17 @@
     </div>
   </div>
   
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
     <span id="busuanzi_container_site_pv">
             本站总访问量<span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv">
-            访客数<span id="busuanzi_value_site_uv"></span>人
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
     </span>
   
 </footer>
@@ -960,6 +964,20 @@ MathJax.Hub.Queue(function() {
 
 
 
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
 <div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
     <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
 </div>

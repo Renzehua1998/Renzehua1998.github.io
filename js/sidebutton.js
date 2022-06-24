@@ -7,28 +7,44 @@
 	var scrollElem = $('#totop');
 	var scrollElem2 = $('#todown');
 	var scrollElem3 = $('#changebg');
+	var scrollElem4 = $('#progress');
    
 	// Scroll to top speed
 	var scrollSpeed = 500;
    
 	// Show and hide the scroll to top link based on scroll position   
 	scrollElem.hide();
+	scrollElem2.hide();
+	scrollElem4.hide();
 	$(window).scroll(function () {            
 		var scrollTop = $(document).scrollTop();       
 		if ( scrollTop > upperLimit ) {
-			$(scrollElem).stop().fadeTo(300, 1); // fade back in           
+			$(scrollElem).stop().fadeTo(300, 1); // fade back in
+			$(scrollElem2).stop().fadeTo(300, 1);
+			$(scrollElem4).stop().fadeTo(300, 1);           
 		}else{       
 			$(scrollElem).stop().fadeTo(300, 0); // fade out
+			$(scrollElem2).stop().fadeTo(300, 0);
+			$(scrollElem4).stop().fadeTo(300, 0);
 		}
 	});
-	scrollElem2.hide();
+
+	// 获取进度
 	$(window).scroll(function () {            
-		var scrollTop = $(document).scrollTop();       
-		if ( scrollTop > upperLimit ) {
-			$(scrollElem2).stop().fadeTo(300, 1); // fade back in           
-		}else{       
-			$(scrollElem2).stop().fadeTo(300, 0); // fade out
-		}
+		var H=document.body.scrollHeight;
+		var clientH=document.documentElement.clientHeight || document.body.scrollHeight;
+		var scrollT=document.documentElement.scrollTop || document.body.scrollTop;
+		var scale=parseInt((clientH+scrollT)/H*100);
+		document.getElementById("progress-rate").innerText = scale;
+		if(scale<=50) {
+			deg = scale/50*180+135
+			$(".right-circle").css("transform", "rotate("+ deg+ "deg)");
+			$(".left-circle").css("transform", "rotate(135deg)");
+		} else{
+			deg = -(100 - scale)/50*180-45;
+			$(".right-circle").css("transform", "rotate(-45deg)");
+			$(".left-circle").css("transform", "rotate("+ deg+ "deg)");
+		}	
 	});
 
 	// Scroll to top animation on click
@@ -44,8 +60,6 @@
 
 	// change background
 	$(scrollElem3).click(function(){
-		// $("body").css("background", "#fff").css("color", "#000")
-		// $(".article.article-type-post").css('margin', '0px 0px 0px 0px;');
 		// 浅色模式设置
 		var body = document.body;
 		if(body.classList.contains('bright')){
