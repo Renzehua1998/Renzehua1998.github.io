@@ -641,7 +641,7 @@ a {
 .bar1 {
   width: 30px;
   height: 3px;
-  background-color: #ea8010;
+  background-color: #00bfff;
   margin: 6px 0;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -656,7 +656,7 @@ a {
 .bar2 {
   width: 30px;
   height: 3px;
-  background-color: #ea8010;
+  background-color: #00bfff;
   margin: 6px 0;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -667,7 +667,7 @@ a {
 .bar3 {
   width: 30px;
   height: 3px;
-  background-color: #ea8010;
+  background-color: #00bfff;
   margin: 6px 0;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -816,7 +816,7 @@ a {
   min-width: 300px;
 }
 #header .header-menu li a:hover {
-  color: #ffa500;
+  color: #00bfff;
 }
 #header .switch-area {
   position: relative;
@@ -1046,7 +1046,7 @@ a {
   float: left;
   margin-left: 10px;
   margin-top: 15px;
-  color: #ffa500;
+  color: #00bfff;
   font-size: 1.5em;
 }
 #header .switch-part2 #local-search-result .search-result {
@@ -1141,7 +1141,10 @@ body.bright .article-header {
   border-left: 5px solid #000;
 }
 body.bright .article-title {
-  color: #696969;
+  color: #000;
+}
+body.bright .article-title:hover {
+  color: #b0a0aa;
 }
 body.bright .article-meta time {
   color: #7b5d5f;
@@ -1175,6 +1178,12 @@ body.bright #header a {
   color: #000;
 }
 body.bright #header a:hover {
+  color: #696969;
+}
+body.bright #header #js-tagcloud a {
+  color: #fff;
+}
+body.bright #header #js-tagcloud a:hover {
   color: #696969;
 }
 body.bright #header .header-menu li {
@@ -1221,10 +1230,10 @@ body.bright #container .left-col #local-search-result .search-time:before {
   color: #7b5d5f;
 }
 body.bright #container .left-col #local-search-result .search-tag {
-  color: #00bfff;
+  color: #000;
 }
 body.bright #container .left-col #local-search-result .search-tag:before {
-  color: #00bfff;
+  color: #000;
 }
 body.bright .bar1 {
   background: #7b5d5f;
@@ -1240,6 +1249,9 @@ body.bright table thead tr {
 }
 body.bright table tbody tr:hover {
   background: #eaeaea;
+}
+body.bright .archives-wrap .archive-year-wrap a {
+  color: #7b5d5f;
 }
 .archives-wrap {
   position: relative;
@@ -1271,7 +1283,7 @@ body.bright table tbody tr:hover {
   font-size: 1.8em;
 }
 .archives-wrap .archive-year-wrap a {
-  color: #008000;
+  color: #0ff;
   font-weight: bold;
   padding-left: 48px;
 }
@@ -1296,7 +1308,7 @@ body.bright table tbody tr:hover {
 }
 .archives .archive-article-title {
   font-size: 16px;
-  color: #ffa500;
+  color: #00bfff;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
   -ms-transition: color 0.3s;
@@ -1452,7 +1464,7 @@ body.bright table tbody tr:hover {
   color: #c8c8c8;
 }
 .article-title {
-  color: #ffa500;
+  color: #00bfff;
   margin-left: 0px;
   font-weight: 300;
   line-height: 35px;
@@ -1467,14 +1479,14 @@ body.bright table tbody tr:hover {
   transition: color 0.3s;
 }
 .article-title:hover {
-  color: #b0a0aa;
+  color: #0ff;
 }
 .article-inner {
   position: relative;
   margin-bottom: 20px;
 }
 .article-header {
-  border-left: 5px solid #ffa500;
+  border-left: 5px solid #00bfff;
   border-top-left-radius: 0px;
   padding: 15px 0px 15px 25px;
 }
@@ -1921,7 +1933,7 @@ body.bright table tbody tr:hover {
   background: rgba(255,255,255,0);
 }
 .show-toc-btn .btn-text {
-  color: #ea8010;
+  color: #00f5ff;
   font-size: 18px;
 }
 .show-toc-btn:hover {
@@ -2852,10 +2864,10 @@ pre .javascript .function {
   border-right-color: #ff945c;
 }
 .tagcloud a.color2 {
-  background: #f5c7b7;
+  background: #e92;
 }
 .tagcloud a.color2:before {
-  border-right-color: #f5c7b7;
+  border-right-color: #e92;
 }
 .tagcloud a.color3 {
   background: #ba8f6c;
@@ -2864,10 +2876,10 @@ pre .javascript .function {
   border-right-color: #ba8f6c;
 }
 .tagcloud a.color4 {
-  background: #cfb7c4;
+  background: #00bfff;
 }
 .tagcloud a.color4:before {
-  border-right-color: #cfb7c4;
+  border-right-color: #00bfff;
 }
 .tagcloud a.color5 {
   background: #7b5d5f;

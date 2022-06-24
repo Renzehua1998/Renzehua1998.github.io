@@ -290,10 +290,7 @@ if (!localStorage.hasOwnProperty('content')) {  // 请求搜索资源
 
 jQuery("#local-search-input").val('') // 清除搜索内容
 
-if ((localStorage.getItem('noanimation') === '1')) {  // 全局特效变量
-	$("#live2d-widget").css('display', 'none');  // live2d隐藏
-	$("#animation-button").attr('class','animation-on'); // 手机端checkbutton样式
-} else {
+if ((localStorage.getItem('noanimation') === '0')) {  // 全局特效变量
 	$("#animation").attr('checked', 'true');
 	$(".live2d-widget-container").css('display', 'inline');  // live2d显示
 	$("#animation-button").attr('class','animation-off'); // 手机端checkbutton样式
@@ -303,9 +300,12 @@ if ((localStorage.getItem('noanimation') === '1')) {  // 全局特效变量
 		particlesJS0(circlecolor, linecolor);
 	}else{
 		var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
-		var linecolor="#ff945c";
+		var linecolor="#00bfff";
 		particlesJS0(circlecolor, linecolor);
 	}
+} else {
+	$("#live2d-widget").css('display', 'none');  // live2d隐藏
+	$("#animation-button").attr('class','animation-on'); // 手机端checkbutton样式
 }
 function particlesJS0(circlecolor, linecolor) {
 	// require(['/js/particles.js'], function(particlesJS) {

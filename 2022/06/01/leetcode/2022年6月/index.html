@@ -57,17 +57,6 @@
 
 
   
-      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
-<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
-<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
-
-<script src="/js/av-core-mini-0.6.1.js"></script>
-
-<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
-
-<script src="/js/Counter.js"></script>
-
-  
 <meta name="generator" content="Hexo 6.1.0"></head>
 <body>
   <div id="container">
@@ -143,10 +132,12 @@
 			</div>
 		
 		<!-- 原开关位置 -->
+		
 		<div>
 			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
 			<a>特效开关</a>
 		</div>
+		
 		<div class="switch-area">
 			<div class="switch-wrap">
 				<section class="switch-part switch-part1">
@@ -348,7 +339,7 @@
 				particlesJS0(circlecolor, linecolor);
 			}else{
 				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
-				var linecolor="#ff945c";
+				var linecolor="#00bfff";
 				particlesJS0(circlecolor, linecolor);
 			}
 		}else{
@@ -488,8 +479,10 @@
   	<div class="overlay">
   		<div class="slider-trigger"></div>
 		<!-- <div class="search-icon"></div> -->
+		
 		<p class="animation-info">特效：</p>
 		<div id="animation-button" onclick="animOnclick()"></div>
+		
   		<h1 class="header-author js-mobile-header hide"></h1>
   	</div>
 	<!-- 
@@ -661,7 +654,7 @@
 				particlesJS0(circlecolor, linecolor);
 			}else{
 				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
-				var linecolor="#ff945c";
+				var linecolor="#00bfff";
 				particlesJS0(circlecolor, linecolor);
 			}
 		}else{
@@ -830,16 +823,6 @@
 
 
         
-          
-<div class="counter-tag counter">
-    <span id="/2022/06/01/leetcode/2022%E5%B9%B46%E6%9C%88/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="2022年6月">
-         &nbsp;
-        阅读
-    </span>
-</div>
-
-        
         <div class="clearfix"></div>
       </div>
       
@@ -925,7 +908,7 @@
             verify: verify,
             app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
             app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
-            placeholder: "可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
             avatar:"monsterid",
             requiredFields: "nick,mail".split(',')
         });
@@ -947,6 +930,16 @@
         </div>
     </div>
   </div>
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+  
 </footer>
     </div>
     

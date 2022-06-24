@@ -53,7 +53,7 @@
 			localStorage.setItem('bright','0');
 			if (localStorage.getItem('noanimation') === '0') {
 				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
-				var linecolor="#ff945c";
+				var linecolor="#00bfff";
 				particlesJS(circlecolor, linecolor);
 			}
 			return;
