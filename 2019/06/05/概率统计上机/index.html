@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>概率统计上机题 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大二下概率统计上机实验报告（大作业）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率统计上机题">
+<meta property="og:url" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大二下概率统计上机实验报告（大作业）">
+<meta property="og:locale">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps1.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps2.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps3.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps4.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps5.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps6.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps7.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps8.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps9.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps10.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps11.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps12.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps13.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps14.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps15.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps16.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps17.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps18.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps19.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps20.jpg">
+<meta property="article:published_time" content="2019-06-05T10:50:00.000Z">
+<meta property="article:modified_time" content="2022-09-02T06:21:51.405Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="实验报告">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-概率统计上机" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/" class="article-date">
+  	<time datetime="2019-06-05T10:50:00.000Z" itemprop="datePublished">2019-06-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      概率统计上机题
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">3.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">12分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab/" rel="tag">matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%BA%8C/">大二</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="概率统计上机题">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">第三题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">第四题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">第五题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E6%83%B3%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">感想与体会：</span></a></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">第三题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">第四题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">第五题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E6%83%B3%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">感想与体会：</span></a></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大二下概率统计上机实验报告（大作业）</p>
+<span id="more"></span>
+<center>
+<b>概率统计上机实验题</b>
+</center>
+<h1 id="第一题">第一题</h1>
+<p>一、 对二项分布事件概率的精确计算与用泊松分布和中心极限定理的近似计算进行对比。</p>
+<p>（a） p变化，n固定，进行比较。（b）n变化,p固定，进行比较。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line"></span><br><span class="line">n=<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">x=<span class="number">1</span>:n;</span><br><span class="line"></span><br><span class="line">y=<span class="number">1</span>:<span class="number">0.1</span>:n;</span><br><span class="line"></span><br><span class="line">p=<span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">p1=binopdf(x,n,p);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,p1,<span class="string">'r-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画二项分布的精确分布曲线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">lambta=n*p;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n <span class="comment">%求泊松分布的近似概率分布</span></span><br><span class="line"></span><br><span class="line"> p2(<span class="built_in">i</span>)=lambta^<span class="built_in">i</span>*<span class="built_in">exp</span>(-lambta)/<span class="built_in">factorial</span>(<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,p2,<span class="string">'b-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画泊松分布的近似分布曲线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">p3=normpdf(y,lambta,<span class="built_in">sqrt</span>(lambta)*(<span class="number">1</span>-p));</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(y,p3,<span class="string">'g-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画正态分布的近似分布曲线</span></span><br><span class="line"></span><br><span class="line">title(<span class="string">'n=100,p=0.2时三种情况下的概率曲线'</span>)</span><br></pre></td></tr></table></figure>
+<p>（a）</p>
+<p>Ps：标准是红色（最细）、泊松是蓝色（最粗）、正态是绿色（中等粗细）</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps1.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps2.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps3.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps4.jpg" class="" title="img">
+<p>小结：从运行结果来看，在n较大时，p对于两种近似计算的精度影响都比较大，p越大，二者的近似精度都减小（图四），p比较小（约为0.1-0.2左右）时有比较好的近似效果（图一）。从中可以看出小概率二项分布在n比较大时用泊松分布和二项分布都可以较好地近似代替。当p增大而n不变时，对于两种近似计算都会产生较大的误差。</p>
+<p>（b）</p>
+<p>Ps：标准是红色（最细）、泊松是蓝色（最粗）、正态是绿色（中等粗细）</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps5.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps6.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps7.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps8.jpg" class="" title="img">
+<p>小结：从运行结果可以看出，当p取比较小的值（0.2）时，随着n的增长，两种近似分布对于精确分布的近似效果都变好了。在n比较小（np&lt;5）时，正态分布对于二项分布的近似效果没有泊松分布好，只有当n充分大时，正态分布对于二项分布的近似效果才能更加精确。从中我们也能看出，在做近似时，n越大近似效果越好，在np&lt;5时，用泊松分布近似二项分布比用正态分布近似效果好。</p>
+<h1 id="第二题">第二题</h1>
+<p>二、 对正态总体参数的区间估计，进行验证及区间长度的变化情况（注：对一个参数，验证一种情形即可）。</p>
+<p>（a） 样本容量固定，置信度变化；（b）置信度固定，样本容量变化。</p>
+<ol type="a">
+<li>样本容量固定为8，α=0.05或0.1</li>
+</ol>
+<p>源程序：α=0.05</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0717</p>
+<p>muci =</p>
+<p>4.9500</p>
+<p>5.0700</p>
+<p>sigmaci =</p>
+<p>0.0474</p>
+<p>0.1460</p>
+<p>其置信度为95%的置信区间为（4.9500，5.0700）</p>
+<p>源程序：α=0.1</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0717</p>
+<p>muci =</p>
+<p>4.9620</p>
+<p>5.0580</p>
+<p>sigmaci =</p>
+<p>0.0506</p>
+<p>0.1289</p>
+<p>其置信度为90%的置信区间为 （4.9620， 5.0580）</p>
+<p>样本数为8时</p>
+<table>
+<thead>
+<tr class="header">
+<th>置信度</th>
+<th>置信区间</th>
+<th>置信区间长度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>α=0.1</td>
+<td>（4.9620，5.0580）</td>
+<td>0.0960</td>
+</tr>
+<tr class="even">
+<td>α=0.05</td>
+<td>（4.9500，5.0700）</td>
+<td>0.1200</td>
+</tr>
+</tbody>
+</table>
+<p>b.样本数变为9，α=0.05</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0671</p>
+<p>muci =</p>
+<p>4.9584</p>
+<p>5.0616</p>
+<p>sigmaci =</p>
+<p>0.0453</p>
+<p>0.1285</p>
+<p>置信度为95%的置信区间变短为（4.9584，5.0616）</p>
+<p>置信度α=0.05时</p>
+<table>
+<thead>
+<tr class="header">
+<th>样本数</th>
+<th>置信区间</th>
+<th>置信区间长度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8</td>
+<td>（4.9500，5.0700）</td>
+<td>0.1200</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>（4.9584，5.0616）</td>
+<td>0.1032</td>
+</tr>
+</tbody>
+</table>
+<p>小结：</p>
+<p>选取了一组样本的观测值，本体假设参数服从正态总体N(5,0.7)，当样本容量固定，置信度越大，它的置信区间就越小，同样，当置信度固定，样本容量越大它的置信区间会越小。这也符合数理统计中的知识点，置信度和置信区间不能同时优化，而我们所获取的信息越多，我们就越能肯定置信区间。</p>
+<h1 id="第三题">第三题</h1>
+<p>三、 自己选一个总体，验证样本k阶矩的观察值随样本容量的增大与总体k阶矩接近程度。</p>
+<p>（对k=1,2进行验证）</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">m = <span class="number">1</span>; <span class="comment">% 分布的均值</span></span><br><span class="line"></span><br><span class="line">v = <span class="number">2</span>; <span class="comment">% 分布的方差</span></span><br><span class="line"></span><br><span class="line">mu = <span class="built_in">log</span>((m^<span class="number">2</span>)/<span class="built_in">sqrt</span>(v+m^<span class="number">2</span>)); <span class="comment">% 公式中的均值参数</span></span><br><span class="line"></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="built_in">log</span>(v/(m^<span class="number">2</span>)+<span class="number">1</span>)); <span class="comment">% 公式中的方差参数</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">[M,V]= lognstat(mu,sigma); <span class="comment">% 可以验证随机数的均值与方差的正确性</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">X = lognrnd(mu,sigma,<span class="number">1</span>,<span class="number">1e6</span>); <span class="comment">% 产生随机数</span></span><br><span class="line"></span><br><span class="line">n=<span class="built_in">length</span>(X)</span><br><span class="line"></span><br><span class="line">y=sum(X.^<span class="number">1</span>)/n</span><br><span class="line"></span><br><span class="line">hist(<span class="built_in">log</span>(X), <span class="number">100</span>) <span class="comment">% 画出随机数的对数正态分布函数图</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>（a） 选择正态总体，k=1时，一阶矩为1</p>
+<p>n =</p>
+<p>​ 10000</p>
+<p>y =</p>
+<p>0.9855</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps9.jpg" class="" title="img">
+<p>n =</p>
+<p>100000</p>
+<p>y =</p>
+<p>0.9955</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps10.jpg" class="" title="img">
+<p>n =</p>
+<p>1000000</p>
+<p>y =</p>
+<p>1.0007</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps11.jpg" class="" title="img">
+<table>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>10000</th>
+<th>100000</th>
+<th>1000000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y</td>
+<td>0.9855</td>
+<td>0.9955</td>
+<td>1.0007</td>
+</tr>
+<tr class="even">
+<td>绝对差值</td>
+<td>0.0145</td>
+<td>0.0045</td>
+<td>-0.0007</td>
+</tr>
+</tbody>
+</table>
+<p>（b） K=2 正态总体的二阶矩为3</p>
+<p>n =</p>
+<p>​ 10000</p>
+<p>y =</p>
+<p>3.0321</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps12.jpg" class="" title="img">
+<p>n =</p>
+<p>100000</p>
+<p>y =</p>
+<p>2.9656</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps13.jpg" class="" title="img">
+<p>n =</p>
+<p>1000000</p>
+<p>y =</p>
+<p>3.0244</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps14.jpg" class="" title="img">
+<p>n =</p>
+<p>10000000</p>
+<p>y =</p>
+<p>3.0202</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps15.jpg" class="" title="img">
+<p>n =</p>
+<p>100000000</p>
+<p>y =</p>
+<p>2.9986</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps16.jpg" class="" title="img">
+<table>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>10000</th>
+<th>100000</th>
+<th>1000000</th>
+<th>10000000</th>
+<th>100000000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y</td>
+<td>3.0321</td>
+<td>2.9656</td>
+<td>3.0244</td>
+<td>3.0202</td>
+<td>2.9986</td>
+</tr>
+<tr class="even">
+<td>绝对差值</td>
+<td>0.0321</td>
+<td>0.0344</td>
+<td>0.0244</td>
+<td>0.0202</td>
+<td>0.0014</td>
+</tr>
+</tbody>
+</table>
+<p>小结：</p>
+<p>实验中选择了随机数产生正态分布而产生样本，随着样本数量增多，图像越来越符合正态分布，而且样本k阶矩的观察值随样本容量的增大与总体k阶矩接来越接近。</p>
+<h1 id="第四题">第四题</h1>
+<p>四、 自己设计一种情形，当样本至少为多少时，产品的合格率才能符合给定的合格率。</p>
+<p>合格率服从N（0.96，9），对其进行假设检验，n从0开始增加，在α&lt;=0.05时记录n的值。循环1000次取均值。进行多次运行发现数值稳定在20~21附近。</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line"></span><br><span class="line">n=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">sig=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> sig&lt;<span class="number">0.95</span></span><br><span class="line"></span><br><span class="line">  x=normrnd(<span class="number">0.96</span>,<span class="number">3</span>,<span class="number">1</span>,n);</span><br><span class="line"></span><br><span class="line">  [h,sig,ci]=ztest(x,<span class="number">0.96</span>,<span class="number">3</span>,<span class="number">0.05</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  n=n+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">m(<span class="built_in">i</span>)=n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mean</span>(m)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>ans =</p>
+<p>21.3680</p>
+<p>ans =</p>
+<p>21.4210</p>
+<p>ans =</p>
+<p>20.2820</p>
+<p>ans =</p>
+<p>20.0780</p>
+<p>ans =</p>
+<p>20.9050</p>
+<p>ans =</p>
+<p>21.5140</p>
+<table>
+<thead>
+<tr class="header">
+<th>序号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>均值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>结果</td>
+<td>21.3680</td>
+<td>21.4210</td>
+<td>20.2820</td>
+<td>20.0780</td>
+<td>20.9050</td>
+<td>21.5140</td>
+<td>20.9280</td>
+</tr>
+</tbody>
+</table>
+<p>小结：本题假设合格率服从N（0.96，9），按此分布生成n个随机数，对其进行假设检验，n从0开始增加，在α&lt;=0.05时记录n的值。循环1000次取均值。进行多次运行发现数值稳定在20~21附近。一共运行了六次，结果如上表，其平均值为20.9280。所以在假设前提下，样本至少为21时合格率才能在α&lt;0.05的前提下达到要求。</p>
+<h1 id="第五题">第五题</h1>
+<p>五、 产生卡方分布的随机数，并在一个坐标图中画出该卡方分布的统计直方图与真实卡方分布图形。</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">n=<span class="number">100000</span>;k=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n</span><br><span class="line"></span><br><span class="line">x(<span class="built_in">i</span>)=chi2rnd(k);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>       <span class="comment">%生成服从以k为自由度卡方分布的n个随机数向量x</span></span><br><span class="line"></span><br><span class="line">hist(x,<span class="number">0</span>:<span class="number">3</span>:<span class="number">60</span>)  <span class="comment">%画x的频数分布直方图</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">y=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">px=chi2pdf(y,k);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(y,px*<span class="number">3</span>*n,<span class="string">'r-'</span>) <span class="comment">%画以k为自由度的卡方分布概率密度曲线</span></span><br><span class="line"></span><br><span class="line">title(<span class="string">'n=5'</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps17.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps18.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps19.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps20.jpg" class="" title="img">
+<p>小结：</p>
+<p>本题首先了确定了采样点数与卡方分布的“n”值（即程序中的k)，按照自由度为k的卡方分布、利用循环生成了n个随机数。接下来，画出频数直方图。然后，画出自由度为k的卡方分布的概率密度曲线。对k从1～30取了4个离散值，得出四个不同图样。分析可得，k值越小，样本的中心值越小；k值越大，样本的中心值越大。同时，k值越大，频数直方图与概率密度曲线的拟合度越高；k值越小，拟合度越低。</p>
+<h1 id="感想与体会">感想与体会：</h1>
+<p>本学期的概率统计与随机过程课程马上就要结束了，也是时候借着这样的一个机会来总结一下我一个学期学习的心得体会。</p>
+<p>在刚开始接触概率论部分时，它给我的感觉就像是高中学的概率部分的内容，利用排列组合或者几何概型来计算概率。包括事件的独立性、随机事件等等看似朴实的概念，却是概率论这门课的基石。贝叶斯公式是我接触的第一个公式，在查阅资料后我发现，它在工程、经济等等各行各业都有着重要的用处。其实，概率统计在我们平时的学习中有许多的体现，在系统地学习了这门课以后，我对于事物的看法也有了变化。大一时大学物理实验中做数据处理，方差要除以（n-1）当时感觉很奇怪，因为这与高中学的除以n不同，查阅资料也没有得出什么结果。在学习了概率统计以后我知道了因为这些数据都是样本随机变量的观测值，而样本的方差做这样的定义是为了让它的期望刚好等于总体的方差，即总体的方差是它的无偏估计量。而在电路、模电实验当中示波器中波形有时会产生噪声，学了概率统计以后知道了看似没有规律的噪声信号也是符合某种规律的，只有掌握了其内在的分布规律才能想办法把它去除 。</p>
+<p>看似很好理解的概率统计概念其实是有理论支撑的，中学时只有一个模糊的概念，就是频率的极限是概率，但是却没有想一想这是为什么，只是认为它是真理罢了。在大数定律的学习中，我才发现，看似简简单单的道理，其背后都是有严格的证明的，人类现如今的成就，建立在这些看似简简单单的“真理”上，而这些理论背后是无数科学家的努力。在假设检验与参数估计章节，我接触了许许多多的工程与生活实际，利用概率统计的知识可以用了估计未知的随机变量的参数、估计其分布区间；也可以来检验某种说法是否正确，这也是把纯理论应用到了实际生活中。任何学科都有其应用的范围，而向概率统计这种基础学科更是应用在了方方面面。</p>
+<p>随机过程是一门全新的学科，随机过程的理论产生于本世纪初期，是应物理学、生物学、管理科学等方面的需要而逐步发展起来的。目前，在自动控制、公用事业、管理科学等方面都有广泛的应用。由此看来，随机过程与我的专业关系密切。在刚接触这个学科的时候发现，虽然它应用了概率统计的知识，是在概率统计的基础上发展起来的，但它也有自己完整的一套理论。在实际应用中会用到极深的数学功底，动辄多重积分也是一个难点，不过在计算机发展至今的现在，许多复杂的计算不需要人来进行，所以说这在一定方面来说也促进了随机过程的发展。在学习时也应该作为重点而不是一带而过，正如老师所说的，许多在以后非常重要的知识，在刚开始学习的时候可能仅仅提了一下，而作为自动控制专业的学生，学好随机过程是非常重要的。</p>
+<p>在之前接触到的许多文学、科普作品中，概率论给我的感觉，就像是宇宙最神秘的宝藏。因为在量子力学还没有发展的过去，决定论盛行，甚至还有“拉普拉斯妖”的假说。但是人们后来发现，完完全全精确地预言未来是做不到的。未来仅仅是一连串的概率，我们能做的，就是尽可能地增大自己希望发生的事情的概率。人类是渺小的，却也是强大的。渺小到无法完完全全掌握哪怕一个原子的精确参数，强大到能够用概率论去改变世界，去预测未来。</p>
+<p>有一个微信公众号叫做“概率论”，其实是一个文艺号。但是仔细想想，我们的生活何尝不是由概率组成，茫茫人海中人和人的相遇也是一次观测下的小概率事件啊。</p>
+
+        
+      
+      <!-- 
+        <p>大二下概率统计上机实验报告（大作业）</p>
+<span id="more"></span>
+<center>
+<b>概率统计上机实验题</b>
+</center>
+<h1 id="第一题">第一题</h1>
+<p>一、 对二项分布事件概率的精确计算与用泊松分布和中心极限定理的近似计算进行对比。</p>
+<p>（a） p变化，n固定，进行比较。（b）n变化,p固定，进行比较。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line"></span><br><span class="line">n=<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">x=<span class="number">1</span>:n;</span><br><span class="line"></span><br><span class="line">y=<span class="number">1</span>:<span class="number">0.1</span>:n;</span><br><span class="line"></span><br><span class="line">p=<span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">p1=binopdf(x,n,p);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,p1,<span class="string">'r-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画二项分布的精确分布曲线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">lambta=n*p;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n <span class="comment">%求泊松分布的近似概率分布</span></span><br><span class="line"></span><br><span class="line"> p2(<span class="built_in">i</span>)=lambta^<span class="built_in">i</span>*<span class="built_in">exp</span>(-lambta)/<span class="built_in">factorial</span>(<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,p2,<span class="string">'b-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画泊松分布的近似分布曲线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">p3=normpdf(y,lambta,<span class="built_in">sqrt</span>(lambta)*(<span class="number">1</span>-p));</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(y,p3,<span class="string">'g-'</span>,<span class="string">'LineWidth'</span>,<span class="number">2</span>)<span class="comment">%画正态分布的近似分布曲线</span></span><br><span class="line"></span><br><span class="line">title(<span class="string">'n=100,p=0.2时三种情况下的概率曲线'</span>)</span><br></pre></td></tr></table></figure>
+<p>（a）</p>
+<p>Ps：标准是红色（最细）、泊松是蓝色（最粗）、正态是绿色（中等粗细）</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps1.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps2.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps3.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps4.jpg" class="" title="img">
+<p>小结：从运行结果来看，在n较大时，p对于两种近似计算的精度影响都比较大，p越大，二者的近似精度都减小（图四），p比较小（约为0.1-0.2左右）时有比较好的近似效果（图一）。从中可以看出小概率二项分布在n比较大时用泊松分布和二项分布都可以较好地近似代替。当p增大而n不变时，对于两种近似计算都会产生较大的误差。</p>
+<p>（b）</p>
+<p>Ps：标准是红色（最细）、泊松是蓝色（最粗）、正态是绿色（中等粗细）</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps5.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps6.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps7.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps8.jpg" class="" title="img">
+<p>小结：从运行结果可以看出，当p取比较小的值（0.2）时，随着n的增长，两种近似分布对于精确分布的近似效果都变好了。在n比较小（np&lt;5）时，正态分布对于二项分布的近似效果没有泊松分布好，只有当n充分大时，正态分布对于二项分布的近似效果才能更加精确。从中我们也能看出，在做近似时，n越大近似效果越好，在np&lt;5时，用泊松分布近似二项分布比用正态分布近似效果好。</p>
+<h1 id="第二题">第二题</h1>
+<p>二、 对正态总体参数的区间估计，进行验证及区间长度的变化情况（注：对一个参数，验证一种情形即可）。</p>
+<p>（a） 样本容量固定，置信度变化；（b）置信度固定，样本容量变化。</p>
+<ol type="a">
+<li>样本容量固定为8，α=0.05或0.1</li>
+</ol>
+<p>源程序：α=0.05</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0717</p>
+<p>muci =</p>
+<p>4.9500</p>
+<p>5.0700</p>
+<p>sigmaci =</p>
+<p>0.0474</p>
+<p>0.1460</p>
+<p>其置信度为95%的置信区间为（4.9500，5.0700）</p>
+<p>源程序：α=0.1</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0717</p>
+<p>muci =</p>
+<p>4.9620</p>
+<p>5.0580</p>
+<p>sigmaci =</p>
+<p>0.0506</p>
+<p>0.1289</p>
+<p>其置信度为90%的置信区间为 （4.9620， 5.0580）</p>
+<p>样本数为8时</p>
+<table>
+<thead>
+<tr class="header">
+<th>置信度</th>
+<th>置信区间</th>
+<th>置信区间长度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>α=0.1</td>
+<td>（4.9620，5.0580）</td>
+<td>0.0960</td>
+</tr>
+<tr class="even">
+<td>α=0.05</td>
+<td>（4.9500，5.0700）</td>
+<td>0.1200</td>
+</tr>
+</tbody>
+</table>
+<p>b.样本数变为9，α=0.05</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=[<span class="number">5.08</span>,<span class="number">4.97</span>,<span class="number">5.12</span>,<span class="number">5.05</span>,<span class="number">4.95</span>,<span class="number">4.9</span>,<span class="number">5.0</span>,<span class="number">5.01</span>,<span class="number">5.01</span>];</span><br><span class="line"></span><br><span class="line">[mu,sigma,muci,sigmaci]=normfit(x,<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>mu =</p>
+<p>5.0100</p>
+<p>sigma =</p>
+<p>0.0671</p>
+<p>muci =</p>
+<p>4.9584</p>
+<p>5.0616</p>
+<p>sigmaci =</p>
+<p>0.0453</p>
+<p>0.1285</p>
+<p>置信度为95%的置信区间变短为（4.9584，5.0616）</p>
+<p>置信度α=0.05时</p>
+<table>
+<thead>
+<tr class="header">
+<th>样本数</th>
+<th>置信区间</th>
+<th>置信区间长度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>8</td>
+<td>（4.9500，5.0700）</td>
+<td>0.1200</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>（4.9584，5.0616）</td>
+<td>0.1032</td>
+</tr>
+</tbody>
+</table>
+<p>小结：</p>
+<p>选取了一组样本的观测值，本体假设参数服从正态总体N(5,0.7)，当样本容量固定，置信度越大，它的置信区间就越小，同样，当置信度固定，样本容量越大它的置信区间会越小。这也符合数理统计中的知识点，置信度和置信区间不能同时优化，而我们所获取的信息越多，我们就越能肯定置信区间。</p>
+<h1 id="第三题">第三题</h1>
+<p>三、 自己选一个总体，验证样本k阶矩的观察值随样本容量的增大与总体k阶矩接近程度。</p>
+<p>（对k=1,2进行验证）</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">m = <span class="number">1</span>; <span class="comment">% 分布的均值</span></span><br><span class="line"></span><br><span class="line">v = <span class="number">2</span>; <span class="comment">% 分布的方差</span></span><br><span class="line"></span><br><span class="line">mu = <span class="built_in">log</span>((m^<span class="number">2</span>)/<span class="built_in">sqrt</span>(v+m^<span class="number">2</span>)); <span class="comment">% 公式中的均值参数</span></span><br><span class="line"></span><br><span class="line">sigma = <span class="built_in">sqrt</span>(<span class="built_in">log</span>(v/(m^<span class="number">2</span>)+<span class="number">1</span>)); <span class="comment">% 公式中的方差参数</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">[M,V]= lognstat(mu,sigma); <span class="comment">% 可以验证随机数的均值与方差的正确性</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">X = lognrnd(mu,sigma,<span class="number">1</span>,<span class="number">1e6</span>); <span class="comment">% 产生随机数</span></span><br><span class="line"></span><br><span class="line">n=<span class="built_in">length</span>(X)</span><br><span class="line"></span><br><span class="line">y=sum(X.^<span class="number">1</span>)/n</span><br><span class="line"></span><br><span class="line">hist(<span class="built_in">log</span>(X), <span class="number">100</span>) <span class="comment">% 画出随机数的对数正态分布函数图</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>（a） 选择正态总体，k=1时，一阶矩为1</p>
+<p>n =</p>
+<p>​ 10000</p>
+<p>y =</p>
+<p>0.9855</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps9.jpg" class="" title="img">
+<p>n =</p>
+<p>100000</p>
+<p>y =</p>
+<p>0.9955</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps10.jpg" class="" title="img">
+<p>n =</p>
+<p>1000000</p>
+<p>y =</p>
+<p>1.0007</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps11.jpg" class="" title="img">
+<table>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>10000</th>
+<th>100000</th>
+<th>1000000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y</td>
+<td>0.9855</td>
+<td>0.9955</td>
+<td>1.0007</td>
+</tr>
+<tr class="even">
+<td>绝对差值</td>
+<td>0.0145</td>
+<td>0.0045</td>
+<td>-0.0007</td>
+</tr>
+</tbody>
+</table>
+<p>（b） K=2 正态总体的二阶矩为3</p>
+<p>n =</p>
+<p>​ 10000</p>
+<p>y =</p>
+<p>3.0321</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps12.jpg" class="" title="img">
+<p>n =</p>
+<p>100000</p>
+<p>y =</p>
+<p>2.9656</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps13.jpg" class="" title="img">
+<p>n =</p>
+<p>1000000</p>
+<p>y =</p>
+<p>3.0244</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps14.jpg" class="" title="img">
+<p>n =</p>
+<p>10000000</p>
+<p>y =</p>
+<p>3.0202</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps15.jpg" class="" title="img">
+<p>n =</p>
+<p>100000000</p>
+<p>y =</p>
+<p>2.9986</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps16.jpg" class="" title="img">
+<table>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>10000</th>
+<th>100000</th>
+<th>1000000</th>
+<th>10000000</th>
+<th>100000000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y</td>
+<td>3.0321</td>
+<td>2.9656</td>
+<td>3.0244</td>
+<td>3.0202</td>
+<td>2.9986</td>
+</tr>
+<tr class="even">
+<td>绝对差值</td>
+<td>0.0321</td>
+<td>0.0344</td>
+<td>0.0244</td>
+<td>0.0202</td>
+<td>0.0014</td>
+</tr>
+</tbody>
+</table>
+<p>小结：</p>
+<p>实验中选择了随机数产生正态分布而产生样本，随着样本数量增多，图像越来越符合正态分布，而且样本k阶矩的观察值随样本容量的增大与总体k阶矩接来越接近。</p>
+<h1 id="第四题">第四题</h1>
+<p>四、 自己设计一种情形，当样本至少为多少时，产品的合格率才能符合给定的合格率。</p>
+<p>合格率服从N（0.96，9），对其进行假设检验，n从0开始增加，在α&lt;=0.05时记录n的值。循环1000次取均值。进行多次运行发现数值稳定在20~21附近。</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line"></span><br><span class="line">n=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">sig=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> sig&lt;<span class="number">0.95</span></span><br><span class="line"></span><br><span class="line">  x=normrnd(<span class="number">0.96</span>,<span class="number">3</span>,<span class="number">1</span>,n);</span><br><span class="line"></span><br><span class="line">  [h,sig,ci]=ztest(x,<span class="number">0.96</span>,<span class="number">3</span>,<span class="number">0.05</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  n=n+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">m(<span class="built_in">i</span>)=n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mean</span>(m)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>ans =</p>
+<p>21.3680</p>
+<p>ans =</p>
+<p>21.4210</p>
+<p>ans =</p>
+<p>20.2820</p>
+<p>ans =</p>
+<p>20.0780</p>
+<p>ans =</p>
+<p>20.9050</p>
+<p>ans =</p>
+<p>21.5140</p>
+<table>
+<thead>
+<tr class="header">
+<th>序号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>均值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>结果</td>
+<td>21.3680</td>
+<td>21.4210</td>
+<td>20.2820</td>
+<td>20.0780</td>
+<td>20.9050</td>
+<td>21.5140</td>
+<td>20.9280</td>
+</tr>
+</tbody>
+</table>
+<p>小结：本题假设合格率服从N（0.96，9），按此分布生成n个随机数，对其进行假设检验，n从0开始增加，在α&lt;=0.05时记录n的值。循环1000次取均值。进行多次运行发现数值稳定在20~21附近。一共运行了六次，结果如上表，其平均值为20.9280。所以在假设前提下，样本至少为21时合格率才能在α&lt;0.05的前提下达到要求。</p>
+<h1 id="第五题">第五题</h1>
+<p>五、 产生卡方分布的随机数，并在一个坐标图中画出该卡方分布的统计直方图与真实卡方分布图形。</p>
+<p>源程序：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">n=<span class="number">100000</span>;k=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n</span><br><span class="line"></span><br><span class="line">x(<span class="built_in">i</span>)=chi2rnd(k);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span>       <span class="comment">%生成服从以k为自由度卡方分布的n个随机数向量x</span></span><br><span class="line"></span><br><span class="line">hist(x,<span class="number">0</span>:<span class="number">3</span>:<span class="number">60</span>)  <span class="comment">%画x的频数分布直方图</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">y=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">px=chi2pdf(y,k);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(y,px*<span class="number">3</span>*n,<span class="string">'r-'</span>) <span class="comment">%画以k为自由度的卡方分布概率密度曲线</span></span><br><span class="line"></span><br><span class="line">title(<span class="string">'n=5'</span>)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps17.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps18.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps19.jpg" class="" title="img">
+<img src="/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/wps20.jpg" class="" title="img">
+<p>小结：</p>
+<p>本题首先了确定了采样点数与卡方分布的“n”值（即程序中的k)，按照自由度为k的卡方分布、利用循环生成了n个随机数。接下来，画出频数直方图。然后，画出自由度为k的卡方分布的概率密度曲线。对k从1～30取了4个离散值，得出四个不同图样。分析可得，k值越小，样本的中心值越小；k值越大，样本的中心值越大。同时，k值越大，频数直方图与概率密度曲线的拟合度越高；k值越小，拟合度越低。</p>
+<h1 id="感想与体会">感想与体会：</h1>
+<p>本学期的概率统计与随机过程课程马上就要结束了，也是时候借着这样的一个机会来总结一下我一个学期学习的心得体会。</p>
+<p>在刚开始接触概率论部分时，它给我的感觉就像是高中学的概率部分的内容，利用排列组合或者几何概型来计算概率。包括事件的独立性、随机事件等等看似朴实的概念，却是概率论这门课的基石。贝叶斯公式是我接触的第一个公式，在查阅资料后我发现，它在工程、经济等等各行各业都有着重要的用处。其实，概率统计在我们平时的学习中有许多的体现，在系统地学习了这门课以后，我对于事物的看法也有了变化。大一时大学物理实验中做数据处理，方差要除以（n-1）当时感觉很奇怪，因为这与高中学的除以n不同，查阅资料也没有得出什么结果。在学习了概率统计以后我知道了因为这些数据都是样本随机变量的观测值，而样本的方差做这样的定义是为了让它的期望刚好等于总体的方差，即总体的方差是它的无偏估计量。而在电路、模电实验当中示波器中波形有时会产生噪声，学了概率统计以后知道了看似没有规律的噪声信号也是符合某种规律的，只有掌握了其内在的分布规律才能想办法把它去除 。</p>
+<p>看似很好理解的概率统计概念其实是有理论支撑的，中学时只有一个模糊的概念，就是频率的极限是概率，但是却没有想一想这是为什么，只是认为它是真理罢了。在大数定律的学习中，我才发现，看似简简单单的道理，其背后都是有严格的证明的，人类现如今的成就，建立在这些看似简简单单的“真理”上，而这些理论背后是无数科学家的努力。在假设检验与参数估计章节，我接触了许许多多的工程与生活实际，利用概率统计的知识可以用了估计未知的随机变量的参数、估计其分布区间；也可以来检验某种说法是否正确，这也是把纯理论应用到了实际生活中。任何学科都有其应用的范围，而向概率统计这种基础学科更是应用在了方方面面。</p>
+<p>随机过程是一门全新的学科，随机过程的理论产生于本世纪初期，是应物理学、生物学、管理科学等方面的需要而逐步发展起来的。目前，在自动控制、公用事业、管理科学等方面都有广泛的应用。由此看来，随机过程与我的专业关系密切。在刚接触这个学科的时候发现，虽然它应用了概率统计的知识，是在概率统计的基础上发展起来的，但它也有自己完整的一套理论。在实际应用中会用到极深的数学功底，动辄多重积分也是一个难点，不过在计算机发展至今的现在，许多复杂的计算不需要人来进行，所以说这在一定方面来说也促进了随机过程的发展。在学习时也应该作为重点而不是一带而过，正如老师所说的，许多在以后非常重要的知识，在刚开始学习的时候可能仅仅提了一下，而作为自动控制专业的学生，学好随机过程是非常重要的。</p>
+<p>在之前接触到的许多文学、科普作品中，概率论给我的感觉，就像是宇宙最神秘的宝藏。因为在量子力学还没有发展的过去，决定论盛行，甚至还有“拉普拉斯妖”的假说。但是人们后来发现，完完全全精确地预言未来是做不到的。未来仅仅是一连串的概率，我们能做的，就是尽可能地增大自己希望发生的事情的概率。人类是渺小的，却也是强大的。渺小到无法完完全全掌握哪怕一个原子的精确参数，强大到能够用概率论去改变世界，去预测未来。</p>
+<p>有一个微信公众号叫做“概率论”，其实是一个文艺号。但是仔细想想，我们的生活何尝不是由概率组成，茫茫人海中人和人的相遇也是一次观测下的小概率事件啊。</p>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/05/%E5%93%88%E5%B7%A5%E5%A4%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1%E4%BD%9C%E4%B8%9A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          哈工大人工智能暑期学校作业
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/07/%E5%A4%A7%E7%89%A9%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">偏振光的观察与研究</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="概率统计上机" data-title="概率统计上机题" data-url="https://renzehua1998.github.io/2019/06/05/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8A%E6%9C%BA/"  data-images="/img/avatar.jpeg" data-content="概率统计上机题">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

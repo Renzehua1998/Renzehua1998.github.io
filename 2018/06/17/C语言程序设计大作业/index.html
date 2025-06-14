@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C语言程序设计大作业——学籍管理系统 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大一下C语言程序设计大作业，好像是上网找的，非原创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言程序设计大作业——学籍管理系统">
+<meta property="og:url" content="https://renzehua1998.github.io/2018/06/17/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大一下C语言程序设计大作业，好像是上网找的，非原创">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-17T10:30:00.000Z">
+<meta property="article:modified_time" content="2022-08-28T16:03:55.249Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-C语言程序设计大作业" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/17/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="article-date">
+  	<time datetime="2018-06-17T10:30:00.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言程序设计大作业——学籍管理系统
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">3.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">15分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%B8%80/">大一</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2018/06/17/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="C语言程序设计大作业——学籍管理系统">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">1.程序设计与分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">2.程序设计中存在的问题和解决思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%94%B6%E8%8E%B7"><span class="toc-number">3.</span> <span class="toc-text">3.实验收获</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B8%85%E5%8D%95"><span class="toc-number">4.</span> <span class="toc-text">4.程序的源代码清单</span></a></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">1.程序设计与分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">2.程序设计中存在的问题和解决思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%94%B6%E8%8E%B7"><span class="toc-number">3.</span> <span class="toc-text">3.实验收获</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%B8%85%E5%8D%95"><span class="toc-number">4.</span> <span class="toc-text">4.程序的源代码清单</span></a></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大一下C语言程序设计大作业，好像是上网找的，非原创</p>
+<span id="more"></span>
+<h1 id="程序设计与分析">1.程序设计与分析</h1>
+<p>要求程序能实现以下基本功能：</p>
+<p><strong>（1）.提供基本的菜单选项，能根据不同的选项执行不同操作；</strong></p>
+<p><strong>（2）.对学生信息进行录入，修改，删除、查询等操作；</strong></p>
+<p><strong>（3）.对学生信息进行统计、排序等操作。</strong></p>
+<p><strong>（4）.采用数据类型：整型，浮点型，字符型，指针类型，结构体类型</strong></p>
+<p><strong>（5）.核心算法：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MAX代表学籍管理系统所能处理的最大学生数量，宏定义后，依据实际情况对程序的对应修改更易进行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实际代码中是将子函数的定义写在了main函数的前面，但此处为了程序结构清晰将main函数写在了前面，因此main函数中没有子函数声明的语句</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">进行各种类型的变量定义以及初始化，以供后续程序使用</span><br><span class="line"></span><br><span class="line">定义一个结构体类型，并定义一个该类型的结构体变量用于存储将要录入的学生信息数据：</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> Id[MAX];<span class="comment">//学号</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> name[<span class="number">50</span>];<span class="comment">//姓名</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> clas;<span class="comment">//班级</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> score[<span class="number">4</span>];<span class="comment">//三科成绩以及总成绩</span></span><br><span class="line"></span><br><span class="line">} student[MAX];</span><br><span class="line"></span><br><span class="line">定义若干指针变量用于将main函数中的变量地址传递给各子函数，使子函数能够改变main函数中的变量的值</span><br><span class="line"></span><br><span class="line">定义各种所需变量</span><br><span class="line"></span><br><span class="line">定义整型变量mingling</span><br><span class="line"></span><br><span class="line">定义一个变量num来记录总人数的变化并将其初始化为零</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">输出主菜单选项</span><br><span class="line"></span><br><span class="line">输入数字命令并赋值给整型变量mingling</span><br><span class="line"></span><br><span class="line">判断</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">1</span>，执行函数input进行学生信息输入操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">2</span>，执行函数del进行学生信息删除操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">3</span>，执行函数selet进行学生信息选择输出操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">4</span>，执行函数order进行学生信息整体排序操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">5</span>，执行函数output进行学生信息全体输出操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">6</span>，执行<span class="keyword">break</span>语句跳出<span class="keyword">for</span>循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> input(通过指针引用学生信息、当前学生总人数等数据)</span><br><span class="line"></span><br><span class="line"><span class="comment">//我的源代码中每个子函数都是用了许多指针将结构体中的元素一一引用，此处可以改为利用指向结构体变量的指针，代码会简洁许多</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">利用指针来引用主函数中的学生信息变量</span><br><span class="line"></span><br><span class="line">定义整型变量i用作循环</span><br><span class="line"></span><br><span class="line">定义字符数组panduan[<span class="number">10</span>]用作判断整个学生数据的录入操作是否结束</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">输出<span class="string">"Id "</span></span><br><span class="line"></span><br><span class="line">输入学号</span><br><span class="line"></span><br><span class="line">输出<span class="string">"class "</span></span><br><span class="line"></span><br><span class="line">输入班级</span><br><span class="line"></span><br><span class="line">输出<span class="string">"name "</span></span><br><span class="line"></span><br><span class="line">输入姓名</span><br><span class="line"></span><br><span class="line">输出<span class="string">"score1 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"score2 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">2</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"score3 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">3</span></span><br><span class="line"></span><br><span class="line">将存储总成绩数据的变量赋值为成绩<span class="number">1</span>，成绩<span class="number">2</span>，成绩<span class="number">3</span>的和</span><br><span class="line"></span><br><span class="line">利用指针使main函数中记录学生人数的变量num自增<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并赋值给字符数组panduan</span><br><span class="line"></span><br><span class="line">判断字符串panduan与<span class="string">"no"</span>是否相等</span><br><span class="line"></span><br><span class="line">若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> del(通过指针引用学生信息、当前学生总人数等数据)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">定义字符数组panduan[<span class="number">10</span>]用于在已有学生信息中查找需要删除的对应学生信息</span><br><span class="line"></span><br><span class="line">定义整型变量h用于判断是否找到了所需删除的学生信息</span><br><span class="line"></span><br><span class="line">定义字符数组jueding[<span class="number">10</span>]用于判断用户的删除操作是否全部结束</span><br><span class="line"></span><br><span class="line">定义整型变量i用于进行循环查找所需删除的学生</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下使用num的语句均指通过指针引用main函数中的num变量，为了书写简便，省略了指针引用的过程</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">h=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">输入所需删除学生的信息关键字（姓名或学号）</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=num<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">判断字符数组panduan中记录的关键字与第i+<span class="number">1</span>个学生的姓名是否相同</span><br><span class="line"></span><br><span class="line">若相同</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则判断当前的学生信息总数是否为<span class="number">1</span></span><br><span class="line"></span><br><span class="line">若为<span class="number">1</span>，则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">若不为<span class="number">1</span>，则将第i+<span class="number">1</span>个学生的所有信息依次与后一个学生的所有信息交换，直到将该学生信息交换至所有学生信息的最后一个记录处</span><br><span class="line"></span><br><span class="line">按序输出num<span class="number">-1</span>个学生的信息</span><br><span class="line"></span><br><span class="line">利用指针使main函数中记录当前学生总数的变量num自减<span class="number">1</span></span><br><span class="line"></span><br><span class="line">h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">若不相同</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">判断字符数组panduan中记录的关键字与第i+<span class="number">1</span>个学生的学号是否相同</span><br><span class="line"></span><br><span class="line">若相同</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">	则判断当前的学生信息总数是否为<span class="number">1</span></span><br><span class="line"></span><br><span class="line">	若为<span class="number">1</span>，则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">	若不为<span class="number">1</span>，则将第i+<span class="number">1</span>个学生的所有信息依次与后一个学生的所有信息交换，直到将该学生信息交换至所有学生信息的最后一个记录处</span><br><span class="line"></span><br><span class="line">	按序输出num<span class="number">-1</span>个学生的信息</span><br><span class="line"></span><br><span class="line">	利用指针使main函数中记录当前学生总数的变量num自减<span class="number">1</span></span><br><span class="line"></span><br><span class="line">	h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">若不相同，不执行任何语句</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">判断h是否不等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">若不等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并将命令赋值给字符数组jueding</span><br><span class="line"></span><br><span class="line">判断字符串jueding与<span class="string">"no"</span>是否相等</span><br><span class="line"></span><br><span class="line">若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">若等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则按序输出num个学生的所有信息</span><br><span class="line"></span><br><span class="line">执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">selet</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> panduan1[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> panduan2,m;</span><br><span class="line"></span><br><span class="line"><span class="comment">//panduan1用于存储输入的关键字，panduan2用于存储输入的关键字转换成对应整型数的数值，jueding用于判断整个选择过程是否结束，m用于判断是否找到了所需查找的学生</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">m=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">输入查找关键字并将其赋值给字符数组panduan1</span><br><span class="line"></span><br><span class="line">将panduan1中的数字字符转换为对应的整型数并将数值赋值给panduan2</span><br><span class="line"></span><br><span class="line">在当前学生中循环查找学号与panduan1中数字字符串相同的学生，若找到则输出该学生所有信息，并使m++</span><br><span class="line"></span><br><span class="line">每次循环判断时若当前接受判断的学生学号与panduan1中数字字符串不相同，则继续判断其班级与panduan2存储的数值是否相等，若相等则输出该学生，并使m++</span><br><span class="line"></span><br><span class="line">循环查找结束后，判断m是否等于<span class="number">0</span>，若为<span class="number">0</span>，则输出<span class="string">"there is no eligible student"</span>并执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">若不为<span class="number">0</span>，则输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并将命令字符赋给jueding[<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">判断字符串jueding是否与<span class="string">"no"</span>相等，若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">order</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">对当前存在的所有学生信息按照班级从小到大，同一班级内总成绩从大到小进行冒泡排序，排序结束后按序输出所有学生信息</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">output</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">将当前存在的所有学生信息按数组顺序循环输出</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="程序设计中存在的问题和解决思路">2.程序设计中存在的问题和解决思路</h1>
+<p>（1）.由于为了在进行删除操作时比较方便进行输入数据的识别，我把学号和姓名都存储在字符数组中，结果在编写选择函数时由于要求输入班级或学号，而班级是存储在定义为整型的变量中的，因此出现了编写困难。</p>
+<p>​ 解决方法：预处理时包含了头文件stdlib.h，在编写选择函数时调用了atoi()函数，将存储学号信息的字符数组中的数字字符转换为对应的整型数，并将其存储在一个新的整型变量中，以供后续程序判断使用。</p>
+<p>（2）.这一版学籍管理系统的学生数据交换方式还可以改进，如果定义一个struct Student jiaohuan的结构体变量用来交换学生数据会简便许多</p>
+<p>另外程序中指针的使用也不够熟练，只是起到了在主函数与子函数之间传递地址的作用，没有体现指针简化数据处理的作用，定义了太多指针去指向结构体中的各个元素，若定义为指向结构体变量的指针会好很多</p>
+<p>（3）.学籍管理系统的代码和算法优化仍在进行中，这一版不会是最后一版。。。</p>
+<h1 id="实验收获">3.实验收获</h1>
+<p>​ 对于程序的设计有了更加清晰的认识，对各种命令和数据类型的使用更加熟练，对于一个完整的学籍管理系统的设计有了清晰的思路。</p>
+<p>对指针的运用更加熟练，对指针的作用有了更清晰的认识。（虽然代码中指针的运用比较肤浅，但是程序做完之后的思考和对有关知识的重温使我对指针有了更深的了解）</p>
+<p>实际上为了用到所学的全部知识，这一版学籍管理系统用了很多不必要的算法，程序反而复杂了，但相对的因为使用到了这学期的几乎所有知识，所以对知识的掌握也上升了一个层次。</p>
+<p>发现实现一定功能的程序其算法的多样性，不同的算法有不同的优点，使用的数据结构也有很大不同。</p>
+<p>在编写程序的过程中对本学期的知识进行了系统的整理，巩固了所学的知识，为以后的继续学习打下了一个很好的基础。</p>
+<h1 id="程序的源代码清单">4.程序的源代码清单</h1>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"string.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"stdlib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 10</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">input</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> panduan[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=*renshu;i&lt;MAX;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Id "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,hao[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"class "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,ban[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"name "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,ming[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score1 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score2 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score3 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">	*fen[i][<span class="number">3</span>]=*fen[i][<span class="number">0</span>]+*fen[i][<span class="number">1</span>]+*fen[i][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan);</span><br><span class="line"></span><br><span class="line">	*renshu=*renshu+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">strcmp</span>(panduan,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">del</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i,q,m,h;</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> f;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> panduan[<span class="number">10</span>],c[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		h=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(ming[i],panduan)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(*renshu==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(;i&lt;=*renshu<span class="number">-2</span>;i++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">					{</span><br><span class="line"></span><br><span class="line">						f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-2</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				*renshu=*renshu<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(hao[i],panduan)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(*renshu==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(;i&lt;=*renshu<span class="number">-2</span>;i++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">					{</span><br><span class="line"></span><br><span class="line">						f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-2</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				*renshu=*renshu<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(h!=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s"</span>,jueding);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(jueding,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-1</span>;m++)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">selet</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> panduan1[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> panduan2,i,m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		m=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan1);</span><br><span class="line"></span><br><span class="line">		panduan2=atoi(panduan1);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(hao[i],panduan1)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				m=m+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(panduan2==*ban[i])</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				m=m+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(m==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"there is no eligible student\n"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,jueding);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">strcmp</span>(jueding,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">order</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i,k,q,m;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> c[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> f;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=*renshu<span class="number">-1</span>;k++)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>-k;i++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(*ban[i]&gt;*ban[i+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">				<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">				<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=*renshu<span class="number">-1</span>;k++)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>-k;i++)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span>(*ban[k]==*ban[k+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">						<span class="keyword">if</span>(*fen[k][<span class="number">3</span>]&lt;*fen[k+<span class="number">1</span>][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">						{</span><br><span class="line"></span><br><span class="line">							q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">							<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">							<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">							<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">							{</span><br><span class="line"></span><br><span class="line">								f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">							}</span><br><span class="line"></span><br><span class="line">						}</span><br><span class="line"></span><br><span class="line">						<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">						{</span><br><span class="line"></span><br><span class="line">							<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">						}</span><br><span class="line"></span><br><span class="line">						</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">output</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> *banji[MAX],*number,i,num,mingling;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> *xingming[MAX],*xuehao[MAX];</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> *chengji[MAX][<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">	{</span></span><br><span class="line"></span><br><span class="line">		<span class="type">char</span> Id[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">		<span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> clas;</span><br><span class="line"></span><br><span class="line">		<span class="type">float</span> score[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">	} student[MAX];</span><br><span class="line"></span><br><span class="line">	num=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=MAX<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		banji[i]=&amp;student[i].clas;</span><br><span class="line"></span><br><span class="line">		xingming[i]=&amp;student[i].name[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		xuehao[i]=&amp;student[i].Id[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">0</span>]=&amp;student[i].score[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">1</span>]=&amp;student[i].score[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">2</span>]=&amp;student[i].score[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">3</span>]=&amp;student[i].score[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	number=<span class="meta">#</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">	for(;;)</span></span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"1.input\n2.delete\n3.select\n4.order\n5.output\n6.quit\nplease input your option\n"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;mingling);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">			input(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">			del(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">			selet(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">			order(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">			output(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+        
+      
+      <!-- 
+        <p>大一下C语言程序设计大作业，好像是上网找的，非原创</p>
+<span id="more"></span>
+<h1 id="程序设计与分析">1.程序设计与分析</h1>
+<p>要求程序能实现以下基本功能：</p>
+<p><strong>（1）.提供基本的菜单选项，能根据不同的选项执行不同操作；</strong></p>
+<p><strong>（2）.对学生信息进行录入，修改，删除、查询等操作；</strong></p>
+<p><strong>（3）.对学生信息进行统计、排序等操作。</strong></p>
+<p><strong>（4）.采用数据类型：整型，浮点型，字符型，指针类型，结构体类型</strong></p>
+<p><strong>（5）.核心算法：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//MAX代表学籍管理系统所能处理的最大学生数量，宏定义后，依据实际情况对程序的对应修改更易进行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实际代码中是将子函数的定义写在了main函数的前面，但此处为了程序结构清晰将main函数写在了前面，因此main函数中没有子函数声明的语句</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">进行各种类型的变量定义以及初始化，以供后续程序使用</span><br><span class="line"></span><br><span class="line">定义一个结构体类型，并定义一个该类型的结构体变量用于存储将要录入的学生信息数据：</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> Id[MAX];<span class="comment">//学号</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> name[<span class="number">50</span>];<span class="comment">//姓名</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> clas;<span class="comment">//班级</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> score[<span class="number">4</span>];<span class="comment">//三科成绩以及总成绩</span></span><br><span class="line"></span><br><span class="line">} student[MAX];</span><br><span class="line"></span><br><span class="line">定义若干指针变量用于将main函数中的变量地址传递给各子函数，使子函数能够改变main函数中的变量的值</span><br><span class="line"></span><br><span class="line">定义各种所需变量</span><br><span class="line"></span><br><span class="line">定义整型变量mingling</span><br><span class="line"></span><br><span class="line">定义一个变量num来记录总人数的变化并将其初始化为零</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">输出主菜单选项</span><br><span class="line"></span><br><span class="line">输入数字命令并赋值给整型变量mingling</span><br><span class="line"></span><br><span class="line">判断</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">1</span>，执行函数input进行学生信息输入操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">2</span>，执行函数del进行学生信息删除操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">3</span>，执行函数selet进行学生信息选择输出操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">4</span>，执行函数order进行学生信息整体排序操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">5</span>，执行函数output进行学生信息全体输出操作</span><br><span class="line"></span><br><span class="line">若mingling=<span class="number">6</span>，执行<span class="keyword">break</span>语句跳出<span class="keyword">for</span>循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> input(通过指针引用学生信息、当前学生总人数等数据)</span><br><span class="line"></span><br><span class="line"><span class="comment">//我的源代码中每个子函数都是用了许多指针将结构体中的元素一一引用，此处可以改为利用指向结构体变量的指针，代码会简洁许多</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">利用指针来引用主函数中的学生信息变量</span><br><span class="line"></span><br><span class="line">定义整型变量i用作循环</span><br><span class="line"></span><br><span class="line">定义字符数组panduan[<span class="number">10</span>]用作判断整个学生数据的录入操作是否结束</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">输出<span class="string">"Id "</span></span><br><span class="line"></span><br><span class="line">输入学号</span><br><span class="line"></span><br><span class="line">输出<span class="string">"class "</span></span><br><span class="line"></span><br><span class="line">输入班级</span><br><span class="line"></span><br><span class="line">输出<span class="string">"name "</span></span><br><span class="line"></span><br><span class="line">输入姓名</span><br><span class="line"></span><br><span class="line">输出<span class="string">"score1 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"score2 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">2</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"score3 "</span></span><br><span class="line"></span><br><span class="line">输入成绩<span class="number">3</span></span><br><span class="line"></span><br><span class="line">将存储总成绩数据的变量赋值为成绩<span class="number">1</span>，成绩<span class="number">2</span>，成绩<span class="number">3</span>的和</span><br><span class="line"></span><br><span class="line">利用指针使main函数中记录学生人数的变量num自增<span class="number">1</span></span><br><span class="line"></span><br><span class="line">输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并赋值给字符数组panduan</span><br><span class="line"></span><br><span class="line">判断字符串panduan与<span class="string">"no"</span>是否相等</span><br><span class="line"></span><br><span class="line">若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> del(通过指针引用学生信息、当前学生总人数等数据)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">定义字符数组panduan[<span class="number">10</span>]用于在已有学生信息中查找需要删除的对应学生信息</span><br><span class="line"></span><br><span class="line">定义整型变量h用于判断是否找到了所需删除的学生信息</span><br><span class="line"></span><br><span class="line">定义字符数组jueding[<span class="number">10</span>]用于判断用户的删除操作是否全部结束</span><br><span class="line"></span><br><span class="line">定义整型变量i用于进行循环查找所需删除的学生</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下使用num的语句均指通过指针引用main函数中的num变量，为了书写简便，省略了指针引用的过程</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">h=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">输入所需删除学生的信息关键字（姓名或学号）</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=num<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">判断字符数组panduan中记录的关键字与第i+<span class="number">1</span>个学生的姓名是否相同</span><br><span class="line"></span><br><span class="line">若相同</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则判断当前的学生信息总数是否为<span class="number">1</span></span><br><span class="line"></span><br><span class="line">若为<span class="number">1</span>，则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">若不为<span class="number">1</span>，则将第i+<span class="number">1</span>个学生的所有信息依次与后一个学生的所有信息交换，直到将该学生信息交换至所有学生信息的最后一个记录处</span><br><span class="line"></span><br><span class="line">按序输出num<span class="number">-1</span>个学生的信息</span><br><span class="line"></span><br><span class="line">利用指针使main函数中记录当前学生总数的变量num自减<span class="number">1</span></span><br><span class="line"></span><br><span class="line">h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">若不相同</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">判断字符数组panduan中记录的关键字与第i+<span class="number">1</span>个学生的学号是否相同</span><br><span class="line"></span><br><span class="line">若相同</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">	则判断当前的学生信息总数是否为<span class="number">1</span></span><br><span class="line"></span><br><span class="line">	若为<span class="number">1</span>，则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">	若不为<span class="number">1</span>，则将第i+<span class="number">1</span>个学生的所有信息依次与后一个学生的所有信息交换，直到将该学生信息交换至所有学生信息的最后一个记录处</span><br><span class="line"></span><br><span class="line">	按序输出num<span class="number">-1</span>个学生的信息</span><br><span class="line"></span><br><span class="line">	利用指针使main函数中记录当前学生总数的变量num自减<span class="number">1</span></span><br><span class="line"></span><br><span class="line">	h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">若不相同，不执行任何语句</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">判断h是否不等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">若不等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并将命令赋值给字符数组jueding</span><br><span class="line"></span><br><span class="line">判断字符串jueding与<span class="string">"no"</span>是否相等</span><br><span class="line"></span><br><span class="line">若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">若等于<span class="number">0</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">则按序输出num个学生的所有信息</span><br><span class="line"></span><br><span class="line">执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">selet</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> panduan1[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> panduan2,m;</span><br><span class="line"></span><br><span class="line"><span class="comment">//panduan1用于存储输入的关键字，panduan2用于存储输入的关键字转换成对应整型数的数值，jueding用于判断整个选择过程是否结束，m用于判断是否找到了所需查找的学生</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">m=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">输入查找关键字并将其赋值给字符数组panduan1</span><br><span class="line"></span><br><span class="line">将panduan1中的数字字符转换为对应的整型数并将数值赋值给panduan2</span><br><span class="line"></span><br><span class="line">在当前学生中循环查找学号与panduan1中数字字符串相同的学生，若找到则输出该学生所有信息，并使m++</span><br><span class="line"></span><br><span class="line">每次循环判断时若当前接受判断的学生学号与panduan1中数字字符串不相同，则继续判断其班级与panduan2存储的数值是否相等，若相等则输出该学生，并使m++</span><br><span class="line"></span><br><span class="line">循环查找结束后，判断m是否等于<span class="number">0</span>，若为<span class="number">0</span>，则输出<span class="string">"there is no eligible student"</span>并执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">若不为<span class="number">0</span>，则输出<span class="string">"continue?"</span></span><br><span class="line"></span><br><span class="line">输入命令并将命令字符赋给jueding[<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">判断字符串jueding是否与<span class="string">"no"</span>相等，若相等则执行<span class="keyword">break</span>语句跳出循环</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">order</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">对当前存在的所有学生信息按照班级从小到大，同一班级内总成绩从大到小进行冒泡排序，排序结束后按序输出所有学生信息</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">output</span><span class="params">(通过指针引用学生信息、当前学生总人数等数据)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">将当前存在的所有学生信息按数组顺序循环输出</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="程序设计中存在的问题和解决思路">2.程序设计中存在的问题和解决思路</h1>
+<p>（1）.由于为了在进行删除操作时比较方便进行输入数据的识别，我把学号和姓名都存储在字符数组中，结果在编写选择函数时由于要求输入班级或学号，而班级是存储在定义为整型的变量中的，因此出现了编写困难。</p>
+<p>​ 解决方法：预处理时包含了头文件stdlib.h，在编写选择函数时调用了atoi()函数，将存储学号信息的字符数组中的数字字符转换为对应的整型数，并将其存储在一个新的整型变量中，以供后续程序判断使用。</p>
+<p>（2）.这一版学籍管理系统的学生数据交换方式还可以改进，如果定义一个struct Student jiaohuan的结构体变量用来交换学生数据会简便许多</p>
+<p>另外程序中指针的使用也不够熟练，只是起到了在主函数与子函数之间传递地址的作用，没有体现指针简化数据处理的作用，定义了太多指针去指向结构体中的各个元素，若定义为指向结构体变量的指针会好很多</p>
+<p>（3）.学籍管理系统的代码和算法优化仍在进行中，这一版不会是最后一版。。。</p>
+<h1 id="实验收获">3.实验收获</h1>
+<p>​ 对于程序的设计有了更加清晰的认识，对各种命令和数据类型的使用更加熟练，对于一个完整的学籍管理系统的设计有了清晰的思路。</p>
+<p>对指针的运用更加熟练，对指针的作用有了更清晰的认识。（虽然代码中指针的运用比较肤浅，但是程序做完之后的思考和对有关知识的重温使我对指针有了更深的了解）</p>
+<p>实际上为了用到所学的全部知识，这一版学籍管理系统用了很多不必要的算法，程序反而复杂了，但相对的因为使用到了这学期的几乎所有知识，所以对知识的掌握也上升了一个层次。</p>
+<p>发现实现一定功能的程序其算法的多样性，不同的算法有不同的优点，使用的数据结构也有很大不同。</p>
+<p>在编写程序的过程中对本学期的知识进行了系统的整理，巩固了所学的知识，为以后的继续学习打下了一个很好的基础。</p>
+<h1 id="程序的源代码清单">4.程序的源代码清单</h1>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"string.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"stdlib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 10</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">input</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> panduan[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i=*renshu;i&lt;MAX;i++)</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Id "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,hao[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"class "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,ban[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"name "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,ming[i]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score1 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score2 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"score3 "</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,fen[i][<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">	*fen[i][<span class="number">3</span>]=*fen[i][<span class="number">0</span>]+*fen[i][<span class="number">1</span>]+*fen[i][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan);</span><br><span class="line"></span><br><span class="line">	*renshu=*renshu+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">strcmp</span>(panduan,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">del</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i,q,m,h;</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> f;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> panduan[<span class="number">10</span>],c[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		h=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(ming[i],panduan)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(*renshu==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(;i&lt;=*renshu<span class="number">-2</span>;i++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">					{</span><br><span class="line"></span><br><span class="line">						f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-2</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				*renshu=*renshu<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strcmp</span>(hao[i],panduan)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(*renshu==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(;i&lt;=*renshu<span class="number">-2</span>;i++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">					{</span><br><span class="line"></span><br><span class="line">						f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-2</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">				*renshu=*renshu<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				h=h+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(h!=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s"</span>,jueding);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(jueding,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=*renshu<span class="number">-1</span>;m++)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[m],*ban[m],ming[m],*fen[m][<span class="number">0</span>],*fen[m][<span class="number">1</span>],*fen[m][<span class="number">2</span>],*fen[m][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">selet</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> panduan1[<span class="number">10</span>],jueding[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> panduan2,i,m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		m=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,panduan1);</span><br><span class="line"></span><br><span class="line">		panduan2=atoi(panduan1);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">strcmp</span>(hao[i],panduan1)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				m=m+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(panduan2==*ban[i])</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">				m=m+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(m==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		{</span><br><span class="line"></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"there is no eligible student\n"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"continue?\n"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,jueding);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">strcmp</span>(jueding,<span class="string">"no"</span>)==<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">order</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i,k,q,m;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> c[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> f;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=*renshu<span class="number">-1</span>;k++)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>-k;i++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(*ban[i]&gt;*ban[i+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">			{</span><br><span class="line"></span><br><span class="line">				q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">				<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">				<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">				{</span><br><span class="line"></span><br><span class="line">					f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">				}</span><br><span class="line"></span><br><span class="line">			}</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=*renshu<span class="number">-1</span>;k++)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>-k;i++)</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span>(*ban[k]==*ban[k+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">						<span class="keyword">if</span>(*fen[k][<span class="number">3</span>]&lt;*fen[k+<span class="number">1</span>][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">						{</span><br><span class="line"></span><br><span class="line">							q=*ban[i];*ban[i]=*ban[i+<span class="number">1</span>];*ban[i+<span class="number">1</span>]=q;</span><br><span class="line"></span><br><span class="line">							<span class="built_in">strcpy</span>(c,hao[i]);<span class="built_in">strcpy</span>(hao[i],hao[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(hao[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">							<span class="built_in">strcpy</span>(c,ming[i]);<span class="built_in">strcpy</span>(ming[i],ming[i+<span class="number">1</span>]);<span class="built_in">strcpy</span>(ming[i+<span class="number">1</span>],c);</span><br><span class="line"></span><br><span class="line">							<span class="keyword">for</span>(m=<span class="number">0</span>;m&lt;=<span class="number">3</span>;m++)</span><br><span class="line"></span><br><span class="line">							{</span><br><span class="line"></span><br><span class="line">								f=*fen[i][m];*fen[i][m]=*fen[i+<span class="number">1</span>][m];*fen[i+<span class="number">1</span>][m]=f;</span><br><span class="line"></span><br><span class="line">							}</span><br><span class="line"></span><br><span class="line">						}</span><br><span class="line"></span><br><span class="line">						<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">						{</span><br><span class="line"></span><br><span class="line">							<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">						}</span><br><span class="line"></span><br><span class="line">						</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">output</span><span class="params">(<span class="type">int</span> *ban[MAX],<span class="type">char</span> *ming[MAX],<span class="type">char</span> *hao[MAX],<span class="type">float</span> *fen[MAX][<span class="number">4</span>],<span class="type">int</span> *renshu)</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=*renshu<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s,%d,%s,%4.1f,%4.1f,%4.1f,%5.1f\n"</span>,hao[i],*ban[i],ming[i],*fen[i][<span class="number">0</span>],*fen[i][<span class="number">1</span>],*fen[i][<span class="number">2</span>],*fen[i][<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> *banji[MAX],*number,i,num,mingling;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> *xingming[MAX],*xuehao[MAX];</span><br><span class="line"></span><br><span class="line">	<span class="type">float</span> *chengji[MAX][<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">	{</span></span><br><span class="line"></span><br><span class="line">		<span class="type">char</span> Id[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">		<span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> clas;</span><br><span class="line"></span><br><span class="line">		<span class="type">float</span> score[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">	} student[MAX];</span><br><span class="line"></span><br><span class="line">	num=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=MAX<span class="number">-1</span>;i++)</span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		banji[i]=&amp;student[i].clas;</span><br><span class="line"></span><br><span class="line">		xingming[i]=&amp;student[i].name[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		xuehao[i]=&amp;student[i].Id[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">0</span>]=&amp;student[i].score[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">1</span>]=&amp;student[i].score[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">2</span>]=&amp;student[i].score[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">		chengji[i][<span class="number">3</span>]=&amp;student[i].score[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	number=<span class="meta">#</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">	for(;;)</span></span><br><span class="line"></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"1.input\n2.delete\n3.select\n4.order\n5.output\n6.quit\nplease input your option\n"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;mingling);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">			input(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">			del(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">			selet(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">			order(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">			output(banji,xingming,xuehao,chengji,number);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(mingling==<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          数据结构实验1——数学表达式求值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/17/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8A%E6%9C%BA%E9%A2%98%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言程序设计上机题目</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="C语言程序设计大作业" data-title="C语言程序设计大作业——学籍管理系统" data-url="https://renzehua1998.github.io/2018/06/17/C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A7%E4%BD%9C%E4%B8%9A/"  data-images="/img/avatar.jpeg" data-content="C语言程序设计大作业——学籍管理系统">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

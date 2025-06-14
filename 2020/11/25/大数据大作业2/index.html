@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>大数据作业2——k-means算法 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大四上大数据分析与知识发现大作业——k-means算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据作业2——k-means算法">
+<meta property="og:url" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大四上大数据分析与知识发现大作业——k-means算法">
+<meta property="og:locale">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps11.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003242365.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003300815.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003314747.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps12.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps13.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps14.jpg">
+<meta property="article:published_time" content="2020-11-25T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-28T17:11:23.091Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="实验报告">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据挖掘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps11.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-大数据大作业2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/" class="article-date">
+  	<time datetime="2020-11-25T04:00:00.000Z" itemprop="datePublished">2020-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据作业2——k-means算法
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">2.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%9B%9B/">大四</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="大数据作业2——k-means算法">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E8%81%9A%E7%B1%BB%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、聚类的简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">二、算法流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E6%95%B0%E6%8D%AE%E9%9B%86%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">三、数据集简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">四、实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#two_cluster-k2"><span class="toc-number">4.1.</span> <span class="toc-text">1.two_cluster k&#x3D;2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#three_cluster-k3"><span class="toc-number">4.2.</span> <span class="toc-text">2.three_cluster k&#x3D;3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#five_cluster-k5"><span class="toc-number">4.3.</span> <span class="toc-text">3.five_cluster k&#x3D;5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wine%E6%95%B0%E6%8D%AE%E9%9B%86-k3"><span class="toc-number">4.4.</span> <span class="toc-text">4.wine数据集 k&#x3D;3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E8%B0%83%E6%95%B4%E4%B8%8D%E5%90%8Ck%E5%80%BC%E6%83%85%E5%86%B5%E4%B8%8B%E7%BB%93%E6%9E%9C%E7%B0%87%E5%AF%86%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">五、 调整不同k值情况下，结果簇密度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AE%E5%BB%93%E7%B3%BB%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">1. 轮廓系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E5%92%8C%E6%96%B9%E5%B7%AE"><span class="toc-number">5.2.</span> <span class="toc-text">2.均值和方差</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">附录（源代码）</span></a></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E8%81%9A%E7%B1%BB%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、聚类的简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">二、算法流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E6%95%B0%E6%8D%AE%E9%9B%86%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">三、数据集简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">四、实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#two_cluster-k2"><span class="toc-number">4.1.</span> <span class="toc-text">1.two_cluster k&#x3D;2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#three_cluster-k3"><span class="toc-number">4.2.</span> <span class="toc-text">2.three_cluster k&#x3D;3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#five_cluster-k5"><span class="toc-number">4.3.</span> <span class="toc-text">3.five_cluster k&#x3D;5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wine%E6%95%B0%E6%8D%AE%E9%9B%86-k3"><span class="toc-number">4.4.</span> <span class="toc-text">4.wine数据集 k&#x3D;3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E8%B0%83%E6%95%B4%E4%B8%8D%E5%90%8Ck%E5%80%BC%E6%83%85%E5%86%B5%E4%B8%8B%E7%BB%93%E6%9E%9C%E7%B0%87%E5%AF%86%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">五、 调整不同k值情况下，结果簇密度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AE%E5%BB%93%E7%B3%BB%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">1. 轮廓系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E5%92%8C%E6%96%B9%E5%B7%AE"><span class="toc-number">5.2.</span> <span class="toc-text">2.均值和方差</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">附录（源代码）</span></a></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大四上大数据分析与知识发现大作业——k-means算法</p>
+<span id="more"></span>
+<p>本报告主要工作：本次大作业使用python自己编程实现了k-means算法，主要介绍了算法流程，对用到的数据集进行了简要介绍，除了距离度量之外，调整不同K值情况下，衡量了聚类每一个结果簇的密度。</p>
+<p>代码运行环境为Python 3.7.4，IDE为Pycharm，所有代码均为自己编写。参考书籍：《数据挖掘概念与技术》（原书第二版）、《机器学习实战》。</p>
+<h1 id="一聚类的简要介绍">一、聚类的简要介绍</h1>
+<p>聚类：将实际或者抽象的集合组成多个类的过程。 聚类算法的常见要求有：可伸缩性、处理不同类型数据的能力、发现任意形状的能力、降噪能力、用于决定输入参数的领域知识最小化、输入顺序不敏感、高维度、基于约束聚类、可解释性和可用性等等。 它与分类最大的不同是，分类会提前指定分类数目和类别名称，聚类不会指定类别名称，甚至不会指定类别数目。不过在本次实验中的k-means算法必须指定聚类数目k，这个k被作为聚类算法中的先验知识使用。</p>
+<h1 id="二算法流程">二、算法流程</h1>
+<p>k-means算法属于无监督学习的一种聚类算法，其目的为：在不知数据所属类别及类别数量的前提下，依据数据自身所暗含的特点对数据进行聚类。对于聚类过程中类别数量k的选取，需要一定的先验知识，也可根据“类内间距小，类间间距大”（一种聚类算法的理想情况）为目标进行实现。 k-means算法以数据间的距离作为数据对象相似性度量的标准，因此选择计算数据间距离的计算方式对最后的聚类效果有显著的影响，常用计算距离的方式有：余弦距离、欧式距离、曼哈顿距离等。 本次实验中选用欧氏距离，其基本公式为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps11.jpg" class="" title="img">
+<p>其基本算法流程伪代码为：</p>
+<p>随机选取k个初始质心（作为初始cluster）； repeat： ——对每个样本点，计算得到距其最近的质心，将其类别标为该质心所对应的cluster； ——重新计算k个cluser对应的质心； until 质心不再发生变化</p>
+<p>k-means存在缺点：</p>
+<ul>
+<li>k-means是局部最优的，容易受到初始质心的影响；比如在下图中，因选择初始质心不恰当而造成次优的聚类结果（SSE较大）：</li>
+<li>同时，k值的选取也会直接影响聚类结果，最优聚类的k值应与样本数据本身的结构信息相吻合，而这种结构信息是很难去掌握，因此选取最优k值是非常困难的。</li>
+</ul>
+<h1 id="三数据集简要介绍">三、数据集简要介绍</h1>
+<p>UCI数据集作为一个标准测试数据集经常被用来训练机器学习的模型，广泛出现在机器学习的论文中。在此我们使用了UCI数据集中的two_cluster、three_cluster、five_cluster三个不同簇数的点集，它们都是二维数据，便于可视化观察。 为了结果变得有趣，我们还使用了真实测量的wine数据集，这些数据是对来自意大利同一地区但来自三个不同品种的葡萄酒进行化学分析的结果。分析确定了三种葡萄酒中每种所含13种成分的数量。其中13个属性分别为：</p>
+<p>1）酒 2）苹果酸 3）灰 4）灰的碱度 5）镁 6）总酚 7）类黄酮 8）非黄酮酚 9）原花青素 10）色彩强度 11）色调 12）稀释酒的OD280 / OD315 13）脯氨酸</p>
+<h1 id="四实验结果">四、实验结果</h1>
+<h2 id="two_cluster-k2">1.two_cluster k=2</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003242365.png" class="" title="image-20220829003242365">
+<h2 id="three_cluster-k3">2.three_cluster k=3</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003300815.png" class="" title="image-20220829003300815">
+<h2 id="five_cluster-k5">3.five_cluster k=5</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003314747.png" class="" title="image-20220829003314747">
+<h2 id="wine数据集-k3">4.wine数据集 k=3</h2>
+<p>在一次测试中，迭代循环5次。</p>
+<p>三个聚类中心点坐标为：</p>
+<p>[1.25166667e+01 2.49420290e+00 2.28855072e+00 2.08231884e+01</p>
+<p>9.23478261e+01 2.07072464e+00 1.75840580e+00 3.90144928e-01</p>
+<p>1.45188406e+00 4.08695652e+00 9.41159420e-01 2.49072464e+00</p>
+<p>4.58231884e+02]</p>
+<p>[1.38044681e+01 1.88340426e+00 2.42617021e+00 1.70234043e+01</p>
+<p>1.05510638e+02 2.86723404e+00 3.01425532e+00 2.85319149e-01</p>
+<p>1.91042553e+00 5.70255319e+00 1.07829787e+00 3.11404255e+00</p>
+<p>1.19514894e+03]</p>
+<p>[1.29298387e+01 2.50403226e+00 2.40806452e+00 1.98903226e+01</p>
+<p>1.03596774e+02 2.11112903e+00 1.58403226e+00 3.88387097e-01</p>
+<p>1.50338710e+00 5.65032258e+00 8.83967742e-01 2.36548387e+00</p>
+<p>7.28338710e+02]</p>
+<p>都是13维向量。</p>
+<p>（聚类结果比较庞大不便于展示，下面是部分截图）</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps12.jpg" class="" title="img">
+<p>第一列是种类编号，0~2三种；第二列是与聚类中心点的距离。</p>
+<h1 id="五-调整不同k值情况下结果簇密度">五、 调整不同k值情况下，结果簇密度</h1>
+<p>此次使用wine数据集来举例说明。</p>
+<h2 id="轮廓系数">1. 轮廓系数</h2>
+<p>首先我们使用轮廓系数来衡量结果簇密度：</p>
+<p>轮廓系数（Silhouette Coefficient），是聚类效果好坏的一种评价方式。</p>
+<p>轮廓系数的值是介于 [-1,1] ，越趋近于1代表内聚度和分离度都相对较优。</p>
+<p>a：某个样本与其所在簇内其他样本的平均距离</p>
+<p>b：某个样本与其他簇样本的平均距离</p>
+<p>则针对某个样本的轮廓系数s为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps13.jpg" class="" title="img">
+<p>聚类总的轮廓系数SC为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps14.jpg" class="" title="img">
+<p>分别采用k=2，3，4，5，6来进行实验：</p>
+<table>
+<thead>
+<tr class="header">
+<th>k</th>
+<th>轮廓系数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>0.6555165156460525</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.5711220218877621</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.5577126423216353</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.5081523788793872</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0.5198737583976687</td>
+</tr>
+</tbody>
+</table>
+<p>说明在此条件下分两类轮廓系数最大。</p>
+<h2 id="均值和方差">2.均值和方差</h2>
+<p>簇密度衡量采用以下两个指标：平均距离、距离的方差。 平均距离越大说明簇越大，方差越大说明簇密度越小 分别采用k=1，2，3，4，5来进行实验。</p>
+<table>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 48%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>k</th>
+<th>平均距离</th>
+<th>距离方差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>[413.72368779034764]</td>
+<td>[221.24947931661688]</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>[123.09435513723407, 157.4466947804894]</td>
+<td>[75.56317450732195, 105.68405292728465]</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>[82.69643456704392, 142.0457556870106, 68.87463704313525]</td>
+<td>[47.9537891109816, 93.6984317794299, 40.97548621196613]</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>[104.82235926873521, 59.349722824078796, 88.96909761169158, 59.98844301237363]</td>
+<td>[80.53919889877352, 35.24233250616651, 39.80030928690068, 34.23786395437574]</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>[59.01909723610794, 45.67869656758982, 48.62669527451465, 104.2003462385525, 68.32061555316555]</td>
+<td>[31.912851937637157, 22.550061590085217, 28.69038482660511, 72.61053918190882, 43.829622606222365]</td>
+</tr>
+</tbody>
+</table>
+<p>从上述表格可以看出，随着k值的增大，平均距离和距离方差都在减小，这也很好理解，随着聚类粒度的减小，每个聚类簇的大小必定会有所减小，而这样就会导致每个簇中节点相似度提高，簇密度增大。</p>
+<h1 id="附录源代码">附录（源代码）</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loadData</span>(<span class="params">fileName</span>):</span><br><span class="line">    dataset = np.loadtxt(fileName)</span><br><span class="line">    n = <span class="built_in">len</span>(dataset)  <span class="comment"># 计数，用于去除第一个值</span></span><br><span class="line">    data = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        line = dataset[i, <span class="number">1</span>:]</span><br><span class="line">        data[i] = line</span><br><span class="line"></span><br><span class="line">    data = np.array(data)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算欧式距离</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">euclid</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(np.<span class="built_in">sum</span>((x-y)**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成k个聚类中心</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">randomK</span>(<span class="params">dataset, k</span>):</span><br><span class="line">    m, n = dataset.shape  <span class="comment"># 获取数据集维度与个数</span></span><br><span class="line">    centers = np.zeros((k, n))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        centers[i, :] = dataset[np.random.randint(<span class="number">0</span>, m), :]</span><br><span class="line">    <span class="keyword">return</span> centers</span><br><span class="line"></span><br><span class="line"><span class="comment"># k-means算法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kmeans</span>(<span class="params">dataset, k</span>):</span><br><span class="line">    m, n = dataset.shape</span><br><span class="line">    mark = np.zeros((m, <span class="number">2</span>))  <span class="comment"># 存放当前点的类别（距离最近的中心标号）与距离量</span></span><br><span class="line">    centers = randomK(dataset, k)  <span class="comment"># 随机生成聚类中心</span></span><br><span class="line">    haveChange = <span class="literal">True</span>  <span class="comment"># 经过一次迭代有节点所属类别有变化</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> haveChange:</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'迭代第'</span>, index, <span class="string">'次'</span>)</span><br><span class="line">        haveChange = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):  <span class="comment"># 遍历每个点</span></span><br><span class="line">            typeIndex = -<span class="number">1</span>  <span class="comment"># 当前类别</span></span><br><span class="line">            minDis = <span class="built_in">float</span>(<span class="string">'inf'</span>)  <span class="comment"># 与最近中心的距离</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 遍历每个中心</span></span><br><span class="line">                dis = euclid(dataset[i], centers[j])</span><br><span class="line">                <span class="keyword">if</span> dis &lt; minDis:</span><br><span class="line">                    minDis = dis</span><br><span class="line">                    typeIndex = j</span><br><span class="line">            mark[i, <span class="number">1</span>] = minDis  <span class="comment"># 更新距离</span></span><br><span class="line">            <span class="keyword">if</span> mark[i, <span class="number">0</span>] != typeIndex:  <span class="comment"># 如果类别有变化，更新类别</span></span><br><span class="line">                haveChange = <span class="literal">True</span></span><br><span class="line">                mark[i, <span class="number">0</span>] = typeIndex</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 更新中心</span></span><br><span class="line">            cluster = dataset[np.nonzero(mark[:, <span class="number">0</span>] == j)[<span class="number">0</span>]]</span><br><span class="line">            centers[j] = np.mean(cluster, axis=<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> centers, mark</span><br><span class="line"></span><br><span class="line"><span class="comment"># 衡量每个簇的距离均值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">meanError</span>(<span class="params">mark, k</span>):</span><br><span class="line">    result = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        result[i] = np.mean(mark[np.nonzero(mark[:, <span class="number">0</span>] == i)[<span class="number">0</span>], <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 衡量每个簇的距离方差</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">stdError</span>(<span class="params">mark, k</span>):</span><br><span class="line">    result = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        result[i] = np.std(mark[np.nonzero(mark[:, <span class="number">0</span>] == i)[<span class="number">0</span>], <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图展示（仅限二维）</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plotResult</span>(<span class="params">dataset, centers, mark</span>):</span><br><span class="line">    m, n = dataset.shape</span><br><span class="line">    k = <span class="built_in">len</span>(centers)</span><br><span class="line">    dotType = [<span class="string">'or'</span>, <span class="string">'ob'</span>, <span class="string">'og'</span>, <span class="string">'ok'</span>, <span class="string">'^r'</span>, <span class="string">'+r'</span>, <span class="string">'sr'</span>, <span class="string">'dr'</span>, <span class="string">'&lt;r'</span>, <span class="string">'pr'</span>]     <span class="comment"># 点的类型</span></span><br><span class="line">    centerType = [<span class="string">'Dr'</span>, <span class="string">'Db'</span>, <span class="string">'Dg'</span>, <span class="string">'Dk'</span>, <span class="string">'^b'</span>, <span class="string">'+b'</span>, <span class="string">'sb'</span>, <span class="string">'db'</span>, <span class="string">'&lt;b'</span>, <span class="string">'pb'</span>]  <span class="comment"># 中心类型</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'数据大于二维，无法绘制'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(dotType):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'类别过多无法区分'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):  <span class="comment"># 画样本点</span></span><br><span class="line">        index = <span class="built_in">int</span>(mark[i,<span class="number">0</span>])  <span class="comment"># 类序号</span></span><br><span class="line">        plt.plot(dataset[i,<span class="number">0</span>], dataset[i,<span class="number">1</span>], dotType[index])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 画中心点</span></span><br><span class="line">        plt.plot(centers[i,<span class="number">0</span>], centers[i,<span class="number">1</span>], centerType[i])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileName = <span class="string">'wine.txt'</span></span><br><span class="line">data = loadData(fileName)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line">k = <span class="number">3</span>  <span class="comment"># 聚类数</span></span><br><span class="line">centers, mark = kmeans(data, k)</span><br><span class="line"><span class="built_in">print</span>(centers,<span class="string">'\n'</span>, mark)</span><br><span class="line">plotResult(data, centers, mark)</span><br><span class="line">mean_error = meanError(mark, k)</span><br><span class="line">std_error = stdError(mark, k)</span><br><span class="line"><span class="built_in">print</span>(mean_error, <span class="string">'\n'</span>, std_error)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"轮廓系数："</span>, metrics.silhouette_score(data, mark[:, <span class="number">0</span>], metric=<span class="string">'euclidean'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(mark[np.nonzero(mark[:, 0] == 0)[0], 1])</span></span><br></pre></td></tr></table></figure>
+
+        
+      
+      <!-- 
+        <p>大四上大数据分析与知识发现大作业——k-means算法</p>
+<span id="more"></span>
+<p>本报告主要工作：本次大作业使用python自己编程实现了k-means算法，主要介绍了算法流程，对用到的数据集进行了简要介绍，除了距离度量之外，调整不同K值情况下，衡量了聚类每一个结果簇的密度。</p>
+<p>代码运行环境为Python 3.7.4，IDE为Pycharm，所有代码均为自己编写。参考书籍：《数据挖掘概念与技术》（原书第二版）、《机器学习实战》。</p>
+<h1 id="一聚类的简要介绍">一、聚类的简要介绍</h1>
+<p>聚类：将实际或者抽象的集合组成多个类的过程。 聚类算法的常见要求有：可伸缩性、处理不同类型数据的能力、发现任意形状的能力、降噪能力、用于决定输入参数的领域知识最小化、输入顺序不敏感、高维度、基于约束聚类、可解释性和可用性等等。 它与分类最大的不同是，分类会提前指定分类数目和类别名称，聚类不会指定类别名称，甚至不会指定类别数目。不过在本次实验中的k-means算法必须指定聚类数目k，这个k被作为聚类算法中的先验知识使用。</p>
+<h1 id="二算法流程">二、算法流程</h1>
+<p>k-means算法属于无监督学习的一种聚类算法，其目的为：在不知数据所属类别及类别数量的前提下，依据数据自身所暗含的特点对数据进行聚类。对于聚类过程中类别数量k的选取，需要一定的先验知识，也可根据“类内间距小，类间间距大”（一种聚类算法的理想情况）为目标进行实现。 k-means算法以数据间的距离作为数据对象相似性度量的标准，因此选择计算数据间距离的计算方式对最后的聚类效果有显著的影响，常用计算距离的方式有：余弦距离、欧式距离、曼哈顿距离等。 本次实验中选用欧氏距离，其基本公式为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps11.jpg" class="" title="img">
+<p>其基本算法流程伪代码为：</p>
+<p>随机选取k个初始质心（作为初始cluster）； repeat： ——对每个样本点，计算得到距其最近的质心，将其类别标为该质心所对应的cluster； ——重新计算k个cluser对应的质心； until 质心不再发生变化</p>
+<p>k-means存在缺点：</p>
+<ul>
+<li>k-means是局部最优的，容易受到初始质心的影响；比如在下图中，因选择初始质心不恰当而造成次优的聚类结果（SSE较大）：</li>
+<li>同时，k值的选取也会直接影响聚类结果，最优聚类的k值应与样本数据本身的结构信息相吻合，而这种结构信息是很难去掌握，因此选取最优k值是非常困难的。</li>
+</ul>
+<h1 id="三数据集简要介绍">三、数据集简要介绍</h1>
+<p>UCI数据集作为一个标准测试数据集经常被用来训练机器学习的模型，广泛出现在机器学习的论文中。在此我们使用了UCI数据集中的two_cluster、three_cluster、five_cluster三个不同簇数的点集，它们都是二维数据，便于可视化观察。 为了结果变得有趣，我们还使用了真实测量的wine数据集，这些数据是对来自意大利同一地区但来自三个不同品种的葡萄酒进行化学分析的结果。分析确定了三种葡萄酒中每种所含13种成分的数量。其中13个属性分别为：</p>
+<p>1）酒 2）苹果酸 3）灰 4）灰的碱度 5）镁 6）总酚 7）类黄酮 8）非黄酮酚 9）原花青素 10）色彩强度 11）色调 12）稀释酒的OD280 / OD315 13）脯氨酸</p>
+<h1 id="四实验结果">四、实验结果</h1>
+<h2 id="two_cluster-k2">1.two_cluster k=2</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003242365.png" class="" title="image-20220829003242365">
+<h2 id="three_cluster-k3">2.three_cluster k=3</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003300815.png" class="" title="image-20220829003300815">
+<h2 id="five_cluster-k5">3.five_cluster k=5</h2>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/image-20220829003314747.png" class="" title="image-20220829003314747">
+<h2 id="wine数据集-k3">4.wine数据集 k=3</h2>
+<p>在一次测试中，迭代循环5次。</p>
+<p>三个聚类中心点坐标为：</p>
+<p>[1.25166667e+01 2.49420290e+00 2.28855072e+00 2.08231884e+01</p>
+<p>9.23478261e+01 2.07072464e+00 1.75840580e+00 3.90144928e-01</p>
+<p>1.45188406e+00 4.08695652e+00 9.41159420e-01 2.49072464e+00</p>
+<p>4.58231884e+02]</p>
+<p>[1.38044681e+01 1.88340426e+00 2.42617021e+00 1.70234043e+01</p>
+<p>1.05510638e+02 2.86723404e+00 3.01425532e+00 2.85319149e-01</p>
+<p>1.91042553e+00 5.70255319e+00 1.07829787e+00 3.11404255e+00</p>
+<p>1.19514894e+03]</p>
+<p>[1.29298387e+01 2.50403226e+00 2.40806452e+00 1.98903226e+01</p>
+<p>1.03596774e+02 2.11112903e+00 1.58403226e+00 3.88387097e-01</p>
+<p>1.50338710e+00 5.65032258e+00 8.83967742e-01 2.36548387e+00</p>
+<p>7.28338710e+02]</p>
+<p>都是13维向量。</p>
+<p>（聚类结果比较庞大不便于展示，下面是部分截图）</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps12.jpg" class="" title="img">
+<p>第一列是种类编号，0~2三种；第二列是与聚类中心点的距离。</p>
+<h1 id="五-调整不同k值情况下结果簇密度">五、 调整不同k值情况下，结果簇密度</h1>
+<p>此次使用wine数据集来举例说明。</p>
+<h2 id="轮廓系数">1. 轮廓系数</h2>
+<p>首先我们使用轮廓系数来衡量结果簇密度：</p>
+<p>轮廓系数（Silhouette Coefficient），是聚类效果好坏的一种评价方式。</p>
+<p>轮廓系数的值是介于 [-1,1] ，越趋近于1代表内聚度和分离度都相对较优。</p>
+<p>a：某个样本与其所在簇内其他样本的平均距离</p>
+<p>b：某个样本与其他簇样本的平均距离</p>
+<p>则针对某个样本的轮廓系数s为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps13.jpg" class="" title="img">
+<p>聚类总的轮廓系数SC为：</p>
+<img src="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/wps14.jpg" class="" title="img">
+<p>分别采用k=2，3，4，5，6来进行实验：</p>
+<table>
+<thead>
+<tr class="header">
+<th>k</th>
+<th>轮廓系数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>0.6555165156460525</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.5711220218877621</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.5577126423216353</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.5081523788793872</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0.5198737583976687</td>
+</tr>
+</tbody>
+</table>
+<p>说明在此条件下分两类轮廓系数最大。</p>
+<h2 id="均值和方差">2.均值和方差</h2>
+<p>簇密度衡量采用以下两个指标：平均距离、距离的方差。 平均距离越大说明簇越大，方差越大说明簇密度越小 分别采用k=1，2，3，4，5来进行实验。</p>
+<table>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 48%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>k</th>
+<th>平均距离</th>
+<th>距离方差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>[413.72368779034764]</td>
+<td>[221.24947931661688]</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>[123.09435513723407, 157.4466947804894]</td>
+<td>[75.56317450732195, 105.68405292728465]</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>[82.69643456704392, 142.0457556870106, 68.87463704313525]</td>
+<td>[47.9537891109816, 93.6984317794299, 40.97548621196613]</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>[104.82235926873521, 59.349722824078796, 88.96909761169158, 59.98844301237363]</td>
+<td>[80.53919889877352, 35.24233250616651, 39.80030928690068, 34.23786395437574]</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>[59.01909723610794, 45.67869656758982, 48.62669527451465, 104.2003462385525, 68.32061555316555]</td>
+<td>[31.912851937637157, 22.550061590085217, 28.69038482660511, 72.61053918190882, 43.829622606222365]</td>
+</tr>
+</tbody>
+</table>
+<p>从上述表格可以看出，随着k值的增大，平均距离和距离方差都在减小，这也很好理解，随着聚类粒度的减小，每个聚类簇的大小必定会有所减小，而这样就会导致每个簇中节点相似度提高，簇密度增大。</p>
+<h1 id="附录源代码">附录（源代码）</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loadData</span>(<span class="params">fileName</span>):</span><br><span class="line">    dataset = np.loadtxt(fileName)</span><br><span class="line">    n = <span class="built_in">len</span>(dataset)  <span class="comment"># 计数，用于去除第一个值</span></span><br><span class="line">    data = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        line = dataset[i, <span class="number">1</span>:]</span><br><span class="line">        data[i] = line</span><br><span class="line"></span><br><span class="line">    data = np.array(data)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算欧式距离</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">euclid</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(np.<span class="built_in">sum</span>((x-y)**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成k个聚类中心</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">randomK</span>(<span class="params">dataset, k</span>):</span><br><span class="line">    m, n = dataset.shape  <span class="comment"># 获取数据集维度与个数</span></span><br><span class="line">    centers = np.zeros((k, n))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        centers[i, :] = dataset[np.random.randint(<span class="number">0</span>, m), :]</span><br><span class="line">    <span class="keyword">return</span> centers</span><br><span class="line"></span><br><span class="line"><span class="comment"># k-means算法</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kmeans</span>(<span class="params">dataset, k</span>):</span><br><span class="line">    m, n = dataset.shape</span><br><span class="line">    mark = np.zeros((m, <span class="number">2</span>))  <span class="comment"># 存放当前点的类别（距离最近的中心标号）与距离量</span></span><br><span class="line">    centers = randomK(dataset, k)  <span class="comment"># 随机生成聚类中心</span></span><br><span class="line">    haveChange = <span class="literal">True</span>  <span class="comment"># 经过一次迭代有节点所属类别有变化</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> haveChange:</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'迭代第'</span>, index, <span class="string">'次'</span>)</span><br><span class="line">        haveChange = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):  <span class="comment"># 遍历每个点</span></span><br><span class="line">            typeIndex = -<span class="number">1</span>  <span class="comment"># 当前类别</span></span><br><span class="line">            minDis = <span class="built_in">float</span>(<span class="string">'inf'</span>)  <span class="comment"># 与最近中心的距离</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 遍历每个中心</span></span><br><span class="line">                dis = euclid(dataset[i], centers[j])</span><br><span class="line">                <span class="keyword">if</span> dis &lt; minDis:</span><br><span class="line">                    minDis = dis</span><br><span class="line">                    typeIndex = j</span><br><span class="line">            mark[i, <span class="number">1</span>] = minDis  <span class="comment"># 更新距离</span></span><br><span class="line">            <span class="keyword">if</span> mark[i, <span class="number">0</span>] != typeIndex:  <span class="comment"># 如果类别有变化，更新类别</span></span><br><span class="line">                haveChange = <span class="literal">True</span></span><br><span class="line">                mark[i, <span class="number">0</span>] = typeIndex</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 更新中心</span></span><br><span class="line">            cluster = dataset[np.nonzero(mark[:, <span class="number">0</span>] == j)[<span class="number">0</span>]]</span><br><span class="line">            centers[j] = np.mean(cluster, axis=<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> centers, mark</span><br><span class="line"></span><br><span class="line"><span class="comment"># 衡量每个簇的距离均值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">meanError</span>(<span class="params">mark, k</span>):</span><br><span class="line">    result = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        result[i] = np.mean(mark[np.nonzero(mark[:, <span class="number">0</span>] == i)[<span class="number">0</span>], <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 衡量每个簇的距离方差</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">stdError</span>(<span class="params">mark, k</span>):</span><br><span class="line">    result = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        result[i] = np.std(mark[np.nonzero(mark[:, <span class="number">0</span>] == i)[<span class="number">0</span>], <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图展示（仅限二维）</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plotResult</span>(<span class="params">dataset, centers, mark</span>):</span><br><span class="line">    m, n = dataset.shape</span><br><span class="line">    k = <span class="built_in">len</span>(centers)</span><br><span class="line">    dotType = [<span class="string">'or'</span>, <span class="string">'ob'</span>, <span class="string">'og'</span>, <span class="string">'ok'</span>, <span class="string">'^r'</span>, <span class="string">'+r'</span>, <span class="string">'sr'</span>, <span class="string">'dr'</span>, <span class="string">'&lt;r'</span>, <span class="string">'pr'</span>]     <span class="comment"># 点的类型</span></span><br><span class="line">    centerType = [<span class="string">'Dr'</span>, <span class="string">'Db'</span>, <span class="string">'Dg'</span>, <span class="string">'Dk'</span>, <span class="string">'^b'</span>, <span class="string">'+b'</span>, <span class="string">'sb'</span>, <span class="string">'db'</span>, <span class="string">'&lt;b'</span>, <span class="string">'pb'</span>]  <span class="comment"># 中心类型</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'数据大于二维，无法绘制'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(dotType):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'类别过多无法区分'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):  <span class="comment"># 画样本点</span></span><br><span class="line">        index = <span class="built_in">int</span>(mark[i,<span class="number">0</span>])  <span class="comment"># 类序号</span></span><br><span class="line">        plt.plot(dataset[i,<span class="number">0</span>], dataset[i,<span class="number">1</span>], dotType[index])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):  <span class="comment"># 画中心点</span></span><br><span class="line">        plt.plot(centers[i,<span class="number">0</span>], centers[i,<span class="number">1</span>], centerType[i])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileName = <span class="string">'wine.txt'</span></span><br><span class="line">data = loadData(fileName)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line">k = <span class="number">3</span>  <span class="comment"># 聚类数</span></span><br><span class="line">centers, mark = kmeans(data, k)</span><br><span class="line"><span class="built_in">print</span>(centers,<span class="string">'\n'</span>, mark)</span><br><span class="line">plotResult(data, centers, mark)</span><br><span class="line">mean_error = meanError(mark, k)</span><br><span class="line">std_error = stdError(mark, k)</span><br><span class="line"><span class="built_in">print</span>(mean_error, <span class="string">'\n'</span>, std_error)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"轮廓系数："</span>, metrics.silhouette_score(data, mark[:, <span class="number">0</span>], metric=<span class="string">'euclidean'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(mark[np.nonzero(mark[:, 0] == 0)[0], 1])</span></span><br></pre></td></tr></table></figure>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/28/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          生命科学基础实验报告
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据作业1——apriori算法</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="大数据大作业2" data-title="大数据作业2——k-means算法" data-url="https://renzehua1998.github.io/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/"  data-images="/img/avatar.jpeg" data-content="大数据作业2——k-means算法">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

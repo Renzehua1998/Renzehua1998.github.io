@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【态势感知】前言 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="《网络空间安全防御与态势感知》阅读笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【态势感知】前言">
+<meta property="og:url" content="https://renzehua1998.github.io/2023/01/19/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5-00%E5%90%84%E7%A7%8D%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="《网络空间安全防御与态势感知》阅读笔记">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-01-19T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-20T10:37:35.474Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="态势感知">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-网络空间安全防御与态势感知-00各种序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/01/19/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5-00%E5%90%84%E7%A7%8D%E5%BA%8F/" class="article-date">
+  	<time datetime="2023-01-19T04:00:00.000Z" itemprop="datePublished">2023-01-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【态势感知】前言
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">3.9k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">13分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" rel="tag">态势感知</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">自学笔记</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB/">书籍阅读</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2023/01/19/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5-00%E5%90%84%E7%A7%8D%E5%BA%8F/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="【态势感知】前言">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">作者前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%91%E8%80%85%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">译者序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.1.</span> <span class="toc-text">为什么需要态势感知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.2.</span> <span class="toc-text">态势感知是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9B%B0%E6%83%91"><span class="toc-number">2.2.1.</span> <span class="toc-text">一些困惑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.3.</span> <span class="toc-text">如何实现态势感知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">如何实现高效态势感知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%B0%E6%83%91"><span class="toc-number">2.3.2.</span> <span class="toc-text">困惑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9B%B4%E7%BB%95%E7%BD%91%E7%A9%BA%E9%98%B2%E5%BE%A1%E4%BA%BA%E5%91%98%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.4.</span> <span class="toc-text">如何围绕网空防御人员实现态势感知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BD%A2%E6%80%81"><span class="toc-number">2.5.</span> <span class="toc-text">支持实现态势感知的系统形态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">推荐序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%89%8B%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">对手的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%92%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">视角的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">思路的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.4.</span> <span class="toc-text">效果的变化</span></a></li></ol></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">作者前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%91%E8%80%85%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">译者序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.1.</span> <span class="toc-text">为什么需要态势感知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.2.</span> <span class="toc-text">态势感知是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9B%B0%E6%83%91"><span class="toc-number">2.2.1.</span> <span class="toc-text">一些困惑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.3.</span> <span class="toc-text">如何实现态势感知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">如何实现高效态势感知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%B0%E6%83%91"><span class="toc-number">2.3.2.</span> <span class="toc-text">困惑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9B%B4%E7%BB%95%E7%BD%91%E7%A9%BA%E9%98%B2%E5%BE%A1%E4%BA%BA%E5%91%98%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="toc-number">2.4.</span> <span class="toc-text">如何围绕网空防御人员实现态势感知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%AE%9E%E7%8E%B0%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BD%A2%E6%80%81"><span class="toc-number">2.5.</span> <span class="toc-text">支持实现态势感知的系统形态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">推荐序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%89%8B%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">对手的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%92%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">视角的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">思路的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">3.4.</span> <span class="toc-text">效果的变化</span></a></li></ol></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>《网络空间安全防御与态势感知》阅读笔记</p>
+<span id="more"></span>
+<blockquote>
+<p>《网络空间安全防御与态势感知》</p>
+</blockquote>
+<h1 id="作者前言">作者前言</h1>
+<ul>
+<li>第一章：操作员怎样形成感知，关于态势感知的要求。必要性和当前面临的问题。</li>
+<li>第二章：传统战争中的态势感知KSA和网空态势感知CSA的比较、相关性和差异性。</li>
+<li>第三章：网空态势感知在不同阶段如何形成、各阶段涉及的角色。</li>
+<li>第四章：如何形成感知，面向整体网络视图——宏观态势感知。</li>
+<li>第五章：人类态势感知中信息整合技术和计算表达方面的挑战与方法。</li>
+<li>第六章：怎样弥合与人类认知推理的差距——提取分析师推理过程。</li>
+<li>第七章：可视化相关——科学可视化、信息可视化、可视化系统。</li>
+<li>第八章：清晰的语义和标准的本体模型辅助推理。</li>
+<li>第九章：机器学习算法有效性和语义清晰度的折中关系。</li>
+<li>第十章：第二级态势感知——“理解”，如何评估影响。</li>
+<li>第十一章：第三级态势感知——“预测”，推断演化和未来预测。</li>
+<li>第十二章：对可能实现的改进进行量化评价——评估指标。</li>
+<li>第十三章：最终目标——态势管理，维护任务的弹性恢复能力。</li>
+</ul>
+<h1 id="译者序">译者序</h1>
+<p>总述：网络空间安全防御与态势感知学术文章合集。建议先阅读原作者前言。</p>
+<ul>
+<li>网空态势感知研究：精读全部内容</li>
+<li>网空安全防御：精读1-3章</li>
+</ul>
+<p>由几个问题引出：</p>
+<h2 id="为什么需要态势感知">为什么需要态势感知</h2>
+<p>——网空态势感知正是<strong>实现网络空间保障的先决条件</strong></p>
+<ol type="1">
+<li>网络信息技术的应用发展
+<ol type="1">
+<li>早期，将<strong>物理隔离</strong>作为最值得信赖的防御措施</li>
+<li>信息系统较少时，“<strong>一刀切</strong>”，应对业余爱好者的攻击</li>
+<li>信息系统较多时，“<strong>突出重点</strong>”，保护重要系统</li>
+<li>云计算、大数据广泛应用的如今，信息系统成为不容有失的关键基础设施</li>
+</ol></li>
+<li>安全防护工作模式转变
+<ul>
+<li>立足于更加积极的合规驱动工作模式，进一步针对关键基础设施等重要领域实现<strong>主动有效的全方位体系化</strong>防护工作模式。</li>
+</ul></li>
+<li>网络安全防御理念演化
+<ul>
+<li>将网络空间和传统物理空间中的威胁综合考虑——<strong>以威胁对抗有效性为导向的防御理念</strong></li>
+</ul></li>
+<li><p>网络安全防御体系建设模式变革</p>
+<ul>
+<li>传统军事领域的实践具有积极借鉴作用——从基于威胁规划变为基于能力规划</li>
+<li>“内网基本安全，只需查漏补缺”想法已经过时，——需要“找出来、赶出去”</li>
+<li>基础防线为动态防御提供了有力的对抗环境，屏蔽低水平攻击干扰、加强隐匿行动发现能力</li>
+</ul></li>
+<li><p>网络安全防御机制创新</p>
+<ul>
+<li>叠加演进的网络空间安全能力模型：
+<ul>
+<li>基础结构安全</li>
+<li>纵深防御</li>
+<li>积极防御</li>
+<li>威胁情报</li>
+<li><strong>反制能力</strong></li>
+</ul></li>
+<li>不仅要静态，更要动态：一套有效的动态指挥控制体系</li>
+</ul></li>
+</ol>
+<h2 id="态势感知是什么">态势感知是什么</h2>
+<p>——在一定时间和空间内<strong>观察</strong>环境中的元素，<strong>理解</strong>这些元素的意义并<strong>预测</strong>这些元素在不久的将来的状态。</p>
+<p>三个分层阶段：观察、理解、预测。——一种“知识的状态”</p>
+<ul>
+<li><strong>和态势评估的差别</strong>：态势评估是实现、获取或维持态势感知状态的过程。</li>
+<li>“态势”不只是宏观态势，也有“中观情境”</li>
+<li>“感知”不仅仅是观察，更侧重于运用知识获得面向响应处置的机敏能力</li>
+</ul>
+<h3 id="一些困惑">一些困惑</h3>
+<ol type="1">
+<li><p>应面向策略调整还是战术响应？</p>
+<p>——兼顾宏观中观、结合实时采集与知识经验（中长期情报）。最终支撑短期响应和中长期战略调整。</p>
+<ul>
+<li><p>仅仅依靠宏观态势感知难以支撑有效的积极防御体系——<strong>关注中观层面</strong></p></li>
+<li><p>应当<strong>能够支撑战术响应</strong>，可以接受处理微观数据。</p>
+<p>侧重于微观上的入侵检测-&gt;在中观层面对观察到信息进行组织与理解-&gt;根据中观层面的合理推测在宏观层面制定决策-&gt;执行行动对节点实体产生微观影响。</p></li>
+<li><p>要结合<strong>中长</strong>时间周期对抗威胁积累的<strong>知识经验</strong>发现高级威胁。</p></li>
+</ul></li>
+<li><p>只是为了满足整体安全状态展示吗？</p>
+<p>——不仅是整体安全状态，还要<strong>具体分工确定需求</strong>，以交互方式向运维人员提供必要的<strong>信息支撑和分析能力</strong>。</p>
+<ul>
+<li>不仅是要处理海量数据，还要能及时处理高速源源不断产生的安全事件。——仍会有大量安全事件让安全人员分析。</li>
+<li>安全分析师仍是不可或缺的，还需要得到信息化建设与运维人员等的配合。</li>
+</ul></li>
+<li>地图+炮形式态势感知效果为何不显著？
+<ul>
+<li>大部分人将<strong>地理信息放入其中</strong>，称为“态势感知”，侧重于展现宏观整体安全态势、罗列部分微观信息</li>
+<li>只能回答“有或无”，无法提供攻击行动阶段和攻击者位置等信息，更不能回答影响、演化、行为等一系列问题。缺乏中观呈现能力——<strong>感而不知</strong></li>
+<li>缺乏安全人员的分析和交互操作能力，无法有效指挥积极防御。——<strong>感而不为</strong></li>
+</ul></li>
+</ol>
+<h2 id="如何实现态势感知">如何实现态势感知</h2>
+<p>提法1——观察层：加强采集能力；理解层：可视化展示；预测层：数学模型预测。</p>
+<p>提法2——观察层：采集+可视化；理解层：提高安全人员技术水平；预测层：人工智能深度学习。</p>
+<p>提法3——简单态势感知：地图+炮；高级态势感知：理解+预测。</p>
+<p>——这三个阶段不是分立的，而是相互融合的</p>
+<p><strong>本书观点</strong>——</p>
+<ol type="1">
+<li>观察层：传感（sensing），获得微观层面感知——<strong>是什么</strong></li>
+<li>理解层：结合防御目标解释数据含义，结构化中观呈现全貌图景——<strong>意味着什么</strong>
+<ul>
+<li>节点视角：易受攻击的程度</li>
+<li>模式角度：攻击行为的检测特征</li>
+<li>事件关联视角：哪些事件可能相互关联</li>
+<li>事件影响视角：对当前任务运行的影响</li>
+<li>竞争性事件的优先级排序</li>
+</ul></li>
+<li>预测层：对安全事件进行前向时间推断，确定未来影响，预测下一步可能发生的情况——<strong>会造成什么</strong></li>
+</ol>
+<p><strong>人工预测的问题</strong>——效果与运维人员认知状态有关</p>
+<ul>
+<li>完全依赖人工预测具有不可持续性，可能导致低水平感知：<strong>注意力与工作记忆制约</strong>。
+<ol type="1">
+<li>缺乏明显线索引导</li>
+<li>难以发现关键关联</li>
+<li>信息不足造成乱猜</li>
+<li>无行动支持难以想出对抗方案</li>
+</ol></li>
+<li>海量数据超越认知局限性阈值</li>
+<li>过分强调可视化，造成“掌控一切”的虚假感受</li>
+</ul>
+<p><strong>怎么做</strong>？——改变依赖分析人员的低效模式，进行高效态势感知——<strong>如何高效</strong>？</p>
+<h3 id="如何实现高效态势感知">如何实现高效态势感知</h3>
+<p>——威胁情报驱动态势感知以指挥积极防御的动态综合体系化网空安全防御模式。</p>
+<ul>
+<li>大量的记忆查找转化为模式匹配</li>
+<li>大量经验知识抽象为长时记忆模型</li>
+</ul>
+<p>适合长时间记忆的认知结构：<strong>图式、心智模型</strong></p>
+<ul>
+<li>图式：过去的情境态势抽象为结构化知识，可用于模式匹配、可用于长时间存储与查找</li>
+<li>心智模型：人员对系统目的和形态形成的描述、对状态的解释、对未来的预测（特定图式）</li>
+</ul>
+<p>主要内容：</p>
+<ul>
+<li>图式包含检测攻击需要匹配的模式——威胁指示器</li>
+<li>心智模型用结构化形式整合组织信息帮助理解，同时包含着未来状态预测——战术、行为模式：<strong>与业务结合</strong></li>
+<li>图式绑定的脚本包含着此情景对应的响应序列——行动方案</li>
+</ul>
+<p>流程：</p>
+<ol type="1">
+<li>前期准备：采集数据与事件信息并行处理——<strong>过滤</strong>、缩减、预处理。根据经验知识<strong>抽取特征</strong>、进行<strong>标签标定</strong>。——提取<strong>涌现特性</strong></li>
+<li>观察阶段：使用图式<strong>信息融合</strong>机制，将元素聚合为攻击轨迹等。与图式进行匹配，匹配到的作为疑似事件。</li>
+<li>理解阶段：将疑似事件的心智模型作为框架，辅助安全人员实现信息整合组织与结构化呈现。进而理解<strong>可能造成的影响</strong>。</li>
+<li>预测阶段：将当前情境与典型攻击模式结合，<strong>推测出未来状态</strong>、对影响效果进行评估。</li>
+<li>最终效果：确定响应行动<strong>优先级</strong>，开发<strong>行动方案</strong>。</li>
+</ol>
+<h3 id="困惑">困惑</h3>
+<blockquote>
+<p>实现了全自动防御响应机制，还需要态势感知吗？</p>
+</blockquote>
+<p>——并不是“二选一”，而是如何有机结合</p>
+<ul>
+<li>攻击行动空间分散、时间间隔很长、可能需要某事件触发</li>
+<li>正常维护行为很难与攻击区分</li>
+<li>会被人类决策者、攻防博弈等干扰</li>
+<li>高度对抗环境中人工智能检测机制可能被操控</li>
+</ul>
+<p>结论：需要采用“<strong>人在控制闭环上</strong>”的“<strong>半自动化</strong>”防御模式，将安全操作员作为系统的组成部分。</p>
+<ul>
+<li>误判可能性小、影响范围可控的低水平或高置信度已知攻击——受管控的自动化处置。</li>
+<li>存在不确定性的中等水平威胁——安全人员参与甄别鉴定，自动化执行前进行确认放行。</li>
+<li>高水平威胁——基于线索展开深入甄别分析，对响应方案进行优化调整，将自动与手工相结合。</li>
+</ul>
+<h2 id="如何围绕网空防御人员实现态势感知">如何围绕网空防御人员实现态势感知</h2>
+<p>——还需要建立高阶决策所需的心理模型，加强人机结合</p>
+<ul>
+<li><p>加强整合现有设备、利用各种分析工具、对流量和日志进行过滤等预处理。对可视化机制进行改进增强。</p></li>
+<li><p>“<strong>人员与自主系统协同组队</strong>”，系统和人员高度共享。运用高级显示和推荐系统、呈现过往细节的知识结构、提供一系列未来可能的情境态势选项。</p>
+<ul>
+<li>系统侧：
+<ol type="1">
+<li>采用具有形式化语义的可读语言对事件与关联进行建模，使用类似图结构将结果组织起来；</li>
+<li>采用“杀伤链”情境本体模型对事件进行结构化组织，使用心智模型将其与攻击行动等经验结合；</li>
+<li>根据推理机制进行预测、使用融合知识表达模型呈现情境态势。</li>
+</ol></li>
+<li>人员侧：实现“二阶”态势感知。
+<ol type="1">
+<li>培训安全人员形成长期记忆认知结构、学习如何使用信息可视化和数据钻取等交互方法进行分析、并在呈现信息的引导下进行理解预测。</li>
+<li>在系统支持下制定决策，通过界面向系统传达处置指令。</li>
+</ol></li>
+</ul></li>
+</ul>
+<h2 id="支持实现态势感知的系统形态">支持实现态势感知的系统形态</h2>
+<ul>
+<li>涉及方方面面，全都要兼顾考虑</li>
+<li>越来越多的网络安全技术与围绕态势感知的积极防御体系关系密切</li>
+<li>几乎<strong>不可能以一个单体系统达到</strong>。——引入<strong>复杂超系统</strong>理念（system of systems）</li>
+<li>以系统工程方法，体系化设计以态势感知为中心、以威胁情报驱动的积极防御体系</li>
+</ul>
+<h1 id="推荐序">推荐序</h1>
+<blockquote>
+<p>迄今为止业界最完整最系统的基础理论文献</p>
+</blockquote>
+<p>业界更多涉及态势感知能力建设的场景：</p>
+<ul>
+<li>机构客户建立防御体系</li>
+<li>监管部门建设监测通报</li>
+<li>安全厂商工资体系的自我完善</li>
+</ul>
+<h2 id="对手的变化">对手的变化</h2>
+<blockquote>
+<p>单点威胁-&gt;高级网空威胁行为体</p>
+</blockquote>
+<ul>
+<li>不再是对上网体验和互联网效率的影响，而是对关键基础设施和重要信息系统的控制、干扰、窃取、破坏。</li>
+<li>以大国博弈为背景，高成本支撑下的体系化攻击。</li>
+</ul>
+<p><strong>敌已在内，敌将在内</strong>。网空防御五条规则：</p>
+<ol type="1">
+<li>敌方终将进入我方内网</li>
+<li>网络防御者不能改变规则1</li>
+<li>敌方已经进入我方内网</li>
+<li>攻击将继续进行</li>
+<li>情况会越来越糟</li>
+</ol>
+<p>威胁行为体等级：</p>
+<p>业余黑客、黑产组织、网络犯罪团伙、网络恐怖组织、一般能力国家、高级能力国家、超高能力国家。</p>
+<h2 id="视角的变化">视角的变化</h2>
+<blockquote>
+<p>从自我闭环到走向客户，实现与攻击者的闭环</p>
+</blockquote>
+<ul>
+<li>定向性的安全威胁在攻击目标场景上具有个性化特点</li>
+<li>依靠同一厂商维护分发、自我闭环，难以应对定向性威胁</li>
+<li>“片面抗战”到“全面抗战”，充分依赖客户本身的主观能动性</li>
+<li>客户的信息资产并不仅仅是攻击目标和防护对象，更是进行布防的战略纵深</li>
+</ul>
+<h2 id="思路的变化">思路的变化</h2>
+<blockquote>
+<p>从监测平台到战术型态势感知平台</p>
+</blockquote>
+<ul>
+<li><p>监测型：需求调研、工程实施+情报赋能、定制改造、接口融合、流程电子化、可视化展示</p>
+<ul>
+<li><p>目标主要是提升资产普查能力，对安全威胁进行监测</p></li>
+<li><p>实际情境中，更多的是互联网侧暴露资产的安全情况，<strong>效果并不理想</strong>。</p>
+<p>原因：</p>
+<ol type="1">
+<li>承担方技术能力不足</li>
+<li>缺少有效的总体规划和能力整合</li>
+<li>感知手段高度单一</li>
+<li>对威胁的评价导向，认为阻止了某几种可被建模的威胁就具备了基础检测能力——不适合APT</li>
+<li>预测倾向于判断“攻击何时发起”，忽视了如何运行和对未来状态的影响</li>
+<li>“地图+炮”的模式</li>
+<li>采集手段初级，仅限于互联网暴露资产，关键基础设施内部探针较少</li>
+</ol></li>
+</ul></li>
+<li>态势感知：<strong>“三高”网络</strong>作为重点保护对象
+<ol type="1">
+<li>承载高信息价值资产</li>
+<li>被规定为高安全防护等级</li>
+<li>受到常态化高强度网络威胁攻击</li>
+</ol></li>
+</ul>
+<h2 id="效果的变化">效果的变化</h2>
+<blockquote>
+<p>从单点防护能力到动态综合防御能力</p>
+</blockquote>
+<ul>
+<li>靠堆砌产品不能形成有效的防御体系</li>
+<li>“<strong>网络安全滑动标尺模型</strong>”：五大类别具有连续性关系，左边为右边提供基础支撑、降低实施难度、提升防御效果、减少资源投入
+<ol type="1">
+<li>基础结构安全</li>
+<li>纵深防御</li>
+<li>态势感知和积极防御</li>
+<li>威胁情报</li>
+<li>反制</li>
+</ol></li>
+</ul>
+<p>要注意的问题：</p>
+<ol type="1">
+<li><p>辨识网络安全领域各种观念</p>
+<p>两种错误倾向：</p>
+<ul>
+<li>片面夸大单点防护的作用</li>
+<li>片面否定既有成熟单点环节的价值</li>
+</ul></li>
+<li>意识到叠加演进的安全能力建设，以扎实基础可靠的单点基础安全能力为支撑</li>
+<li><p>站在防御体系的角度，多数单点环节形成有效能力同样是体系化的工作</p></li>
+</ol>
+<p>安天的安全理念：</p>
+<ul>
+<li>综合发展</li>
+<li>深度结合</li>
+<li>全面覆盖</li>
+<li>动态协同</li>
+</ul>
+
+        
+      
+      <!-- 
+        <p>《网络空间安全防御与态势感知》阅读笔记</p>
+<span id="more"></span>
+<blockquote>
+<p>《网络空间安全防御与态势感知》</p>
+</blockquote>
+<h1 id="作者前言">作者前言</h1>
+<ul>
+<li>第一章：操作员怎样形成感知，关于态势感知的要求。必要性和当前面临的问题。</li>
+<li>第二章：传统战争中的态势感知KSA和网空态势感知CSA的比较、相关性和差异性。</li>
+<li>第三章：网空态势感知在不同阶段如何形成、各阶段涉及的角色。</li>
+<li>第四章：如何形成感知，面向整体网络视图——宏观态势感知。</li>
+<li>第五章：人类态势感知中信息整合技术和计算表达方面的挑战与方法。</li>
+<li>第六章：怎样弥合与人类认知推理的差距——提取分析师推理过程。</li>
+<li>第七章：可视化相关——科学可视化、信息可视化、可视化系统。</li>
+<li>第八章：清晰的语义和标准的本体模型辅助推理。</li>
+<li>第九章：机器学习算法有效性和语义清晰度的折中关系。</li>
+<li>第十章：第二级态势感知——“理解”，如何评估影响。</li>
+<li>第十一章：第三级态势感知——“预测”，推断演化和未来预测。</li>
+<li>第十二章：对可能实现的改进进行量化评价——评估指标。</li>
+<li>第十三章：最终目标——态势管理，维护任务的弹性恢复能力。</li>
+</ul>
+<h1 id="译者序">译者序</h1>
+<p>总述：网络空间安全防御与态势感知学术文章合集。建议先阅读原作者前言。</p>
+<ul>
+<li>网空态势感知研究：精读全部内容</li>
+<li>网空安全防御：精读1-3章</li>
+</ul>
+<p>由几个问题引出：</p>
+<h2 id="为什么需要态势感知">为什么需要态势感知</h2>
+<p>——网空态势感知正是<strong>实现网络空间保障的先决条件</strong></p>
+<ol type="1">
+<li>网络信息技术的应用发展
+<ol type="1">
+<li>早期，将<strong>物理隔离</strong>作为最值得信赖的防御措施</li>
+<li>信息系统较少时，“<strong>一刀切</strong>”，应对业余爱好者的攻击</li>
+<li>信息系统较多时，“<strong>突出重点</strong>”，保护重要系统</li>
+<li>云计算、大数据广泛应用的如今，信息系统成为不容有失的关键基础设施</li>
+</ol></li>
+<li>安全防护工作模式转变
+<ul>
+<li>立足于更加积极的合规驱动工作模式，进一步针对关键基础设施等重要领域实现<strong>主动有效的全方位体系化</strong>防护工作模式。</li>
+</ul></li>
+<li>网络安全防御理念演化
+<ul>
+<li>将网络空间和传统物理空间中的威胁综合考虑——<strong>以威胁对抗有效性为导向的防御理念</strong></li>
+</ul></li>
+<li><p>网络安全防御体系建设模式变革</p>
+<ul>
+<li>传统军事领域的实践具有积极借鉴作用——从基于威胁规划变为基于能力规划</li>
+<li>“内网基本安全，只需查漏补缺”想法已经过时，——需要“找出来、赶出去”</li>
+<li>基础防线为动态防御提供了有力的对抗环境，屏蔽低水平攻击干扰、加强隐匿行动发现能力</li>
+</ul></li>
+<li><p>网络安全防御机制创新</p>
+<ul>
+<li>叠加演进的网络空间安全能力模型：
+<ul>
+<li>基础结构安全</li>
+<li>纵深防御</li>
+<li>积极防御</li>
+<li>威胁情报</li>
+<li><strong>反制能力</strong></li>
+</ul></li>
+<li>不仅要静态，更要动态：一套有效的动态指挥控制体系</li>
+</ul></li>
+</ol>
+<h2 id="态势感知是什么">态势感知是什么</h2>
+<p>——在一定时间和空间内<strong>观察</strong>环境中的元素，<strong>理解</strong>这些元素的意义并<strong>预测</strong>这些元素在不久的将来的状态。</p>
+<p>三个分层阶段：观察、理解、预测。——一种“知识的状态”</p>
+<ul>
+<li><strong>和态势评估的差别</strong>：态势评估是实现、获取或维持态势感知状态的过程。</li>
+<li>“态势”不只是宏观态势，也有“中观情境”</li>
+<li>“感知”不仅仅是观察，更侧重于运用知识获得面向响应处置的机敏能力</li>
+</ul>
+<h3 id="一些困惑">一些困惑</h3>
+<ol type="1">
+<li><p>应面向策略调整还是战术响应？</p>
+<p>——兼顾宏观中观、结合实时采集与知识经验（中长期情报）。最终支撑短期响应和中长期战略调整。</p>
+<ul>
+<li><p>仅仅依靠宏观态势感知难以支撑有效的积极防御体系——<strong>关注中观层面</strong></p></li>
+<li><p>应当<strong>能够支撑战术响应</strong>，可以接受处理微观数据。</p>
+<p>侧重于微观上的入侵检测-&gt;在中观层面对观察到信息进行组织与理解-&gt;根据中观层面的合理推测在宏观层面制定决策-&gt;执行行动对节点实体产生微观影响。</p></li>
+<li><p>要结合<strong>中长</strong>时间周期对抗威胁积累的<strong>知识经验</strong>发现高级威胁。</p></li>
+</ul></li>
+<li><p>只是为了满足整体安全状态展示吗？</p>
+<p>——不仅是整体安全状态，还要<strong>具体分工确定需求</strong>，以交互方式向运维人员提供必要的<strong>信息支撑和分析能力</strong>。</p>
+<ul>
+<li>不仅是要处理海量数据，还要能及时处理高速源源不断产生的安全事件。——仍会有大量安全事件让安全人员分析。</li>
+<li>安全分析师仍是不可或缺的，还需要得到信息化建设与运维人员等的配合。</li>
+</ul></li>
+<li>地图+炮形式态势感知效果为何不显著？
+<ul>
+<li>大部分人将<strong>地理信息放入其中</strong>，称为“态势感知”，侧重于展现宏观整体安全态势、罗列部分微观信息</li>
+<li>只能回答“有或无”，无法提供攻击行动阶段和攻击者位置等信息，更不能回答影响、演化、行为等一系列问题。缺乏中观呈现能力——<strong>感而不知</strong></li>
+<li>缺乏安全人员的分析和交互操作能力，无法有效指挥积极防御。——<strong>感而不为</strong></li>
+</ul></li>
+</ol>
+<h2 id="如何实现态势感知">如何实现态势感知</h2>
+<p>提法1——观察层：加强采集能力；理解层：可视化展示；预测层：数学模型预测。</p>
+<p>提法2——观察层：采集+可视化；理解层：提高安全人员技术水平；预测层：人工智能深度学习。</p>
+<p>提法3——简单态势感知：地图+炮；高级态势感知：理解+预测。</p>
+<p>——这三个阶段不是分立的，而是相互融合的</p>
+<p><strong>本书观点</strong>——</p>
+<ol type="1">
+<li>观察层：传感（sensing），获得微观层面感知——<strong>是什么</strong></li>
+<li>理解层：结合防御目标解释数据含义，结构化中观呈现全貌图景——<strong>意味着什么</strong>
+<ul>
+<li>节点视角：易受攻击的程度</li>
+<li>模式角度：攻击行为的检测特征</li>
+<li>事件关联视角：哪些事件可能相互关联</li>
+<li>事件影响视角：对当前任务运行的影响</li>
+<li>竞争性事件的优先级排序</li>
+</ul></li>
+<li>预测层：对安全事件进行前向时间推断，确定未来影响，预测下一步可能发生的情况——<strong>会造成什么</strong></li>
+</ol>
+<p><strong>人工预测的问题</strong>——效果与运维人员认知状态有关</p>
+<ul>
+<li>完全依赖人工预测具有不可持续性，可能导致低水平感知：<strong>注意力与工作记忆制约</strong>。
+<ol type="1">
+<li>缺乏明显线索引导</li>
+<li>难以发现关键关联</li>
+<li>信息不足造成乱猜</li>
+<li>无行动支持难以想出对抗方案</li>
+</ol></li>
+<li>海量数据超越认知局限性阈值</li>
+<li>过分强调可视化，造成“掌控一切”的虚假感受</li>
+</ul>
+<p><strong>怎么做</strong>？——改变依赖分析人员的低效模式，进行高效态势感知——<strong>如何高效</strong>？</p>
+<h3 id="如何实现高效态势感知">如何实现高效态势感知</h3>
+<p>——威胁情报驱动态势感知以指挥积极防御的动态综合体系化网空安全防御模式。</p>
+<ul>
+<li>大量的记忆查找转化为模式匹配</li>
+<li>大量经验知识抽象为长时记忆模型</li>
+</ul>
+<p>适合长时间记忆的认知结构：<strong>图式、心智模型</strong></p>
+<ul>
+<li>图式：过去的情境态势抽象为结构化知识，可用于模式匹配、可用于长时间存储与查找</li>
+<li>心智模型：人员对系统目的和形态形成的描述、对状态的解释、对未来的预测（特定图式）</li>
+</ul>
+<p>主要内容：</p>
+<ul>
+<li>图式包含检测攻击需要匹配的模式——威胁指示器</li>
+<li>心智模型用结构化形式整合组织信息帮助理解，同时包含着未来状态预测——战术、行为模式：<strong>与业务结合</strong></li>
+<li>图式绑定的脚本包含着此情景对应的响应序列——行动方案</li>
+</ul>
+<p>流程：</p>
+<ol type="1">
+<li>前期准备：采集数据与事件信息并行处理——<strong>过滤</strong>、缩减、预处理。根据经验知识<strong>抽取特征</strong>、进行<strong>标签标定</strong>。——提取<strong>涌现特性</strong></li>
+<li>观察阶段：使用图式<strong>信息融合</strong>机制，将元素聚合为攻击轨迹等。与图式进行匹配，匹配到的作为疑似事件。</li>
+<li>理解阶段：将疑似事件的心智模型作为框架，辅助安全人员实现信息整合组织与结构化呈现。进而理解<strong>可能造成的影响</strong>。</li>
+<li>预测阶段：将当前情境与典型攻击模式结合，<strong>推测出未来状态</strong>、对影响效果进行评估。</li>
+<li>最终效果：确定响应行动<strong>优先级</strong>，开发<strong>行动方案</strong>。</li>
+</ol>
+<h3 id="困惑">困惑</h3>
+<blockquote>
+<p>实现了全自动防御响应机制，还需要态势感知吗？</p>
+</blockquote>
+<p>——并不是“二选一”，而是如何有机结合</p>
+<ul>
+<li>攻击行动空间分散、时间间隔很长、可能需要某事件触发</li>
+<li>正常维护行为很难与攻击区分</li>
+<li>会被人类决策者、攻防博弈等干扰</li>
+<li>高度对抗环境中人工智能检测机制可能被操控</li>
+</ul>
+<p>结论：需要采用“<strong>人在控制闭环上</strong>”的“<strong>半自动化</strong>”防御模式，将安全操作员作为系统的组成部分。</p>
+<ul>
+<li>误判可能性小、影响范围可控的低水平或高置信度已知攻击——受管控的自动化处置。</li>
+<li>存在不确定性的中等水平威胁——安全人员参与甄别鉴定，自动化执行前进行确认放行。</li>
+<li>高水平威胁——基于线索展开深入甄别分析，对响应方案进行优化调整，将自动与手工相结合。</li>
+</ul>
+<h2 id="如何围绕网空防御人员实现态势感知">如何围绕网空防御人员实现态势感知</h2>
+<p>——还需要建立高阶决策所需的心理模型，加强人机结合</p>
+<ul>
+<li><p>加强整合现有设备、利用各种分析工具、对流量和日志进行过滤等预处理。对可视化机制进行改进增强。</p></li>
+<li><p>“<strong>人员与自主系统协同组队</strong>”，系统和人员高度共享。运用高级显示和推荐系统、呈现过往细节的知识结构、提供一系列未来可能的情境态势选项。</p>
+<ul>
+<li>系统侧：
+<ol type="1">
+<li>采用具有形式化语义的可读语言对事件与关联进行建模，使用类似图结构将结果组织起来；</li>
+<li>采用“杀伤链”情境本体模型对事件进行结构化组织，使用心智模型将其与攻击行动等经验结合；</li>
+<li>根据推理机制进行预测、使用融合知识表达模型呈现情境态势。</li>
+</ol></li>
+<li>人员侧：实现“二阶”态势感知。
+<ol type="1">
+<li>培训安全人员形成长期记忆认知结构、学习如何使用信息可视化和数据钻取等交互方法进行分析、并在呈现信息的引导下进行理解预测。</li>
+<li>在系统支持下制定决策，通过界面向系统传达处置指令。</li>
+</ol></li>
+</ul></li>
+</ul>
+<h2 id="支持实现态势感知的系统形态">支持实现态势感知的系统形态</h2>
+<ul>
+<li>涉及方方面面，全都要兼顾考虑</li>
+<li>越来越多的网络安全技术与围绕态势感知的积极防御体系关系密切</li>
+<li>几乎<strong>不可能以一个单体系统达到</strong>。——引入<strong>复杂超系统</strong>理念（system of systems）</li>
+<li>以系统工程方法，体系化设计以态势感知为中心、以威胁情报驱动的积极防御体系</li>
+</ul>
+<h1 id="推荐序">推荐序</h1>
+<blockquote>
+<p>迄今为止业界最完整最系统的基础理论文献</p>
+</blockquote>
+<p>业界更多涉及态势感知能力建设的场景：</p>
+<ul>
+<li>机构客户建立防御体系</li>
+<li>监管部门建设监测通报</li>
+<li>安全厂商工资体系的自我完善</li>
+</ul>
+<h2 id="对手的变化">对手的变化</h2>
+<blockquote>
+<p>单点威胁-&gt;高级网空威胁行为体</p>
+</blockquote>
+<ul>
+<li>不再是对上网体验和互联网效率的影响，而是对关键基础设施和重要信息系统的控制、干扰、窃取、破坏。</li>
+<li>以大国博弈为背景，高成本支撑下的体系化攻击。</li>
+</ul>
+<p><strong>敌已在内，敌将在内</strong>。网空防御五条规则：</p>
+<ol type="1">
+<li>敌方终将进入我方内网</li>
+<li>网络防御者不能改变规则1</li>
+<li>敌方已经进入我方内网</li>
+<li>攻击将继续进行</li>
+<li>情况会越来越糟</li>
+</ol>
+<p>威胁行为体等级：</p>
+<p>业余黑客、黑产组织、网络犯罪团伙、网络恐怖组织、一般能力国家、高级能力国家、超高能力国家。</p>
+<h2 id="视角的变化">视角的变化</h2>
+<blockquote>
+<p>从自我闭环到走向客户，实现与攻击者的闭环</p>
+</blockquote>
+<ul>
+<li>定向性的安全威胁在攻击目标场景上具有个性化特点</li>
+<li>依靠同一厂商维护分发、自我闭环，难以应对定向性威胁</li>
+<li>“片面抗战”到“全面抗战”，充分依赖客户本身的主观能动性</li>
+<li>客户的信息资产并不仅仅是攻击目标和防护对象，更是进行布防的战略纵深</li>
+</ul>
+<h2 id="思路的变化">思路的变化</h2>
+<blockquote>
+<p>从监测平台到战术型态势感知平台</p>
+</blockquote>
+<ul>
+<li><p>监测型：需求调研、工程实施+情报赋能、定制改造、接口融合、流程电子化、可视化展示</p>
+<ul>
+<li><p>目标主要是提升资产普查能力，对安全威胁进行监测</p></li>
+<li><p>实际情境中，更多的是互联网侧暴露资产的安全情况，<strong>效果并不理想</strong>。</p>
+<p>原因：</p>
+<ol type="1">
+<li>承担方技术能力不足</li>
+<li>缺少有效的总体规划和能力整合</li>
+<li>感知手段高度单一</li>
+<li>对威胁的评价导向，认为阻止了某几种可被建模的威胁就具备了基础检测能力——不适合APT</li>
+<li>预测倾向于判断“攻击何时发起”，忽视了如何运行和对未来状态的影响</li>
+<li>“地图+炮”的模式</li>
+<li>采集手段初级，仅限于互联网暴露资产，关键基础设施内部探针较少</li>
+</ol></li>
+</ul></li>
+<li>态势感知：<strong>“三高”网络</strong>作为重点保护对象
+<ol type="1">
+<li>承载高信息价值资产</li>
+<li>被规定为高安全防护等级</li>
+<li>受到常态化高强度网络威胁攻击</li>
+</ol></li>
+</ul>
+<h2 id="效果的变化">效果的变化</h2>
+<blockquote>
+<p>从单点防护能力到动态综合防御能力</p>
+</blockquote>
+<ul>
+<li>靠堆砌产品不能形成有效的防御体系</li>
+<li>“<strong>网络安全滑动标尺模型</strong>”：五大类别具有连续性关系，左边为右边提供基础支撑、降低实施难度、提升防御效果、减少资源投入
+<ol type="1">
+<li>基础结构安全</li>
+<li>纵深防御</li>
+<li>态势感知和积极防御</li>
+<li>威胁情报</li>
+<li>反制</li>
+</ol></li>
+</ul>
+<p>要注意的问题：</p>
+<ol type="1">
+<li><p>辨识网络安全领域各种观念</p>
+<p>两种错误倾向：</p>
+<ul>
+<li>片面夸大单点防护的作用</li>
+<li>片面否定既有成熟单点环节的价值</li>
+</ul></li>
+<li>意识到叠加演进的安全能力建设，以扎实基础可靠的单点基础安全能力为支撑</li>
+<li><p>站在防御体系的角度，多数单点环节形成有效能力同样是体系化的工作</p></li>
+</ol>
+<p>安天的安全理念：</p>
+<ul>
+<li>综合发展</li>
+<li>深度结合</li>
+<li>全面覆盖</li>
+<li>动态协同</li>
+</ul>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/01/20/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5-01%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E4%B8%8E%E5%BD%93%E5%89%8D%E6%8C%91%E6%88%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          【态势感知】第一章 基础理论与当前挑战
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/17/%E8%B0%88%E8%B0%88%E3%80%8A%E9%9C%8D%E4%B9%B1%E6%97%B6%E6%9C%9F%E7%9A%84%E7%88%B1%E6%83%85%E3%80%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">谈谈《霍乱时期的爱情》</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="网络空间安全防御与态势感知-00各种序" data-title="【态势感知】前言" data-url="https://renzehua1998.github.io/2023/01/19/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%98%B2%E5%BE%A1%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5-00%E5%90%84%E7%A7%8D%E5%BA%8F/"  data-images="/img/avatar.jpeg" data-content="【态势感知】前言">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

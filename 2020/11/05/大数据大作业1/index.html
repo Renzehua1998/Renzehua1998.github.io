@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>大数据作业1——apriori算法 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大四上大数据分析与知识发现大作业——apriori算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据作业1——apriori算法">
+<meta property="og:url" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大四上大数据分析与知识发现大作业——apriori算法">
+<meta property="og:locale">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps1.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps2.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/%E4%B8%AD%E8%8D%AF.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001858612.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001922990.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001930066.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001935940.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001941662.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001945963.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001956713.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002010188.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002022383.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002041985.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002055017.png">
+<meta property="article:published_time" content="2020-11-05T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-20T10:37:35.293Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="实验报告">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据挖掘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-大数据大作业1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/" class="article-date">
+  	<time datetime="2020-11-05T04:00:00.000Z" itemprop="datePublished">2020-11-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据作业1——apriori算法
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">5.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">20分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%9B%9B/">大四</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="大数据作业1——apriori算法">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%85%B3%E4%BA%8E%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、 关于关联规则的简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8Capriori%E7%AE%97%E6%B3%95%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">二、Apriori算法主要流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E6%89%80%E9%87%87%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E7%AE%80%E4%BB%8B"><span class="toc-number">3.</span> <span class="toc-text">三、 所采用的数据集简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、 实验结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%83"><span class="toc-number">4.1.</span> <span class="toc-text">（1） 三种方式运行时间比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%94%AF%E6%8C%81%E5%BA%A6%E7%BD%AE%E4%BF%A1%E5%BA%A6%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">4.2.</span> <span class="toc-text">（2）修改支持度、置信度的结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%96%E6%8E%98%E5%87%BA%E7%9A%84%E6%9C%89%E8%B6%A3%E8%A7%84%E5%88%99"><span class="toc-number">4.3.</span> <span class="toc-text">（3）挖掘出的有趣规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%80%81%E5%B8%88%E6%8F%90%E4%BE%9B%E7%9A%84%E7%99%BE%E8%B4%A7%E5%95%86%E5%BA%97%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8C%96%E6%8E%98%E5%87%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%84%E5%88%99"><span class="toc-number">4.4.</span> <span class="toc-text">（4）使用老师提供的百货商店数据集挖掘出的一些规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">附录（源代码）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%ACapriori%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81basic.py"><span class="toc-number">5.1.</span> <span class="toc-text">1. 基本Apriori算法代码：（basic.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8Fapriori%E4%BB%A3%E7%A0%81distributed.py"><span class="toc-number">5.2.</span> <span class="toc-text">2. 分布式Apriori代码：（distributed.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%8E%8B%E7%BC%A9%E6%96%B9%E6%B3%95affairs_comp.py"><span class="toc-number">5.3.</span> <span class="toc-text">3. 事务压缩方法：（affairs_comp.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%A3%E7%A0%81crawler.py"><span class="toc-number">5.4.</span> <span class="toc-text">4. 爬取数据集代码：（crawler.py）</span></a></li></ol></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%85%B3%E4%BA%8E%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E7%9A%84%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、 关于关联规则的简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8Capriori%E7%AE%97%E6%B3%95%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">二、Apriori算法主要流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E6%89%80%E9%87%87%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E7%AE%80%E4%BB%8B"><span class="toc-number">3.</span> <span class="toc-text">三、 所采用的数据集简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、 实验结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%83"><span class="toc-number">4.1.</span> <span class="toc-text">（1） 三种方式运行时间比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%94%AF%E6%8C%81%E5%BA%A6%E7%BD%AE%E4%BF%A1%E5%BA%A6%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">4.2.</span> <span class="toc-text">（2）修改支持度、置信度的结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%96%E6%8E%98%E5%87%BA%E7%9A%84%E6%9C%89%E8%B6%A3%E8%A7%84%E5%88%99"><span class="toc-number">4.3.</span> <span class="toc-text">（3）挖掘出的有趣规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%80%81%E5%B8%88%E6%8F%90%E4%BE%9B%E7%9A%84%E7%99%BE%E8%B4%A7%E5%95%86%E5%BA%97%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8C%96%E6%8E%98%E5%87%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%84%E5%88%99"><span class="toc-number">4.4.</span> <span class="toc-text">（4）使用老师提供的百货商店数据集挖掘出的一些规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">附录（源代码）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%ACapriori%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81basic.py"><span class="toc-number">5.1.</span> <span class="toc-text">1. 基本Apriori算法代码：（basic.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8Fapriori%E4%BB%A3%E7%A0%81distributed.py"><span class="toc-number">5.2.</span> <span class="toc-text">2. 分布式Apriori代码：（distributed.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%8E%8B%E7%BC%A9%E6%96%B9%E6%B3%95affairs_comp.py"><span class="toc-number">5.3.</span> <span class="toc-text">3. 事务压缩方法：（affairs_comp.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%A3%E7%A0%81crawler.py"><span class="toc-number">5.4.</span> <span class="toc-text">4. 爬取数据集代码：（crawler.py）</span></a></li></ol></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大四上大数据分析与知识发现大作业——apriori算法</p>
+<span id="more"></span>
+<p>本报告主要工作：本次大作业使用python自己编程实现了apriori算法，并分别从分布式实现和事务压缩处理的角度进行了算法优化。从中医药网站爬取了两万多条药方作为数据集，用来挖掘各种中药材之间的关联规则，分别使用不同的支持度、置信度进行实验，取得了比较有趣的结果。同时也使用老师给的百货商店数据集进行了测试。</p>
+<p>代码运行环境为Python 3.7.4，IDE为Pycharm，所有代码均为自己编写。参考书籍：《数据挖掘概念与技术》（原书第二版）、《机器学习实战》。</p>
+<h1 id="一-关于关联规则的简要介绍">一、 关于关联规则的简要介绍</h1>
+<p>要介绍关联规则，首先要引入两个概念：事务和频繁项集。</p>
+<p><strong>事务</strong>：数据集中的一条内容，可以是一次消费的购买记录，也可以是一次测量的返回结果，或者是一个药方中的药品。可以理解为与某个事情相关的名词的集合。</p>
+<p><strong>频繁项集：</strong>要想介绍频繁项集，首先要介绍“项集”。顾名思义，“项集”就是项的集合，项就是每一条事务中的一个名词，可以代表一个物品或者一个事件。“频繁项集”就是在数据集中频繁出现的项集，即一种频繁的模式，这个项集可大可小，依据其在数据集中出现的频率而判断是否为频繁项集。</p>
+<p>而关联规则是基于这二者进行计算的，它的基本定义为：</p>
+<p><strong>关联规则：</strong>两个项集之间所具有的某种相关关系，其紧密程度由支持度和置信度来衡量。我们将关联规则中前面的项集叫做<strong>前件</strong>，后面的项集叫做<strong>后件</strong>，规则的含义可以表示为：前件出现，后件将有很大概率出现。</p>
+<p>下面介绍衡量关联规则的两条准则：支持度与置信度。</p>
+<p><strong>支持度：</strong>一个项集的支持度被定义为数据集中包含该项集的记录所占的比例</p>
+<p><strong>置信度：</strong>两个项集之间关联规则紧密程度的置信度可以理解为前后件的并集所代表的项集的支持度与前件支持度的比，即：出现前件的条件下出现后件的概率。</p>
+<h1 id="二apriori算法主要流程">二、Apriori算法主要流程</h1>
+<p>为了寻找频繁项集，就必须计算每个项集的支持度，当事务中项的数目很多时，它们之间互相的排列组合就变得及其复杂。当数据集庞大时，每个事项的检测都包含的大量的比对和筛选，算法复杂度变得很高，计算时间成本极大。</p>
+<p>为了解决这个问题，我们提出了apriori原理：<strong>如果某个项集是频繁项集，那么它所有的子集也是频繁的。</strong>即如果 {0,1} 是频繁的，那么 {0}, {1} 也一定是频繁的。这个规则看似直观，但需要经过极为严格的证明，所幸前人已经为我们证明好了这个定理。乍一看它似乎没什么用，但是把这个定理反过来，它的逆否命题为：<strong>如果某个项集非频繁，那么它的超集也非频繁。</strong>那么我们就可以在由小项集组合大项集时提前筛掉那些不频繁的项集，从而大大减少计算量。</p>
+<p>算法的主要步骤为：</p>
+<ol type="1">
+<li>寻找频繁项集</li>
+</ol>
+<p>①　扫描整个数据集获取所有单个名词的项集列表——候选1-项集。</p>
+<p>②　扫描数据集计算每个候选1-项集的支持度，删除不满足最小支持度的项集，形成频繁1-项集，此时k=2。</p>
+<p>③　对此时的频繁（k-1）-项集进行组合，形成候选的k-项集。若k-项集为空，退出。</p>
+<p>④　扫描数据集计算每个候选k-项集的支持度，筛选出符合条件的k-项集，形成频繁k-项集。返回第三步。</p>
+<ol start="2" type="1">
+<li>寻找关联规则</li>
+</ol>
+<p>使用递归的方法，遍历所有大于1的频繁项集，求取它们的1项集子集：</p>
+<p>—如果是频繁2项集：</p>
+<p>——使用差集的方法计算置信度，符合的关联规则直接输出。</p>
+<p>—或者项集中项数大于等于3：</p>
+<p>——如果子集可以继续组合成能生成其他规则的新子集：（1）</p>
+<p>———子集进行组合，测试新生成的规则是否满足条件，符合的直接输出。</p>
+<p>———如果还可以继续组合，递归调用（1）</p>
+<p>​ 否则：</p>
+<p>———继续遍历下一个项集</p>
+<p><strong>一些优化方法</strong>：</p>
+<ol type="1">
+<li><p>使用分布式的方法，将数据集分为多个块，在遍历数据集时利用python中的map函数，将比较统计的部分分开进行，再使用reduce函数整合每个块统计的结果，形成最终的答案。这对大规模数据集比较适用。</p></li>
+<li><p>使用事务压缩的方法，在遍历数据集时，如果某个事务已经不包含当前的频繁k-项集，那么它们必然不包含由这频繁k-项集组成的候选k+1-项集，那么在下一次遍历时就可以跳过这些事务，不必再进行子集计算，节省了运行时间。这对大部分情况都比较适用。</p></li>
+</ol>
+<h1 id="三-所采用的数据集简介">三、 所采用的数据集简介</h1>
+<p>中医药的理论博大精深，各种药材之间的配合在治病的疗效上会起到1+1&gt;2的效果。比如茯苓和人参搭配，具有益心力，除谬忘，能饮食，延年益寿之功效。主治上气，胸胁满闷，霍乱，积痢。其他的相似组合还有很多，进行关联规则的发现可以帮助我们更系统地归纳古人留下的药方中的知识，便于将中医药应用于现代疾病的治疗中。</p>
+<p>所用我从某中医网站爬取了2万多条药方的数据，作为待挖掘的数据集，意在找出哪些药材之间的关联规则比较大，哪些药材常常出现并且被搭配使用在药方当中。爬取数据集的代码放在crawler.py文件中，2万条药方的网址已经提前爬出可以直接导入进行读取，节省时间。（url.csv）</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps1.jpg" class="" title="img">
+<p>中医网站页面（网址：http://zhongyaofangji.com/all.html）</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps2.jpg" class="" title="img">
+<p>药方详细页面</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/%E4%B8%AD%E8%8D%AF.jpg" class="" title="img">
+<p>数据集展示（prescription.csv）</p>
+<h1 id="四-实验结果分析">四、 实验结果分析</h1>
+<h2 id="三种方式运行时间比较"><strong>（1）</strong> 三种方式运行时间比较</h2>
+<p>选取prescription.csv药方数据（2万余条），最小支持度和最小置信度都为0.01</p>
+<p>不同改进算法的运行时间比较表</p>
+<table>
+<thead>
+<tr class="header">
+<th>运行时间</th>
+<th>第一次</th>
+<th>第二次</th>
+<th>第三次</th>
+<th>第四次</th>
+<th>第五次</th>
+<th>平均值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>基本算法</td>
+<td>36.0405</td>
+<td>35.8101</td>
+<td>34.1877</td>
+<td>35.9658</td>
+<td>33.7644</td>
+<td>35.1537</td>
+</tr>
+<tr class="even">
+<td>分布式</td>
+<td>34.2813</td>
+<td>33.9013</td>
+<td>34.2965</td>
+<td>34.5172</td>
+<td>34.3388</td>
+<td>34.26702</td>
+</tr>
+<tr class="odd">
+<td>事务压缩</td>
+<td>31.0910</td>
+<td>32.0156</td>
+<td>31.2278</td>
+<td>31.0221</td>
+<td>31.6232</td>
+<td>31.39594</td>
+</tr>
+</tbody>
+</table>
+<p>从运行时间可以大致看出，分布式算法由于使用mapreduce并行执行，运行时间略有减少，但是并行运行会占用更多的内存，分布式的主要用处是在数据集过大无法全部导入内存时可以进行计算，在节省时间方面不是主流。而基于事务压缩的方法可以避免多次无用的遍历，所以在时间节约上也比较明显。</p>
+<h2 id="修改支持度置信度的结果">（2）修改支持度、置信度的结果</h2>
+<p>不同支持度、置信度比较表</p>
+<table>
+<thead>
+<tr class="header">
+<th>置信度 支持度</th>
+<th>0.01</th>
+<th>0.05</th>
+<th>0.1</th>
+<th>0.2</th>
+<th>0.3</th>
+<th>0.4</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.01</td>
+<td>频繁项集</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>679</td>
+<td>648</td>
+<td>515</td>
+<td>288</td>
+<td>156</td>
+<td>88</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>30.6290</td>
+<td>33.8207</td>
+<td>32.0566</td>
+<td>30.7340</td>
+<td>31.0242</td>
+<td>30.5041</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>.015</td>
+<td>频繁项集</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>255</td>
+<td>255</td>
+<td>219</td>
+<td>139</td>
+<td>82</td>
+<td>51</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>19.0702</td>
+<td>20.9975</td>
+<td>18.1798</td>
+<td>18.6537</td>
+<td>18.4798</td>
+<td>18.5693</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.02</td>
+<td>频繁项集</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>119</td>
+<td>119</td>
+<td>113</td>
+<td>79</td>
+<td>48</td>
+<td>31</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>14.9484</td>
+<td>14.8706</td>
+<td>14.7600</td>
+<td>14.6400</td>
+<td>14.8406</td>
+<td>14.9926</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.03</td>
+<td>频繁项集</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>36</td>
+<td>36</td>
+<td>36</td>
+<td>29</td>
+<td>21</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>11.9174</td>
+<td>11.9613</td>
+<td>12.1243</td>
+<td>12.0313</td>
+<td>12.0253</td>
+<td>11.8591</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.04</td>
+<td>频繁项集</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>18</td>
+<td>13</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>11.3005</td>
+<td>11.3198</td>
+<td>11.2225</td>
+<td>11.3224</td>
+<td>11.0737</td>
+<td>11.3320</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.05</td>
+<td>频繁项集</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>7</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>10.7939</td>
+<td>11.0177</td>
+<td>10.8461</td>
+<td>10.9094</td>
+<td>10.7684</td>
+<td>10.7101</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.06</td>
+<td>频繁项集</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>10.7497</td>
+<td>10.5669</td>
+<td>10.6482</td>
+<td>10.7804</td>
+<td>10.6141</td>
+<td>10.6488</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>从上表可以看出： 支持度相同，最小置信度越高，关联规则数越少； 置信度相同，最小支持度越高，频繁项集数越少； 运行时间和最小支持度关系最大，最小支持度越大，运行时间越短； 关联规则的挖掘几乎不会影响到运行时间，因为比较的频繁项集数量级都很小； 随着最小支持度的增大，最小置信度的变化对发现的关联规则数量的影响减小； 最小置信度变化幅度不大时对发现的关联规则数目影响不大； 频繁项集和支持度的相关关系是非线性的，在某一区间内变化很明显。</p>
+<h2 id="挖掘出的有趣规则">（3）挖掘出的有趣规则</h2>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001858612.png" class="" title="image-20220829001858612">
+<p>支持度、置信度均为0.01时前25项挖掘出的关联规则</p>
+<p>我们随机取其中的五条：没药-&gt;乳香；川芎-&gt;当归；柴胡-&gt;甘草；熟地-&gt;当归；</p>
+<p>荆芥-&gt;防风。在搜索引擎中分别搜索这几种组合。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001922990.png" class="" title="image-20220829001922990">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001930066.png" class="" title="image-20220829001930066">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001935940.png" class="" title="image-20220829001935940">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001941662.png" class="" title="image-20220829001941662">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001945963.png" class="" title="image-20220829001945963">
+<p>可以看出挖掘出的关联规则中的药物都有着很深的关系，至少人们经常把它们放在一起作为药方。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001956713.png" class="" title="image-20220829001956713">
+<p>测试该条件下置信度最弱的一条关联规则：甘草-&gt;桂枝</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002010188.png" class="" title="image-20220829002010188">
+<p>即使是预设条件下关联规则最弱的一条也可以在网上找到相应的搭配，可见我们挖掘出的关联规则在统计意义下是有效的。</p>
+<p>我们也注意到，在挖掘出的关联规则中，经常出现的中药材有甘草、人参、当归、白术、白芍、川芎等等，我们搜索中药方中最常用的药材：</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002022383.png" class="" title="image-20220829002022383">
+<p>相关的内容也几乎匹配。</p>
+<h2 id="使用老师提供的百货商店数据集挖掘出的一些规则">（4）使用老师提供的百货商店数据集挖掘出的一些规则</h2>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002041985.png" class="" title="image-20220829002041985">
+<p>支持度、置信度均为0.01时前25项挖掘出的关联规则</p>
+<p>对上述关联规则进行一定的分析可以发现一个比较有趣的事情：美国人在购物时比较偏爱“whole milk”，即全脂牛奶，在购买黄油、凝乳、鸡蛋、糖、汉堡肉、蔬菜等等食物之后都偏爱购买牛奶，这与他们的生活习惯不无关系。搜索相关内容也会发现类似的报道。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002055017.png" class="" title="image-20220829002055017">
+<h1 id="附录源代码">附录（源代码）</h1>
+<h2 id="基本apriori算法代码basic.py">1. 基本Apriori算法代码：（basic.py）</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> csv <span class="keyword">import</span> reader</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_dataset</span>(<span class="params">fileName</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fileName, <span class="string">'rt'</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> raw_data:</span><br><span class="line">        readers = reader(raw_data, delimiter=<span class="string">','</span>)</span><br><span class="line">        dataset = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">frozenset</span>, readers))</span><br><span class="line">    <span class="keyword">return</span> dataset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下为挖掘频繁项集相关函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计所有1-项集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_one_itemset</span>(<span class="params">dataset</span>):</span><br><span class="line">    itemset = []    <span class="comment"># 1-项集</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历一遍数据集统计项集个数</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> affair:</span><br><span class="line">            <span class="keyword">if</span> [item] <span class="keyword">not</span> <span class="keyword">in</span> itemset:</span><br><span class="line">                itemset.append([item])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">frozenset</span>, itemset))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">dataset, itemset, minSupport</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">    number = <span class="built_in">len</span>(dataset)  <span class="comment"># 事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由频繁k-项集求候选k+1-项集</span></span><br><span class="line"><span class="comment"># 输入：频繁k-项集，项集中的项数k； 输出：候选k+1-项集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_itemset</span>(<span class="params">freqset, k</span>):</span><br><span class="line">    itemset = []       <span class="comment"># 候选k+1-项集</span></span><br><span class="line">    freqlen = <span class="built_in">len</span>(freqset)  <span class="comment"># 频繁项集个数（用于遍历）</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(freqlen):  <span class="comment"># 遍历候选项集组合新项集</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, freqlen):</span><br><span class="line">            item = freqset[i] | freqset[j]</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(item) == k <span class="keyword">and</span> item <span class="keyword">not</span> <span class="keyword">in</span> itemset:  <span class="comment"># 项数为k且之前未出现</span></span><br><span class="line">                itemset.append(item)</span><br><span class="line">    <span class="keyword">return</span> itemset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(dataset, C1, minSupport)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(dataset, Ck, minSupport)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下函数为挖掘关联规则相关函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试筛选符合最小置信度的关联规则</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项的子集列表、支持度字典、规则集合、最小置信度； 输出：符合最小置信度条件的频繁项子集列表</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_rule</span>(<span class="params">freqset, subset, supportData, rules, minConfi</span>):</span><br><span class="line">    trueSubset = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> subset:  <span class="comment"># 测试每一个子集与对应项集生成的规则是否满足条件</span></span><br><span class="line">        confi = supportData[freqset]/supportData[freqset-item]</span><br><span class="line">        <span class="keyword">if</span> confi &gt;= minConfi:  <span class="comment"># 满足条件即加入规则库</span></span><br><span class="line">            rules.append((freqset-item, item, confi))</span><br><span class="line">            trueSubset.append(item)</span><br><span class="line">    <span class="keyword">return</span> trueSubset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归地遍历各种可能的规则组合，从单元素子集开始构建多元素子集来划分项集生成规则，不满足最小置信度的频繁项子集不参与新子集的构建</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项的子集列表、支持度字典、规则集合、最小置信度</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">form_subset</span>(<span class="params">freqset, subset, supportData, rules, minConfi</span>):</span><br><span class="line">    itemNum = <span class="built_in">len</span>(subset[<span class="number">0</span>])  <span class="comment"># 求子集元素个数，用于判断是否迭代</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(freqset) &gt; (itemNum+<span class="number">1</span>):  <span class="comment"># 子集可以组合形成可以生成完整规则的新子集</span></span><br><span class="line">        newSubset = get_itemset(subset, itemNum+<span class="number">1</span>)  <span class="comment"># 子集进行组合</span></span><br><span class="line">        newSubset = test_rule(freqset, newSubset, supportData, rules, minConfi)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(newSubset) &gt; <span class="number">1</span>:  <span class="comment"># 还可以继续组合</span></span><br><span class="line">            form_subset(freqset, newSubset, supportData, rules, minConfi)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求关联规则</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项集支持度字典、最小置信度（默认0.01）； 输出：关联规则元组列表</span></span><br><span class="line"><span class="comment"># 关联规则元组结构：前件、后件、置信度</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_rules</span>(<span class="params">freqset, supportData, minConfi=<span class="number">0.01</span></span>):</span><br><span class="line">    rules = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(freqset)):  <span class="comment"># 遍历大于1的频繁项集</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> freqset[i]:</span><br><span class="line">            subset = [<span class="built_in">frozenset</span>([unit]) <span class="keyword">for</span> unit <span class="keyword">in</span> item]  <span class="comment"># 生成项集的子集</span></span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">1</span>:</span><br><span class="line">                form_subset(item, subset, supportData, rules, minConfi)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                test_rule(item, subset, supportData, rules, minConfi)</span><br><span class="line">    <span class="keyword">return</span> rules</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程序部分</span></span><br><span class="line">minSupport = <span class="number">0.01</span>  <span class="comment"># 最小支持度</span></span><br><span class="line">minConfi = <span class="number">0.01</span>    <span class="comment"># 最小置信度</span></span><br><span class="line">dataset = load_dataset(<span class="string">'prescription.csv'</span>)  <span class="comment"># 导入数据集</span></span><br><span class="line"><span class="comment"># 'groceries.csv</span></span><br><span class="line">time_start = time.time()  <span class="comment"># 计时</span></span><br><span class="line">L, supportData = get_all_freqset(dataset, minSupport)  <span class="comment"># 求频繁项集及其支持度字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'所有的频繁项集为：\n'</span>, L)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'频繁项集的支持度为：\n'</span>, supportData)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'频繁项集总数为：'</span>, <span class="built_in">len</span>(supportData))</span><br><span class="line">time_end1 = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'求频繁项集所用时间：'</span>, time_end1-time_start, <span class="string">'秒'</span>)</span><br><span class="line">rules = get_rules(L, supportData, minConfi)  <span class="comment"># 挖掘关联规则</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'挖掘出的关联规则为：'</span>)</span><br><span class="line">rules.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">2</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># mat = "{:^32}{:^48}{:^32}"</span></span><br><span class="line"><span class="comment"># print(mat.format('前件', '后件', '置信度'))</span></span><br><span class="line"><span class="comment"># for item in rules:</span></span><br><span class="line"><span class="comment">#     print(mat.format(str(list(item[0])), str(list(item[1])), item[2]))</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'关联规则总数为：'</span>, <span class="built_in">len</span>(rules))</span><br><span class="line">time_end2 = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'求关联规则所用时间：'</span>, time_end2-time_end1, <span class="string">'秒'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="分布式apriori代码distributed.py">2. 分布式Apriori代码：（distributed.py）</h2>
+<p>（以下主要为新加入的内容）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial  <span class="comment"># 偏函数</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce  <span class="comment"># reduce需要引入 在python 3.0.0.0以后, reduce已经不在built-in function里了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据集分块</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">block_gen</span>(<span class="params">dataset</span>):</span><br><span class="line">    blockData = []</span><br><span class="line">    num = <span class="built_in">len</span>(dataset)</span><br><span class="line">    blockNum = <span class="built_in">int</span>(sqrt(num)) + <span class="number">1</span></span><br><span class="line">    k = blockNum</span><br><span class="line">    block = []</span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:</span><br><span class="line">        <span class="keyword">if</span> k &gt; <span class="number">0</span>:</span><br><span class="line">            block.append(affair)</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            block.append(affair)</span><br><span class="line">            blockData.append(block)</span><br><span class="line">            k = blockNum</span><br><span class="line">            block = []</span><br><span class="line">    blockData.append(block)</span><br><span class="line"><span class="keyword">return</span> blockData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计频次的map映射函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">map_freq</span>(<span class="params">block, itemset, count</span>):</span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> block:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集  ///分布式算法///</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">blockData, itemset, minSupport</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    partial_func = partial(map_freq, itemset=itemset, count=count)</span><br><span class="line">    <span class="built_in">list</span>(<span class="built_in">map</span>(partial_func, blockData))  <span class="comment"># 分布式求项集频次</span></span><br><span class="line">    number = reduce(add, <span class="built_in">map</span>(<span class="built_in">len</span>, blockData))  <span class="comment"># 分布式求事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    blockData = block_gen(dataset)</span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(blockData, C1, minSupport)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(blockData, Ck, minSupport)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line"><span class="keyword">return</span> freqset, supportData</span><br></pre></td></tr></table></figure>
+<h2 id="事务压缩方法affairs_comp.py">3. 事务压缩方法：（affairs_comp.py）</h2>
+<p>（主要修改部分）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">dataset, itemset, minSupport, flag</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag[i]:     <span class="comment"># 此事务上次遍历不包含候选项集时，此次跳过</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        flag_temp = <span class="literal">False</span>   <span class="comment"># 此标记用于判断本事务此次是否包含候选项集</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                flag_temp = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag_temp:</span><br><span class="line">            flag[i] = <span class="literal">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    number = <span class="built_in">len</span>(dataset)  <span class="comment"># 事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line"><span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    flag = [<span class="literal">True</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dataset))]  <span class="comment"># 用于事务压缩的标记数组</span></span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(dataset, C1, minSupport, flag)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(dataset, Ck, minSupport, flag)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br></pre></td></tr></table></figure>
+<h2 id="爬取数据集代码crawler.py">4. 爬取数据集代码：（crawler.py）</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="comment"># 获取源码</span></span><br><span class="line">html = requests.get(<span class="string">"http://zhongyaofangji.com/all.html"</span>)</span><br><span class="line"><span class="comment"># 打印源码</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'访问成功...'</span>)</span><br><span class="line">etree_html = etree.HTML(html.text)</span><br><span class="line"><span class="comment"># 获取药方链接</span></span><br><span class="line">content = etree_html.xpath(<span class="string">'//*[@id="divMain"]/div/div/ul/li/a/@href'</span>)</span><br><span class="line"><span class="comment"># 保存药方链接便于之后爬取</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'url.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">""</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    csv_write = csv.writer(f)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> content:</span><br><span class="line">        temp = [<span class="built_in">str</span>(each)]</span><br><span class="line">        csv_write.writerow(temp)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'url保存成功...'</span>)</span><br><span class="line"><span class="comment"># 后续爬取免于从根目录爬网址，直接读取即可</span></span><br><span class="line"><span class="comment"># with open('url.csv', 'rt', encoding='UTF-8') as raw_data:</span></span><br><span class="line"><span class="comment">#     readers = csv.reader(raw_data, delimiter=',')</span></span><br><span class="line"><span class="comment">#     content = list(readers)</span></span><br><span class="line"><span class="comment"># print(content)</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"prescription.csv"</span>, <span class="string">'a'</span>, newline=<span class="string">""</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> input_csv:</span><br><span class="line">    csv_write = csv.writer(input_csv)</span><br><span class="line">    num = <span class="built_in">len</span>(content)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, num):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'第'</span>, i+<span class="number">1</span>, <span class="string">'项正在访问：'</span>, content[i])</span><br><span class="line">        html = requests.get(content[i])</span><br><span class="line">        html.encoding = <span class="string">'GBK'</span></span><br><span class="line">        etree_html = etree.HTML(html.text)</span><br><span class="line">        herb = etree_html.xpath(<span class="string">'//*[@id="divMain"]/div/div[2]/div[2]/div[2]/div[1]/p[1]/a/text()'</span>)</span><br><span class="line">        csv_write.writerow(herb)</span><br><span class="line">        <span class="built_in">print</span>(herb)</span><br></pre></td></tr></table></figure>
+
+        
+      
+      <!-- 
+        <p>大四上大数据分析与知识发现大作业——apriori算法</p>
+<span id="more"></span>
+<p>本报告主要工作：本次大作业使用python自己编程实现了apriori算法，并分别从分布式实现和事务压缩处理的角度进行了算法优化。从中医药网站爬取了两万多条药方作为数据集，用来挖掘各种中药材之间的关联规则，分别使用不同的支持度、置信度进行实验，取得了比较有趣的结果。同时也使用老师给的百货商店数据集进行了测试。</p>
+<p>代码运行环境为Python 3.7.4，IDE为Pycharm，所有代码均为自己编写。参考书籍：《数据挖掘概念与技术》（原书第二版）、《机器学习实战》。</p>
+<h1 id="一-关于关联规则的简要介绍">一、 关于关联规则的简要介绍</h1>
+<p>要介绍关联规则，首先要引入两个概念：事务和频繁项集。</p>
+<p><strong>事务</strong>：数据集中的一条内容，可以是一次消费的购买记录，也可以是一次测量的返回结果，或者是一个药方中的药品。可以理解为与某个事情相关的名词的集合。</p>
+<p><strong>频繁项集：</strong>要想介绍频繁项集，首先要介绍“项集”。顾名思义，“项集”就是项的集合，项就是每一条事务中的一个名词，可以代表一个物品或者一个事件。“频繁项集”就是在数据集中频繁出现的项集，即一种频繁的模式，这个项集可大可小，依据其在数据集中出现的频率而判断是否为频繁项集。</p>
+<p>而关联规则是基于这二者进行计算的，它的基本定义为：</p>
+<p><strong>关联规则：</strong>两个项集之间所具有的某种相关关系，其紧密程度由支持度和置信度来衡量。我们将关联规则中前面的项集叫做<strong>前件</strong>，后面的项集叫做<strong>后件</strong>，规则的含义可以表示为：前件出现，后件将有很大概率出现。</p>
+<p>下面介绍衡量关联规则的两条准则：支持度与置信度。</p>
+<p><strong>支持度：</strong>一个项集的支持度被定义为数据集中包含该项集的记录所占的比例</p>
+<p><strong>置信度：</strong>两个项集之间关联规则紧密程度的置信度可以理解为前后件的并集所代表的项集的支持度与前件支持度的比，即：出现前件的条件下出现后件的概率。</p>
+<h1 id="二apriori算法主要流程">二、Apriori算法主要流程</h1>
+<p>为了寻找频繁项集，就必须计算每个项集的支持度，当事务中项的数目很多时，它们之间互相的排列组合就变得及其复杂。当数据集庞大时，每个事项的检测都包含的大量的比对和筛选，算法复杂度变得很高，计算时间成本极大。</p>
+<p>为了解决这个问题，我们提出了apriori原理：<strong>如果某个项集是频繁项集，那么它所有的子集也是频繁的。</strong>即如果 {0,1} 是频繁的，那么 {0}, {1} 也一定是频繁的。这个规则看似直观，但需要经过极为严格的证明，所幸前人已经为我们证明好了这个定理。乍一看它似乎没什么用，但是把这个定理反过来，它的逆否命题为：<strong>如果某个项集非频繁，那么它的超集也非频繁。</strong>那么我们就可以在由小项集组合大项集时提前筛掉那些不频繁的项集，从而大大减少计算量。</p>
+<p>算法的主要步骤为：</p>
+<ol type="1">
+<li>寻找频繁项集</li>
+</ol>
+<p>①　扫描整个数据集获取所有单个名词的项集列表——候选1-项集。</p>
+<p>②　扫描数据集计算每个候选1-项集的支持度，删除不满足最小支持度的项集，形成频繁1-项集，此时k=2。</p>
+<p>③　对此时的频繁（k-1）-项集进行组合，形成候选的k-项集。若k-项集为空，退出。</p>
+<p>④　扫描数据集计算每个候选k-项集的支持度，筛选出符合条件的k-项集，形成频繁k-项集。返回第三步。</p>
+<ol start="2" type="1">
+<li>寻找关联规则</li>
+</ol>
+<p>使用递归的方法，遍历所有大于1的频繁项集，求取它们的1项集子集：</p>
+<p>—如果是频繁2项集：</p>
+<p>——使用差集的方法计算置信度，符合的关联规则直接输出。</p>
+<p>—或者项集中项数大于等于3：</p>
+<p>——如果子集可以继续组合成能生成其他规则的新子集：（1）</p>
+<p>———子集进行组合，测试新生成的规则是否满足条件，符合的直接输出。</p>
+<p>———如果还可以继续组合，递归调用（1）</p>
+<p>​ 否则：</p>
+<p>———继续遍历下一个项集</p>
+<p><strong>一些优化方法</strong>：</p>
+<ol type="1">
+<li><p>使用分布式的方法，将数据集分为多个块，在遍历数据集时利用python中的map函数，将比较统计的部分分开进行，再使用reduce函数整合每个块统计的结果，形成最终的答案。这对大规模数据集比较适用。</p></li>
+<li><p>使用事务压缩的方法，在遍历数据集时，如果某个事务已经不包含当前的频繁k-项集，那么它们必然不包含由这频繁k-项集组成的候选k+1-项集，那么在下一次遍历时就可以跳过这些事务，不必再进行子集计算，节省了运行时间。这对大部分情况都比较适用。</p></li>
+</ol>
+<h1 id="三-所采用的数据集简介">三、 所采用的数据集简介</h1>
+<p>中医药的理论博大精深，各种药材之间的配合在治病的疗效上会起到1+1&gt;2的效果。比如茯苓和人参搭配，具有益心力，除谬忘，能饮食，延年益寿之功效。主治上气，胸胁满闷，霍乱，积痢。其他的相似组合还有很多，进行关联规则的发现可以帮助我们更系统地归纳古人留下的药方中的知识，便于将中医药应用于现代疾病的治疗中。</p>
+<p>所用我从某中医网站爬取了2万多条药方的数据，作为待挖掘的数据集，意在找出哪些药材之间的关联规则比较大，哪些药材常常出现并且被搭配使用在药方当中。爬取数据集的代码放在crawler.py文件中，2万条药方的网址已经提前爬出可以直接导入进行读取，节省时间。（url.csv）</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps1.jpg" class="" title="img">
+<p>中医网站页面（网址：http://zhongyaofangji.com/all.html）</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/wps2.jpg" class="" title="img">
+<p>药方详细页面</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/%E4%B8%AD%E8%8D%AF.jpg" class="" title="img">
+<p>数据集展示（prescription.csv）</p>
+<h1 id="四-实验结果分析">四、 实验结果分析</h1>
+<h2 id="三种方式运行时间比较"><strong>（1）</strong> 三种方式运行时间比较</h2>
+<p>选取prescription.csv药方数据（2万余条），最小支持度和最小置信度都为0.01</p>
+<p>不同改进算法的运行时间比较表</p>
+<table>
+<thead>
+<tr class="header">
+<th>运行时间</th>
+<th>第一次</th>
+<th>第二次</th>
+<th>第三次</th>
+<th>第四次</th>
+<th>第五次</th>
+<th>平均值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>基本算法</td>
+<td>36.0405</td>
+<td>35.8101</td>
+<td>34.1877</td>
+<td>35.9658</td>
+<td>33.7644</td>
+<td>35.1537</td>
+</tr>
+<tr class="even">
+<td>分布式</td>
+<td>34.2813</td>
+<td>33.9013</td>
+<td>34.2965</td>
+<td>34.5172</td>
+<td>34.3388</td>
+<td>34.26702</td>
+</tr>
+<tr class="odd">
+<td>事务压缩</td>
+<td>31.0910</td>
+<td>32.0156</td>
+<td>31.2278</td>
+<td>31.0221</td>
+<td>31.6232</td>
+<td>31.39594</td>
+</tr>
+</tbody>
+</table>
+<p>从运行时间可以大致看出，分布式算法由于使用mapreduce并行执行，运行时间略有减少，但是并行运行会占用更多的内存，分布式的主要用处是在数据集过大无法全部导入内存时可以进行计算，在节省时间方面不是主流。而基于事务压缩的方法可以避免多次无用的遍历，所以在时间节约上也比较明显。</p>
+<h2 id="修改支持度置信度的结果">（2）修改支持度、置信度的结果</h2>
+<p>不同支持度、置信度比较表</p>
+<table>
+<thead>
+<tr class="header">
+<th>置信度 支持度</th>
+<th>0.01</th>
+<th>0.05</th>
+<th>0.1</th>
+<th>0.2</th>
+<th>0.3</th>
+<th>0.4</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.01</td>
+<td>频繁项集</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+<td>419</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>679</td>
+<td>648</td>
+<td>515</td>
+<td>288</td>
+<td>156</td>
+<td>88</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>30.6290</td>
+<td>33.8207</td>
+<td>32.0566</td>
+<td>30.7340</td>
+<td>31.0242</td>
+<td>30.5041</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>.015</td>
+<td>频繁项集</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+<td>207</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>255</td>
+<td>255</td>
+<td>219</td>
+<td>139</td>
+<td>82</td>
+<td>51</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>19.0702</td>
+<td>20.9975</td>
+<td>18.1798</td>
+<td>18.6537</td>
+<td>18.4798</td>
+<td>18.5693</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.02</td>
+<td>频繁项集</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>119</td>
+<td>119</td>
+<td>113</td>
+<td>79</td>
+<td>48</td>
+<td>31</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>14.9484</td>
+<td>14.8706</td>
+<td>14.7600</td>
+<td>14.6400</td>
+<td>14.8406</td>
+<td>14.9926</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.03</td>
+<td>频繁项集</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+<td>59</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>36</td>
+<td>36</td>
+<td>36</td>
+<td>29</td>
+<td>21</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>11.9174</td>
+<td>11.9613</td>
+<td>12.1243</td>
+<td>12.0313</td>
+<td>12.0253</td>
+<td>11.8591</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.04</td>
+<td>频繁项集</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+<td>38</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>22</td>
+<td>22</td>
+<td>22</td>
+<td>18</td>
+<td>13</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>11.3005</td>
+<td>11.3198</td>
+<td>11.2225</td>
+<td>11.3224</td>
+<td>11.0737</td>
+<td>11.3320</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>0.05</td>
+<td>频繁项集</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>关联规则</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>7</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>运行时间</td>
+<td>10.7939</td>
+<td>11.0177</td>
+<td>10.8461</td>
+<td>10.9094</td>
+<td>10.7684</td>
+<td>10.7101</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0.06</td>
+<td>频繁项集</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>关联规则</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>运行时间</td>
+<td>10.7497</td>
+<td>10.5669</td>
+<td>10.6482</td>
+<td>10.7804</td>
+<td>10.6141</td>
+<td>10.6488</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>从上表可以看出： 支持度相同，最小置信度越高，关联规则数越少； 置信度相同，最小支持度越高，频繁项集数越少； 运行时间和最小支持度关系最大，最小支持度越大，运行时间越短； 关联规则的挖掘几乎不会影响到运行时间，因为比较的频繁项集数量级都很小； 随着最小支持度的增大，最小置信度的变化对发现的关联规则数量的影响减小； 最小置信度变化幅度不大时对发现的关联规则数目影响不大； 频繁项集和支持度的相关关系是非线性的，在某一区间内变化很明显。</p>
+<h2 id="挖掘出的有趣规则">（3）挖掘出的有趣规则</h2>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001858612.png" class="" title="image-20220829001858612">
+<p>支持度、置信度均为0.01时前25项挖掘出的关联规则</p>
+<p>我们随机取其中的五条：没药-&gt;乳香；川芎-&gt;当归；柴胡-&gt;甘草；熟地-&gt;当归；</p>
+<p>荆芥-&gt;防风。在搜索引擎中分别搜索这几种组合。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001922990.png" class="" title="image-20220829001922990">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001930066.png" class="" title="image-20220829001930066">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001935940.png" class="" title="image-20220829001935940">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001941662.png" class="" title="image-20220829001941662">
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001945963.png" class="" title="image-20220829001945963">
+<p>可以看出挖掘出的关联规则中的药物都有着很深的关系，至少人们经常把它们放在一起作为药方。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829001956713.png" class="" title="image-20220829001956713">
+<p>测试该条件下置信度最弱的一条关联规则：甘草-&gt;桂枝</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002010188.png" class="" title="image-20220829002010188">
+<p>即使是预设条件下关联规则最弱的一条也可以在网上找到相应的搭配，可见我们挖掘出的关联规则在统计意义下是有效的。</p>
+<p>我们也注意到，在挖掘出的关联规则中，经常出现的中药材有甘草、人参、当归、白术、白芍、川芎等等，我们搜索中药方中最常用的药材：</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002022383.png" class="" title="image-20220829002022383">
+<p>相关的内容也几乎匹配。</p>
+<h2 id="使用老师提供的百货商店数据集挖掘出的一些规则">（4）使用老师提供的百货商店数据集挖掘出的一些规则</h2>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002041985.png" class="" title="image-20220829002041985">
+<p>支持度、置信度均为0.01时前25项挖掘出的关联规则</p>
+<p>对上述关联规则进行一定的分析可以发现一个比较有趣的事情：美国人在购物时比较偏爱“whole milk”，即全脂牛奶，在购买黄油、凝乳、鸡蛋、糖、汉堡肉、蔬菜等等食物之后都偏爱购买牛奶，这与他们的生活习惯不无关系。搜索相关内容也会发现类似的报道。</p>
+<img src="/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/image-20220829002055017.png" class="" title="image-20220829002055017">
+<h1 id="附录源代码">附录（源代码）</h1>
+<h2 id="基本apriori算法代码basic.py">1. 基本Apriori算法代码：（basic.py）</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> csv <span class="keyword">import</span> reader</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入数据集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_dataset</span>(<span class="params">fileName</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fileName, <span class="string">'rt'</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> raw_data:</span><br><span class="line">        readers = reader(raw_data, delimiter=<span class="string">','</span>)</span><br><span class="line">        dataset = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">frozenset</span>, readers))</span><br><span class="line">    <span class="keyword">return</span> dataset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下为挖掘频繁项集相关函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计所有1-项集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_one_itemset</span>(<span class="params">dataset</span>):</span><br><span class="line">    itemset = []    <span class="comment"># 1-项集</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历一遍数据集统计项集个数</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> affair:</span><br><span class="line">            <span class="keyword">if</span> [item] <span class="keyword">not</span> <span class="keyword">in</span> itemset:</span><br><span class="line">                itemset.append([item])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">frozenset</span>, itemset))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">dataset, itemset, minSupport</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">    number = <span class="built_in">len</span>(dataset)  <span class="comment"># 事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由频繁k-项集求候选k+1-项集</span></span><br><span class="line"><span class="comment"># 输入：频繁k-项集，项集中的项数k； 输出：候选k+1-项集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_itemset</span>(<span class="params">freqset, k</span>):</span><br><span class="line">    itemset = []       <span class="comment"># 候选k+1-项集</span></span><br><span class="line">    freqlen = <span class="built_in">len</span>(freqset)  <span class="comment"># 频繁项集个数（用于遍历）</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(freqlen):  <span class="comment"># 遍历候选项集组合新项集</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, freqlen):</span><br><span class="line">            item = freqset[i] | freqset[j]</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(item) == k <span class="keyword">and</span> item <span class="keyword">not</span> <span class="keyword">in</span> itemset:  <span class="comment"># 项数为k且之前未出现</span></span><br><span class="line">                itemset.append(item)</span><br><span class="line">    <span class="keyword">return</span> itemset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(dataset, C1, minSupport)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(dataset, Ck, minSupport)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下函数为挖掘关联规则相关函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试筛选符合最小置信度的关联规则</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项的子集列表、支持度字典、规则集合、最小置信度； 输出：符合最小置信度条件的频繁项子集列表</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_rule</span>(<span class="params">freqset, subset, supportData, rules, minConfi</span>):</span><br><span class="line">    trueSubset = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> subset:  <span class="comment"># 测试每一个子集与对应项集生成的规则是否满足条件</span></span><br><span class="line">        confi = supportData[freqset]/supportData[freqset-item]</span><br><span class="line">        <span class="keyword">if</span> confi &gt;= minConfi:  <span class="comment"># 满足条件即加入规则库</span></span><br><span class="line">            rules.append((freqset-item, item, confi))</span><br><span class="line">            trueSubset.append(item)</span><br><span class="line">    <span class="keyword">return</span> trueSubset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归地遍历各种可能的规则组合，从单元素子集开始构建多元素子集来划分项集生成规则，不满足最小置信度的频繁项子集不参与新子集的构建</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项的子集列表、支持度字典、规则集合、最小置信度</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">form_subset</span>(<span class="params">freqset, subset, supportData, rules, minConfi</span>):</span><br><span class="line">    itemNum = <span class="built_in">len</span>(subset[<span class="number">0</span>])  <span class="comment"># 求子集元素个数，用于判断是否迭代</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(freqset) &gt; (itemNum+<span class="number">1</span>):  <span class="comment"># 子集可以组合形成可以生成完整规则的新子集</span></span><br><span class="line">        newSubset = get_itemset(subset, itemNum+<span class="number">1</span>)  <span class="comment"># 子集进行组合</span></span><br><span class="line">        newSubset = test_rule(freqset, newSubset, supportData, rules, minConfi)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(newSubset) &gt; <span class="number">1</span>:  <span class="comment"># 还可以继续组合</span></span><br><span class="line">            form_subset(freqset, newSubset, supportData, rules, minConfi)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 求关联规则</span></span><br><span class="line"><span class="comment"># 输入：频繁项集、频繁项集支持度字典、最小置信度（默认0.01）； 输出：关联规则元组列表</span></span><br><span class="line"><span class="comment"># 关联规则元组结构：前件、后件、置信度</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_rules</span>(<span class="params">freqset, supportData, minConfi=<span class="number">0.01</span></span>):</span><br><span class="line">    rules = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(freqset)):  <span class="comment"># 遍历大于1的频繁项集</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> freqset[i]:</span><br><span class="line">            subset = [<span class="built_in">frozenset</span>([unit]) <span class="keyword">for</span> unit <span class="keyword">in</span> item]  <span class="comment"># 生成项集的子集</span></span><br><span class="line">            <span class="keyword">if</span> i &gt; <span class="number">1</span>:</span><br><span class="line">                form_subset(item, subset, supportData, rules, minConfi)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                test_rule(item, subset, supportData, rules, minConfi)</span><br><span class="line">    <span class="keyword">return</span> rules</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程序部分</span></span><br><span class="line">minSupport = <span class="number">0.01</span>  <span class="comment"># 最小支持度</span></span><br><span class="line">minConfi = <span class="number">0.01</span>    <span class="comment"># 最小置信度</span></span><br><span class="line">dataset = load_dataset(<span class="string">'prescription.csv'</span>)  <span class="comment"># 导入数据集</span></span><br><span class="line"><span class="comment"># 'groceries.csv</span></span><br><span class="line">time_start = time.time()  <span class="comment"># 计时</span></span><br><span class="line">L, supportData = get_all_freqset(dataset, minSupport)  <span class="comment"># 求频繁项集及其支持度字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'所有的频繁项集为：\n'</span>, L)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'频繁项集的支持度为：\n'</span>, supportData)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'频繁项集总数为：'</span>, <span class="built_in">len</span>(supportData))</span><br><span class="line">time_end1 = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'求频繁项集所用时间：'</span>, time_end1-time_start, <span class="string">'秒'</span>)</span><br><span class="line">rules = get_rules(L, supportData, minConfi)  <span class="comment"># 挖掘关联规则</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'挖掘出的关联规则为：'</span>)</span><br><span class="line">rules.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">2</span>], reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># mat = "{:^32}{:^48}{:^32}"</span></span><br><span class="line"><span class="comment"># print(mat.format('前件', '后件', '置信度'))</span></span><br><span class="line"><span class="comment"># for item in rules:</span></span><br><span class="line"><span class="comment">#     print(mat.format(str(list(item[0])), str(list(item[1])), item[2]))</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'关联规则总数为：'</span>, <span class="built_in">len</span>(rules))</span><br><span class="line">time_end2 = time.time()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'求关联规则所用时间：'</span>, time_end2-time_end1, <span class="string">'秒'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="分布式apriori代码distributed.py">2. 分布式Apriori代码：（distributed.py）</h2>
+<p>（以下主要为新加入的内容）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial  <span class="comment"># 偏函数</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce  <span class="comment"># reduce需要引入 在python 3.0.0.0以后, reduce已经不在built-in function里了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据集分块</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">block_gen</span>(<span class="params">dataset</span>):</span><br><span class="line">    blockData = []</span><br><span class="line">    num = <span class="built_in">len</span>(dataset)</span><br><span class="line">    blockNum = <span class="built_in">int</span>(sqrt(num)) + <span class="number">1</span></span><br><span class="line">    k = blockNum</span><br><span class="line">    block = []</span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:</span><br><span class="line">        <span class="keyword">if</span> k &gt; <span class="number">0</span>:</span><br><span class="line">            block.append(affair)</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            block.append(affair)</span><br><span class="line">            blockData.append(block)</span><br><span class="line">            k = blockNum</span><br><span class="line">            block = []</span><br><span class="line">    blockData.append(block)</span><br><span class="line"><span class="keyword">return</span> blockData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计频次的map映射函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">map_freq</span>(<span class="params">block, itemset, count</span>):</span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> block:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集  ///分布式算法///</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">blockData, itemset, minSupport</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    partial_func = partial(map_freq, itemset=itemset, count=count)</span><br><span class="line">    <span class="built_in">list</span>(<span class="built_in">map</span>(partial_func, blockData))  <span class="comment"># 分布式求项集频次</span></span><br><span class="line">    number = reduce(add, <span class="built_in">map</span>(<span class="built_in">len</span>, blockData))  <span class="comment"># 分布式求事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    blockData = block_gen(dataset)</span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(blockData, C1, minSupport)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(blockData, Ck, minSupport)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line"><span class="keyword">return</span> freqset, supportData</span><br></pre></td></tr></table></figure>
+<h2 id="事务压缩方法affairs_comp.py">3. 事务压缩方法：（affairs_comp.py）</h2>
+<p>（主要修改部分）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过候选k-项集的筛选，确定频繁k-项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，候选k-项集，最小支持度； 输出：频繁k-项集列表，支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_freqset</span>(<span class="params">dataset, itemset, minSupport, flag</span>):</span><br><span class="line">    supportData = {}     <span class="comment"># 支持度字典</span></span><br><span class="line">    count = {}           <span class="comment"># 计数字典</span></span><br><span class="line">    freqset = []         <span class="comment"># 频繁k-项集</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> affair <span class="keyword">in</span> dataset:  <span class="comment"># 遍历数据集计算候选项集频次</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag[i]:     <span class="comment"># 此事务上次遍历不包含候选项集时，此次跳过</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        flag_temp = <span class="literal">False</span>   <span class="comment"># 此标记用于判断本事务此次是否包含候选项集</span></span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> itemset:</span><br><span class="line">            <span class="keyword">if</span> item.issubset(affair):  <span class="comment"># 如果候选项集是事务的子集，计数+1</span></span><br><span class="line">                flag_temp = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">if</span> item <span class="keyword">in</span> count:</span><br><span class="line">                    count[item] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    count[item] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag_temp:</span><br><span class="line">            flag[i] = <span class="literal">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    number = <span class="built_in">len</span>(dataset)  <span class="comment"># 事务的数目</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> count:      <span class="comment"># 遍历计数字典筛选符合条件的项集作为频繁项集，计算支持度</span></span><br><span class="line">        support = count[key]/number</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            freqset.append(key)</span><br><span class="line">            supportData[key] = support</span><br><span class="line"><span class="keyword">return</span> freqset, supportData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挖掘所有满足条件的频繁项集</span></span><br><span class="line"><span class="comment"># 输入：数据集，最小支持度； 输出：频繁项集列表、支持度字典</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_all_freqset</span>(<span class="params">dataset, minSupport=<span class="number">0.001</span></span>):  <span class="comment"># 最小支持度默认0.001</span></span><br><span class="line">    flag = [<span class="literal">True</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dataset))]  <span class="comment"># 用于事务压缩的标记数组</span></span><br><span class="line">    C1 = get_one_itemset(dataset)</span><br><span class="line">    L1, supportData = get_freqset(dataset, C1, minSupport, flag)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, <span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    freqset = [L1]</span><br><span class="line">    k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(freqset[k]) &gt; <span class="number">0</span>:  <span class="comment"># 循环，直到挖掘完毕所有的频繁项集（最后一项为空）</span></span><br><span class="line">        Ck = get_itemset(freqset[k], k+<span class="number">2</span>)  <span class="comment"># 求候选项集</span></span><br><span class="line">        Lk, support = get_freqset(dataset, Ck, minSupport, flag)  <span class="comment"># 求频繁项集和支持度字典</span></span><br><span class="line">        freqset.append(Lk)</span><br><span class="line">        supportData.update(support)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经挖掘频繁'</span>, k+<span class="number">1</span>, <span class="string">'项集...'</span>)</span><br><span class="line">    <span class="keyword">return</span> freqset, supportData</span><br></pre></td></tr></table></figure>
+<h2 id="爬取数据集代码crawler.py">4. 爬取数据集代码：（crawler.py）</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="comment"># 获取源码</span></span><br><span class="line">html = requests.get(<span class="string">"http://zhongyaofangji.com/all.html"</span>)</span><br><span class="line"><span class="comment"># 打印源码</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'访问成功...'</span>)</span><br><span class="line">etree_html = etree.HTML(html.text)</span><br><span class="line"><span class="comment"># 获取药方链接</span></span><br><span class="line">content = etree_html.xpath(<span class="string">'//*[@id="divMain"]/div/div/ul/li/a/@href'</span>)</span><br><span class="line"><span class="comment"># 保存药方链接便于之后爬取</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'url.csv'</span>, <span class="string">'w'</span>, newline=<span class="string">""</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    csv_write = csv.writer(f)</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> content:</span><br><span class="line">        temp = [<span class="built_in">str</span>(each)]</span><br><span class="line">        csv_write.writerow(temp)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'url保存成功...'</span>)</span><br><span class="line"><span class="comment"># 后续爬取免于从根目录爬网址，直接读取即可</span></span><br><span class="line"><span class="comment"># with open('url.csv', 'rt', encoding='UTF-8') as raw_data:</span></span><br><span class="line"><span class="comment">#     readers = csv.reader(raw_data, delimiter=',')</span></span><br><span class="line"><span class="comment">#     content = list(readers)</span></span><br><span class="line"><span class="comment"># print(content)</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"prescription.csv"</span>, <span class="string">'a'</span>, newline=<span class="string">""</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> input_csv:</span><br><span class="line">    csv_write = csv.writer(input_csv)</span><br><span class="line">    num = <span class="built_in">len</span>(content)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, num):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'第'</span>, i+<span class="number">1</span>, <span class="string">'项正在访问：'</span>, content[i])</span><br><span class="line">        html = requests.get(content[i])</span><br><span class="line">        html.encoding = <span class="string">'GBK'</span></span><br><span class="line">        etree_html = etree.HTML(html.text)</span><br><span class="line">        herb = etree_html.xpath(<span class="string">'//*[@id="divMain"]/div/div[2]/div[2]/div[2]/div[1]/p[1]/a/text()'</span>)</span><br><span class="line">        csv_write.writerow(herb)</span><br><span class="line">        <span class="built_in">print</span>(herb)</span><br></pre></td></tr></table></figure>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/25/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          大数据作业2——k-means算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机控制实验</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="大数据大作业1" data-title="大数据作业1——apriori算法" data-url="https://renzehua1998.github.io/2020/11/05/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%A7%E4%BD%9C%E4%B8%9A1/"  data-images="/img/avatar.jpeg" data-content="大数据作业1——apriori算法">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

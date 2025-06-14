@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网络与信息安全实验报告 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大三下网络与信息安全选修课实验报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络与信息安全实验报告">
+<meta property="og:url" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大三下网络与信息安全选修课实验报告">
+<meta property="og:locale">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps89.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps90.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps91.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps92.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps93.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps94.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps95.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps96.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps97.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps98.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps99.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps100.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps101.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps102.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps103.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps104.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps105.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps106.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps107.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps108.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps109.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps110.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps111.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps112.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps113.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps114.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps115.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps116.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps117.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps118.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps119.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps120.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps121.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps122.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps123.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps124.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps125.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps126.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps127.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps128.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps129.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps130.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps131.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps132.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps133.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps134.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps135.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps136.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps137.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps138.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps139.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps140.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps141.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps142.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps143.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps144.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps145.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps146.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps147.jpg">
+<meta property="og:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps148.jpg">
+<meta property="article:published_time" content="2020-06-30T11:31:00.000Z">
+<meta property="article:modified_time" content="2022-08-28T17:11:03.863Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="实验报告">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="图与网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps89.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-网络与信息安全实验报告" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="article-date">
+  	<time datetime="2020-06-30T11:31:00.000Z" itemprop="datePublished">2020-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络与信息安全实验报告
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">2.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" rel="tag">图与网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%B8%89%E4%B8%8B/">大三下</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="网络与信息安全实验报告">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%B3%E5%B7%AB%E6%94%BB%E5%87%BB%E8%AE%BA%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">女巫攻击论文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-%E4%BD%BF%E7%94%A8sybilguard%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E4%B8%ADsybil%E8%8A%82%E7%82%B9%E7%9A%84%E6%A3%80%E6%B5%8B"><span class="toc-number">2.</span> <span class="toc-text">实验一 使用SybilGuard算法实现社交网络中Sybil节点的检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">2.1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%AE%9E%E9%AA%8C%E8%AE%BE%E5%A4%87%E4%B8%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.2.</span> <span class="toc-text">二、实验设备与平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-number">2.3.</span> <span class="toc-text">三、实验内容与要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.4.</span> <span class="toc-text">四、实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8python%E5%AF%BC%E5%85%A5%E7%BD%91%E4%B8%8A%E6%89%BE%E5%88%B0%E7%9A%84%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%9B%86%E5%B0%86%E5%85%B6%E8%BD%AC%E5%8C%96%E4%B8%BA%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.1.</span> <span class="toc-text">1. 利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E8%AF%A5%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E8%8A%82%E7%82%B9%E6%95%B0%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%9B%B8%E7%B1%BB%E4%BC%BC%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C"><span class="toc-number">2.4.2.</span> <span class="toc-text">2. 按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E9%9A%8F%E6%9C%BA%E7%9A%84sybil%E6%94%BB%E5%87%BB"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. 在现有网络的基础上生成一个随机的Sybil攻击。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E5%AE%9E%E7%8E%B0sybil-guard%E7%AE%97%E6%B3%95%E6%A3%80%E6%B5%8B%E5%87%BA%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84sybil%E8%8A%82%E7%82%B9%E8%BF%94%E5%9B%9E%E6%A3%80%E6%B5%8B%E5%87%86%E7%A1%AE%E6%80%A7%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. 编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="toc-number">2.5.</span> <span class="toc-text">五、实验结论与体会</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E5%9F%BA%E4%BA%8Ematlab%E6%A8%A1%E6%8B%9F%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">实验二 基于MATLAB模拟比特币挖矿的实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">3.1.</span> <span class="toc-text">一、 实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%AE%9E%E9%AA%8C%E8%AE%BE%E5%A4%87%E4%B8%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">3.2.</span> <span class="toc-text">二、 实验设备与平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">三、 实验内容与要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.4.</span> <span class="toc-text">四、 实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA%E4%B8%8E%E4%BD%93%E4%BC%9A-1"><span class="toc-number">3.5.</span> <span class="toc-text">五、实验结论与体会</span></a></li></ol></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%B3%E5%B7%AB%E6%94%BB%E5%87%BB%E8%AE%BA%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">女巫攻击论文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-%E4%BD%BF%E7%94%A8sybilguard%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E4%B8%ADsybil%E8%8A%82%E7%82%B9%E7%9A%84%E6%A3%80%E6%B5%8B"><span class="toc-number">2.</span> <span class="toc-text">实验一 使用SybilGuard算法实现社交网络中Sybil节点的检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">2.1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%AE%9E%E9%AA%8C%E8%AE%BE%E5%A4%87%E4%B8%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.2.</span> <span class="toc-text">二、实验设备与平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-number">2.3.</span> <span class="toc-text">三、实验内容与要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.4.</span> <span class="toc-text">四、实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8python%E5%AF%BC%E5%85%A5%E7%BD%91%E4%B8%8A%E6%89%BE%E5%88%B0%E7%9A%84%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%9B%86%E5%B0%86%E5%85%B6%E8%BD%AC%E5%8C%96%E4%B8%BA%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.1.</span> <span class="toc-text">1. 利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E8%AF%A5%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E8%8A%82%E7%82%B9%E6%95%B0%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%9B%B8%E7%B1%BB%E4%BC%BC%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C"><span class="toc-number">2.4.2.</span> <span class="toc-text">2. 按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E9%9A%8F%E6%9C%BA%E7%9A%84sybil%E6%94%BB%E5%87%BB"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. 在现有网络的基础上生成一个随机的Sybil攻击。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E5%AE%9E%E7%8E%B0sybil-guard%E7%AE%97%E6%B3%95%E6%A3%80%E6%B5%8B%E5%87%BA%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84sybil%E8%8A%82%E7%82%B9%E8%BF%94%E5%9B%9E%E6%A3%80%E6%B5%8B%E5%87%86%E7%A1%AE%E6%80%A7%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.4.</span> <span class="toc-text">4. 编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="toc-number">2.5.</span> <span class="toc-text">五、实验结论与体会</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E5%9F%BA%E4%BA%8Ematlab%E6%A8%A1%E6%8B%9F%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">实验二 基于MATLAB模拟比特币挖矿的实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">3.1.</span> <span class="toc-text">一、 实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%AE%9E%E9%AA%8C%E8%AE%BE%E5%A4%87%E4%B8%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">3.2.</span> <span class="toc-text">二、 实验设备与平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">三、 实验内容与要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.4.</span> <span class="toc-text">四、 实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA%E4%B8%8E%E4%BD%93%E4%BC%9A-1"><span class="toc-number">3.5.</span> <span class="toc-text">五、实验结论与体会</span></a></li></ol></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大三下网络与信息安全选修课实验报告</p>
+<span id="more"></span>
+<h1 id="女巫攻击论文">女巫攻击论文</h1>
+<p><a href="1_针对Sybil攻击的防御技术的发展.pdf">针对 Sybil 攻击的防御技术的发展</a></p>
+<h1 id="实验一-使用sybilguard算法实现社交网络中sybil节点的检测">实验一 使用SybilGuard算法实现社交网络中Sybil节点的检测</h1>
+<h2 id="一实验目的">一、实验目的</h2>
+<ol type="1">
+<li><p>学会使用Python平台搭建基本的社交网络模型。</p></li>
+<li><p>能够利用已有的社交网络数据集生成具有类似拓扑的新网络。</p></li>
+<li><p>可以生成一个随机的Sybil攻击，把Sybil节点添加进网络中。</p></li>
+<li><p>能够编写正确的Sybil Guard算法，检测出添加的Sybil节点。</p></li>
+</ol>
+<h2 id="二实验设备与平台">二、实验设备与平台</h2>
+<p>​ 笔记本电脑一台；Python3.7环境；必需的Python函数包；Spyder IDE；来自http://networkrepository.com的社交网络数据集。</p>
+<h2 id="三实验内容与要求">三、实验内容与要求</h2>
+<ol type="1">
+<li><p>利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</p></li>
+<li><p>按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络（避免偶然性，防止程序仅对特定网络有效）。</p></li>
+<li><p>在现有网络的基础上生成一个随机的Sybil攻击，即：Sybil节点数随机、攻击位置随机、攻击边数随机（小于最大限度）。</p></li>
+<li><p>编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵，用于衡量算法是否有用。</p></li>
+</ol>
+<h2 id="四实验步骤">四、实验步骤</h2>
+<h3 id="利用python导入网上找到的社交网络数据集将其转化为邻接矩阵">1. 利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</h3>
+<p>（1）导入数据集</p>
+<p>此处我使用的是Network Repository网站上面的开源网络数据集，选择了其中网络节点数比较少的网络：Caltech36，它是一个基于Facebook真实数据产生的769个节点，16.7K条边的社交网络图。下载下来是mtx格式，所以我使用scipy.io中的mmread函数将其导入，并且使用todense方法将稀疏矩阵转化为邻接矩阵形式。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps89.jpg" class="" title="img">
+<p>其中遇到一点点小问题，导入时报错：文件不是以MatrixMarket matrix格式存储的，导入失败，后来我用UltraEdit软件打开才发现，本来MatrixMarket matrix格式第一行应该有两个“%”才能被识别，但是数据集只有一个“%”，将其更改完毕即可成功导入。下面几行就是网络规模、边数和邻接关系。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps90.jpg" class="" title="img">
+<p>将数据集导入后打开矩阵F可以看到邻接矩阵的形式：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps91.jpg" class="" title="img">
+<p>数据集Caltech36的网络拓扑结构如下：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps92.jpg" class="" title="img">
+<p>（2）绘制各个度数节点数量的统计图：</p>
+<p>这一步是比较重要的，它描述了网络的大致拓扑结构，为接下来检验重构网络是否与原网络结构相似提供了依据。</p>
+<p>其中包含一些子函数的定义：</p>
+<p>friends (A):返回每个人的朋友列表组成的矩阵，前k项为朋友序号，k为节点度数，其余值为-1.</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps93.jpg" class="" title="img">
+<p>degre (A,i):返回社交图节点的度数：它仅包含计算每个人的朋友数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps94.jpg" class="" title="img">
+<p>degremoyen(A):网络的平均节点度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps95.jpg" class="" title="img">
+<p>tablederoutage (A,B):计算每个节点列表的排列</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps96.jpg" class="" title="img">
+<p>tableroutage2 (A,B,C, node):将每个节点与其排列相关联</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps97.jpg" class="" title="img">
+<p>search(B,row,friend):搜索朋友</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps98.jpg" class="" title="img">
+<p>next2(B, RT, friend):在具体步骤中通过这些排列获得的每个节点的图像</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps99.jpg" class="" title="img">
+<p>statistique (A):返回向量v，第i项为第i个节点的度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps100.jpg" class="" title="img">
+<p>这一步比较费时间，定义了一个print功能可以实时显示进度：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps101.jpg" class="" title="img">
+<p>使用以下代码即可画出网络各个度数节点数量的统计折线图：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps102.jpg" class="" title="img">
+<p>最终画出的统计图如下：</p>
+<p>可以看出，度数小的节点数量比较多，度数大的相对较少。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps103.jpg" class="" title="img">
+<h3 id="按照该社交网络模型生成节点数网络拓扑相类似的另一个网络">2. 按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络。</h3>
+<p>（1）生成新网络</p>
+<p>somme (f,n):节点度数累加起来，后一项是前面的求和</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps104.jpg" class="" title="img">
+<p>f(i):估计出的原始图形节点度数分布函数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps105.jpg" class="" title="img">
+<p>构建v矩阵：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps106.jpg" class="" title="img">
+<p>prob(v):根据与函数f相关的概率分布，计算随机节点的度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps107.jpg" class="" title="img">
+<p>matricerandom2(A,v):</p>
+<p>构建类似于原矩阵的邻接矩阵（相同大小，相似的“给定度数的节点数”轮廓）</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps108.jpg" class="" title="img">
+<p>生成对应矩阵C并且画出新网络的节点分布：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps109.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps110.jpg" class="" title="img">
+<p>它与原网络分布形状类似，可以应用于实际操作。</p>
+<p>原网络节点分布图：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps111.jpg" class="" title="img">
+<h3 id="在现有网络的基础上生成一个随机的sybil攻击">3. 在现有网络的基础上生成一个随机的Sybil攻击。</h3>
+<p>k(v):指数概率分布的生成d服从均匀分布，s为指数分布，v为指数分布的参数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps112.jpg" class="" title="img">
+<p>generation( n,f):随机确定哪些节点将链接这两个网络：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps113.jpg" class="" title="img">
+<p>ajoute(A):使用刚刚定义的攻击边缘将两个社交网络连接起来。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps114.jpg" class="" title="img">
+<p>生成攻击过后的网络D：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps115.jpg" class="" title="img">
+<h3 id="编写实现sybil-guard算法检测出网络中的sybil节点返回检测准确性的矩阵">4. 编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵</h3>
+<p>（1）网络Caltech36</p>
+<p>witness(A,B,RT,node,w):生成随机路线</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps116.jpg" class="" title="img">
+<p>comp (A,B,RT,V,S,W):两条随机路线的比较-研究他们的交点</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps117.jpg" class="" title="img">
+<p>listpour (A,v,s,m):返回两个节点的路线之间交叉点数目不同的列表</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps118.jpg" class="" title="img">
+<p>estimation (A,v,s,m):使用listpour并返回经验期望：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps119.jpg" class="" title="img">
+<p>检测Sybil节点，返回检测准确度矩阵J：</p>
+<p><strong>J00，诚实检测为诚实；J01，诚实检测为sybil；</strong></p>
+<p><strong>J10，sybil检测为诚实；J11，sybil检测为sybil</strong></p>
+<p>最后运行几次，更改初始诚实节点的值，比较检测效果。</p>
+<p>经过实验，阈值x选在140左右检测效果最好。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps120.jpg" class="" title="img">
+<p><strong>检测结果：</strong></p>
+<p>1.诚实节点标号s=300，阈值x=140，随机生成14个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps121.jpg" class="" title="img">
+<p>2.诚实节点标号s=150，阈值x=140，随机生成14个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps122.jpg" class="" title="img">
+<p>3.诚实节点标号s=200，阈值x=140，随机生成3个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps123.jpg" class="" title="img">
+<p>4.诚实节点标号s=200，阈值x=140，随机生成4个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps124.jpg" class="" title="img">
+<p>5.诚实节点标号s=350，阈值x=140，随机生成12个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps125.jpg" class="" title="img">
+<p>（2）新网络Reed98</p>
+<p>仅用一个数据集不足以证明检测算法的鲁棒性，我在同一个网站上下载了另一个规模相近的网络数据集Reed98进行测试，其网络拓扑图如下，其中节点数为962，边数为18.8k，规模比上一个网络大了一些，计算时间也相应长了一些。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps126.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps127.jpg" class="" title="img">
+<p><strong>检测结果：</strong></p>
+<p>1.诚实节点标号s=600，阈值x=140，随机生成6个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps128.jpg" class="" title="img">
+<p>2.诚实节点标号s=921，阈值x=140，随机生成5个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps129.jpg" class="" title="img">
+<p>3.诚实节点标号s=66，阈值x=140，随机生成3个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps130.jpg" class="" title="img">
+<p>4.诚实节点标号s=168，阈值x=140，随机生成12个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps131.jpg" class="" title="img">
+<h2 id="五实验结论与体会">五、实验结论与体会</h2>
+<p>自己利用Python平台复现了论文中检测Sybil攻击的Sybil Guard算法，在检测结果上取得了不错的成绩，针对第一个网络，仅仅在Sybil节点数为14的时候发生了误判，将诚实节点检测为了Sybil节点。而总体上来说，当Sybil节点相较于网络规模来说不多时，Sybil节点的检测精确度还是很高的。而对于本次实验来说，费时间的不是生成Sybil节点，也不是检测算法，而是进行节点统计的函数，迫不得已只能使用print来显示进度。</p>
+<p>这次实验给我最大的收获就是编程能力的提高，还有就是分析解决问题的能力，在网上寻找相关代码时只有一个不完整的工程，其中的代码是用Python2编写的，许多语句不匹配，而且缺乏相关数据集，在搜索大量网页以后终于找到了一个可用的开源数据集，这样让我明白，我们信息类专业，数据对我们来说是至关重要的，正所谓“工欲善其事必先利其器”，只有拥有了专业靠谱的数据，我们的工作才能继续开展。而获得的数据必须进行一定的处理才能为我们所用，就像我刚开头提到的“%”的问题，可能是因为调用的接口不同，导致了原数据与我们的需要不匹配，这就需要我们进行进一步的处理。</p>
+<p><strong>PS：下面这个是当时做区块链报告时为了解比特币挖矿机制而进行的一个简单的小测试，放到后边做一个附注吧。</strong></p>
+<h1 id="实验二-基于matlab模拟比特币挖矿的实验">实验二 基于MATLAB模拟比特币挖矿的实验</h1>
+<h2 id="一-实验目的">一、 实验目的</h2>
+<p>通过实验了解区块链的基本原理和基本结构，体会“挖矿”的概念</p>
+<h2 id="二-实验设备与平台">二、 实验设备与平台</h2>
+<p>笔记本电脑一台、MATLAB r2018b、网上下载的SHA256计算代码DataHash.m</p>
+<h2 id="三-实验内容与要求">三、 实验内容与要求</h2>
+<p>利用软件模拟挖矿、记录交易的过程，体会区块链的基本思想</p>
+<h2 id="四-实验步骤">四、 实验步骤</h2>
+<p>1.定义区块的数据结构</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps132.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps133.jpg" class="" title="img">
+<p>2.定义区块链的数据结构</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps134.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps135.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps136.jpg" class="" title="img">
+<p>3.定义挖矿的函数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps137.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps138.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps139.jpg" class="" title="img">
+<p>4.执行挖矿的过程</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps140.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps141.jpg" class="" title="img">
+<p>执行的结果：（只展示初始化和第三个block挖完的结果）</p>
+<p><strong>初始化：</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps142.jpg" class="" title="img">
+<p><strong>第三个块：</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps143.jpg" class="" title="img">
+<p>可以看出执行到第1377次遍历时才得到前三位都为0的哈希值。</p>
+<p>5.修改挖矿难度再次实验</p>
+<p><strong>难度为1（第一位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps144.jpg" class="" title="img">
+<p><strong>难度为2（前两位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps145.jpg" class="" title="img">
+<p><strong>难度为3（前三位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps146.jpg" class="" title="img">
+<p><strong>难度为4（前四位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps147.jpg" class="" title="img">
+<p><strong>挖矿时间随难度的变化</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps148.jpg" class="" title="img">
+<h2 id="五实验结论与体会-1">五、实验结论与体会</h2>
+<p>利用MATLAB进行了简单的挖矿模拟实验，可以看出，随着挖矿难度的增加，挖矿时间呈现指数增长，而寻找合适的随机数使得哈希值满足要求就只能使用遍历。在挖矿设备越来越多时，要保证恒定的打包率，就只能增大难度，而每增加一位难度，挖矿时间都将以指数形式增长。比特币带来的到底是巨大的金融利益，还是电能的巨大耗费，这一点值得我们思考。</p>
+
+        
+      
+      <!-- 
+        <p>大三下网络与信息安全选修课实验报告</p>
+<span id="more"></span>
+<h1 id="女巫攻击论文">女巫攻击论文</h1>
+<p><a href="1_针对Sybil攻击的防御技术的发展.pdf">针对 Sybil 攻击的防御技术的发展</a></p>
+<h1 id="实验一-使用sybilguard算法实现社交网络中sybil节点的检测">实验一 使用SybilGuard算法实现社交网络中Sybil节点的检测</h1>
+<h2 id="一实验目的">一、实验目的</h2>
+<ol type="1">
+<li><p>学会使用Python平台搭建基本的社交网络模型。</p></li>
+<li><p>能够利用已有的社交网络数据集生成具有类似拓扑的新网络。</p></li>
+<li><p>可以生成一个随机的Sybil攻击，把Sybil节点添加进网络中。</p></li>
+<li><p>能够编写正确的Sybil Guard算法，检测出添加的Sybil节点。</p></li>
+</ol>
+<h2 id="二实验设备与平台">二、实验设备与平台</h2>
+<p>​ 笔记本电脑一台；Python3.7环境；必需的Python函数包；Spyder IDE；来自http://networkrepository.com的社交网络数据集。</p>
+<h2 id="三实验内容与要求">三、实验内容与要求</h2>
+<ol type="1">
+<li><p>利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</p></li>
+<li><p>按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络（避免偶然性，防止程序仅对特定网络有效）。</p></li>
+<li><p>在现有网络的基础上生成一个随机的Sybil攻击，即：Sybil节点数随机、攻击位置随机、攻击边数随机（小于最大限度）。</p></li>
+<li><p>编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵，用于衡量算法是否有用。</p></li>
+</ol>
+<h2 id="四实验步骤">四、实验步骤</h2>
+<h3 id="利用python导入网上找到的社交网络数据集将其转化为邻接矩阵">1. 利用Python导入网上找到的社交网络数据集，将其转化为邻接矩阵。</h3>
+<p>（1）导入数据集</p>
+<p>此处我使用的是Network Repository网站上面的开源网络数据集，选择了其中网络节点数比较少的网络：Caltech36，它是一个基于Facebook真实数据产生的769个节点，16.7K条边的社交网络图。下载下来是mtx格式，所以我使用scipy.io中的mmread函数将其导入，并且使用todense方法将稀疏矩阵转化为邻接矩阵形式。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps89.jpg" class="" title="img">
+<p>其中遇到一点点小问题，导入时报错：文件不是以MatrixMarket matrix格式存储的，导入失败，后来我用UltraEdit软件打开才发现，本来MatrixMarket matrix格式第一行应该有两个“%”才能被识别，但是数据集只有一个“%”，将其更改完毕即可成功导入。下面几行就是网络规模、边数和邻接关系。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps90.jpg" class="" title="img">
+<p>将数据集导入后打开矩阵F可以看到邻接矩阵的形式：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps91.jpg" class="" title="img">
+<p>数据集Caltech36的网络拓扑结构如下：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps92.jpg" class="" title="img">
+<p>（2）绘制各个度数节点数量的统计图：</p>
+<p>这一步是比较重要的，它描述了网络的大致拓扑结构，为接下来检验重构网络是否与原网络结构相似提供了依据。</p>
+<p>其中包含一些子函数的定义：</p>
+<p>friends (A):返回每个人的朋友列表组成的矩阵，前k项为朋友序号，k为节点度数，其余值为-1.</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps93.jpg" class="" title="img">
+<p>degre (A,i):返回社交图节点的度数：它仅包含计算每个人的朋友数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps94.jpg" class="" title="img">
+<p>degremoyen(A):网络的平均节点度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps95.jpg" class="" title="img">
+<p>tablederoutage (A,B):计算每个节点列表的排列</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps96.jpg" class="" title="img">
+<p>tableroutage2 (A,B,C, node):将每个节点与其排列相关联</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps97.jpg" class="" title="img">
+<p>search(B,row,friend):搜索朋友</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps98.jpg" class="" title="img">
+<p>next2(B, RT, friend):在具体步骤中通过这些排列获得的每个节点的图像</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps99.jpg" class="" title="img">
+<p>statistique (A):返回向量v，第i项为第i个节点的度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps100.jpg" class="" title="img">
+<p>这一步比较费时间，定义了一个print功能可以实时显示进度：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps101.jpg" class="" title="img">
+<p>使用以下代码即可画出网络各个度数节点数量的统计折线图：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps102.jpg" class="" title="img">
+<p>最终画出的统计图如下：</p>
+<p>可以看出，度数小的节点数量比较多，度数大的相对较少。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps103.jpg" class="" title="img">
+<h3 id="按照该社交网络模型生成节点数网络拓扑相类似的另一个网络">2. 按照该社交网络模型生成节点数、网络拓扑相类似的另一个网络。</h3>
+<p>（1）生成新网络</p>
+<p>somme (f,n):节点度数累加起来，后一项是前面的求和</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps104.jpg" class="" title="img">
+<p>f(i):估计出的原始图形节点度数分布函数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps105.jpg" class="" title="img">
+<p>构建v矩阵：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps106.jpg" class="" title="img">
+<p>prob(v):根据与函数f相关的概率分布，计算随机节点的度数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps107.jpg" class="" title="img">
+<p>matricerandom2(A,v):</p>
+<p>构建类似于原矩阵的邻接矩阵（相同大小，相似的“给定度数的节点数”轮廓）</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps108.jpg" class="" title="img">
+<p>生成对应矩阵C并且画出新网络的节点分布：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps109.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps110.jpg" class="" title="img">
+<p>它与原网络分布形状类似，可以应用于实际操作。</p>
+<p>原网络节点分布图：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps111.jpg" class="" title="img">
+<h3 id="在现有网络的基础上生成一个随机的sybil攻击">3. 在现有网络的基础上生成一个随机的Sybil攻击。</h3>
+<p>k(v):指数概率分布的生成d服从均匀分布，s为指数分布，v为指数分布的参数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps112.jpg" class="" title="img">
+<p>generation( n,f):随机确定哪些节点将链接这两个网络：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps113.jpg" class="" title="img">
+<p>ajoute(A):使用刚刚定义的攻击边缘将两个社交网络连接起来。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps114.jpg" class="" title="img">
+<p>生成攻击过后的网络D：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps115.jpg" class="" title="img">
+<h3 id="编写实现sybil-guard算法检测出网络中的sybil节点返回检测准确性的矩阵">4. 编写实现Sybil Guard算法，检测出网络中的Sybil节点，返回检测准确性的矩阵</h3>
+<p>（1）网络Caltech36</p>
+<p>witness(A,B,RT,node,w):生成随机路线</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps116.jpg" class="" title="img">
+<p>comp (A,B,RT,V,S,W):两条随机路线的比较-研究他们的交点</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps117.jpg" class="" title="img">
+<p>listpour (A,v,s,m):返回两个节点的路线之间交叉点数目不同的列表</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps118.jpg" class="" title="img">
+<p>estimation (A,v,s,m):使用listpour并返回经验期望：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps119.jpg" class="" title="img">
+<p>检测Sybil节点，返回检测准确度矩阵J：</p>
+<p><strong>J00，诚实检测为诚实；J01，诚实检测为sybil；</strong></p>
+<p><strong>J10，sybil检测为诚实；J11，sybil检测为sybil</strong></p>
+<p>最后运行几次，更改初始诚实节点的值，比较检测效果。</p>
+<p>经过实验，阈值x选在140左右检测效果最好。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps120.jpg" class="" title="img">
+<p><strong>检测结果：</strong></p>
+<p>1.诚实节点标号s=300，阈值x=140，随机生成14个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps121.jpg" class="" title="img">
+<p>2.诚实节点标号s=150，阈值x=140，随机生成14个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps122.jpg" class="" title="img">
+<p>3.诚实节点标号s=200，阈值x=140，随机生成3个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps123.jpg" class="" title="img">
+<p>4.诚实节点标号s=200，阈值x=140，随机生成4个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps124.jpg" class="" title="img">
+<p>5.诚实节点标号s=350，阈值x=140，随机生成12个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps125.jpg" class="" title="img">
+<p>（2）新网络Reed98</p>
+<p>仅用一个数据集不足以证明检测算法的鲁棒性，我在同一个网站上下载了另一个规模相近的网络数据集Reed98进行测试，其网络拓扑图如下，其中节点数为962，边数为18.8k，规模比上一个网络大了一些，计算时间也相应长了一些。</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps126.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps127.jpg" class="" title="img">
+<p><strong>检测结果：</strong></p>
+<p>1.诚实节点标号s=600，阈值x=140，随机生成6个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps128.jpg" class="" title="img">
+<p>2.诚实节点标号s=921，阈值x=140，随机生成5个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps129.jpg" class="" title="img">
+<p>3.诚实节点标号s=66，阈值x=140，随机生成3个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps130.jpg" class="" title="img">
+<p>4.诚实节点标号s=168，阈值x=140，随机生成12个：</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps131.jpg" class="" title="img">
+<h2 id="五实验结论与体会">五、实验结论与体会</h2>
+<p>自己利用Python平台复现了论文中检测Sybil攻击的Sybil Guard算法，在检测结果上取得了不错的成绩，针对第一个网络，仅仅在Sybil节点数为14的时候发生了误判，将诚实节点检测为了Sybil节点。而总体上来说，当Sybil节点相较于网络规模来说不多时，Sybil节点的检测精确度还是很高的。而对于本次实验来说，费时间的不是生成Sybil节点，也不是检测算法，而是进行节点统计的函数，迫不得已只能使用print来显示进度。</p>
+<p>这次实验给我最大的收获就是编程能力的提高，还有就是分析解决问题的能力，在网上寻找相关代码时只有一个不完整的工程，其中的代码是用Python2编写的，许多语句不匹配，而且缺乏相关数据集，在搜索大量网页以后终于找到了一个可用的开源数据集，这样让我明白，我们信息类专业，数据对我们来说是至关重要的，正所谓“工欲善其事必先利其器”，只有拥有了专业靠谱的数据，我们的工作才能继续开展。而获得的数据必须进行一定的处理才能为我们所用，就像我刚开头提到的“%”的问题，可能是因为调用的接口不同，导致了原数据与我们的需要不匹配，这就需要我们进行进一步的处理。</p>
+<p><strong>PS：下面这个是当时做区块链报告时为了解比特币挖矿机制而进行的一个简单的小测试，放到后边做一个附注吧。</strong></p>
+<h1 id="实验二-基于matlab模拟比特币挖矿的实验">实验二 基于MATLAB模拟比特币挖矿的实验</h1>
+<h2 id="一-实验目的">一、 实验目的</h2>
+<p>通过实验了解区块链的基本原理和基本结构，体会“挖矿”的概念</p>
+<h2 id="二-实验设备与平台">二、 实验设备与平台</h2>
+<p>笔记本电脑一台、MATLAB r2018b、网上下载的SHA256计算代码DataHash.m</p>
+<h2 id="三-实验内容与要求">三、 实验内容与要求</h2>
+<p>利用软件模拟挖矿、记录交易的过程，体会区块链的基本思想</p>
+<h2 id="四-实验步骤">四、 实验步骤</h2>
+<p>1.定义区块的数据结构</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps132.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps133.jpg" class="" title="img">
+<p>2.定义区块链的数据结构</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps134.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps135.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps136.jpg" class="" title="img">
+<p>3.定义挖矿的函数</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps137.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps138.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps139.jpg" class="" title="img">
+<p>4.执行挖矿的过程</p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps140.jpg" class="" title="img">
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps141.jpg" class="" title="img">
+<p>执行的结果：（只展示初始化和第三个block挖完的结果）</p>
+<p><strong>初始化：</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps142.jpg" class="" title="img">
+<p><strong>第三个块：</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps143.jpg" class="" title="img">
+<p>可以看出执行到第1377次遍历时才得到前三位都为0的哈希值。</p>
+<p>5.修改挖矿难度再次实验</p>
+<p><strong>难度为1（第一位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps144.jpg" class="" title="img">
+<p><strong>难度为2（前两位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps145.jpg" class="" title="img">
+<p><strong>难度为3（前三位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps146.jpg" class="" title="img">
+<p><strong>难度为4（前四位为0）</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps147.jpg" class="" title="img">
+<p><strong>挖矿时间随难度的变化</strong></p>
+<img src="/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/wps148.jpg" class="" title="img">
+<h2 id="五实验结论与体会-1">五、实验结论与体会</h2>
+<p>利用MATLAB进行了简单的挖矿模拟实验，可以看出，随着挖矿难度的增加，挖矿时间呈现指数增长，而寻找合适的随机数使得哈希值满足要求就只能使用遍历。在挖矿设备越来越多时，要保证恒定的打包率，就只能增大难度，而每增加一位难度，挖矿时间都将以指数形式增长。比特币带来的到底是巨大的金融利益，还是电能的巨大耗费，这一点值得我们思考。</p>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/%E7%94%B5%E5%AD%90%E7%BA%BF%E8%B7%AF%E8%AE%BE%E8%AE%A1%E4%B8%8B%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          电子线路设计下实验报告1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/24/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E4%B8%8B%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自动控制下实验报告1</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="网络与信息安全实验报告" data-title="网络与信息安全实验报告" data-url="https://renzehua1998.github.io/2020/06/30/%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"  data-images="/img/avatar.jpeg" data-content="网络与信息安全实验报告">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>

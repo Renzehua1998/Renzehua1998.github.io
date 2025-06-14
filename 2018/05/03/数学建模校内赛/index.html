@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2018 西安交通大学数学建模竞赛 | Zehua的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大一下数学建模校内赛论文（二等奖存档）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018 西安交通大学数学建模竞赛">
+<meta property="og:url" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/index.html">
+<meta property="og:site_name" content="Zehua的个人博客">
+<meta property="og:description" content="大一下数学建模校内赛论文（二等奖存档）">
+<meta property="og:locale">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134715296.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134841454.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134929988.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509135204289.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144208435.png">
+<meta property="og:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144812219.png">
+<meta property="article:published_time" content="2018-05-03T12:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-02T06:21:51.401Z">
+<meta property="article:author" content="Zehua Ren">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134715296.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Zehua的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+  <!-- 
+<script src="/js/av-min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/leancloud-storage@3.15.0/dist/av-min.js"></script> -->
+  <!-- 
+<script src="/js/Valine.min.js"></script>
+ -->
+  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+  
+  <!-- 
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+ -->
+  <!-- 
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+ -->
+  <!-- 
+<script src="/js/require.min.js"></script>
+ -->
+  
+<script src="/js/jquery.min.js"></script>
+
+
+  
+      <!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script> -->
+<!-- 此CDN链接已失效，我找了很久的资源，从一个废弃GitHub仓库中找到了对应的js资源可以实现功能 -->
+<!-- 由于av-core-mini-0.6.1.js和av-min.js冲突，所以把本位置和源文件的所有AV改成AV0以避免冲突 -->
+
+<script src="/js/av-core-mini-0.6.1.js"></script>
+
+<script>AV0.initialize("w1SO7gpilVpRbakyqOw3qll3-gzGzoHsz", "puuKUoPCcKHPTwmLvShbcaOi");</script>
+
+<script src="/js/Counter.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="mymenucontainer" title="侧栏按钮" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>    
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						
+							<div class="icon-wrap icon-ribbon hide" data-idx="1">
+								<div class="searchicon"></div>
+							</div>
+						
+						<div class="icon-wrap icon-ribbon hide" data-idx="2">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="3">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="4">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						
+						<li>搜索</li>
+						
+						<li>标签</li>
+						
+						<li>友链</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+		<!-- 原开关位置 -->
+		
+		<div>
+			<input id="animation" type="checkbox" onclick="checkboxOnclick(this)"/>
+			<a>特效开关</a>
+		</div>
+		
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<!-- 单页面内标签位置 -->
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">时间线</a></li>
+				        
+							<li><a href="/categories">分类</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+					        
+								<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+					        
+								<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div id="js-search">
+						
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part4">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua1998.github.io/">境外分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://renzehua.gitee.io/">国内分流</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://foreverblog.cn/go.html">虫洞</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://echos2019.github.io/Myblog">echos的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gwyxjtu.github.io">果果的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://patorjk.com/software/taag">字符字母生成</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part5">
+					<div id="js-aboutme">西北某高校系统工程硕士在读</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+<script>
+	// 特效开关
+	function checkboxOnclick(checkbox){
+		if ( checkbox.checked){
+			localStorage.setItem('noanimation','0');
+			$(".live2d-widget-container").css('display', 'inline');  // live2d显示
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			localStorage.setItem('noanimation','1');
+			$(".live2d-widget-container").css('display', 'none');  // live2d隐藏
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+		<!-- <div class="search-icon"></div> -->
+		
+		<p class="animation-info">特效：</p>
+		<div id="animation-button" onclick="animOnclick()"></div>
+		
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<!-- 
+  <div class="form-group">
+    <div class="search-delete" title="清除搜索框" onclick="deleteSearch()">
+      <div class="search-bar1"></div>
+      <div class="search-bar2"></div>
+    </div>
+    <input type="text" oninput="gotoSearch()" id="local-search-input" placeholder="在这里输入内容"/>
+  </div>  
+  <div id="local-search-result">
+  </div>
+  <div class="search-tags">
+    <a href="/tags/CPP/" style="font-size: 10px;">CPP</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 18.18px;">C语言</a> <a href="/tags/Julia/" style="font-size: 10.91px;">Julia</a> <a href="/tags/LabVIEW/" style="font-size: 13.64px;">LabVIEW</a> <a href="/tags/Python/" style="font-size: 17.27px;">Python</a> <a href="/tags/git/" style="font-size: 14.55px;">git</a> <a href="/tags/matlab/" style="font-size: 16.36px;">matlab</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 12.73px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C/" style="font-size: 14.55px;">图与网络</a> <a href="/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.82px;">图数据库</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 20px;">实验报告</a> <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10px;">密码学</a> <a href="/tags/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5/" style="font-size: 11.82px;">态势感知</a> <a href="/tags/%E6%8E%A7%E5%88%B6/" style="font-size: 14.55px;">控制</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 13.64px;">数据挖掘</a> <a href="/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" style="font-size: 19.09px;">杂七杂八</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 10px;">正则</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.82px;">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14.55px;">算法</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 15.45px;">计网</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 13.64px;">论文阅读</a> <a href="/tags/%E9%80%89%E4%BF%AE%E8%AF%BE/" style="font-size: 12.73px;">选修课</a>
+  </div>
+  <script>
+    function deleteSearch() {
+      jQuery("#local-search-input").val('') // 清除搜索内容
+      $(".search-tags").css('display', 'block'); // 显示隐藏设置
+      $(".search-delete").css('display', 'none');
+      let show = document.getElementById('local-search-result'); // 清除原搜索结果
+      show.innerHTML=''
+    }
+    function gotoSearch() { // 执行函数（输入内容改变且不为空时执行搜索，为空时显示tags，隐藏清除按钮）
+      let inputStr = jQuery("#local-search-input").val() // 获取输入内容
+      if (inputStr !== "") {
+        $(".search-tags").css('display', 'none');
+        $(".search-delete").css('display', 'block');
+        handleSearch(inputStr)
+      } else {
+        $(".search-tags").css('display', 'block');
+        $(".search-delete").css('display', 'none');
+        let show = document.getElementById('local-search-result'); // 清除原搜索结果
+        show.innerHTML=''
+      }
+    }
+    function handleSearch(inputStr) { // 实施搜索
+      let data = JSON.parse(localStorage.getItem('content'))
+      inputStr = inputStr.toLowerCase()
+      data.forEach((post) => { // 搜索匹配字符串具体位置
+        post.matchTitle = false
+        post.titleIndex = post.title.toLowerCase().indexOf(inputStr)
+        if (post.titleIndex > -1) {
+	  			post.matchTitle = true
+	  		}
+
+        post.matchText = false
+        post.textIndex = post.text.toLowerCase().indexOf(inputStr)
+        if (post.textIndex > -1) {
+          post.matchText = true
+        }
+
+        post.matchTags = false
+	  		post.tags.forEach((tag) => {
+	  			if (tag.name.toLowerCase().indexOf(inputStr) > -1) {
+            post.matchTags = true
+	      	}
+	  		})
+      });
+
+      let htmlStr = '' // 搜索结果html
+      htmlStr += '<ul class="search-ul">'
+      findPost = false;
+      data.forEach((post) => { // 生成展示结果
+        if (post.matchTitle || post.matchText || post.matchTags) {
+          findPost = true;
+          let tagStr = '' // tags标签
+          post.tags.forEach((tag) => {
+            index = tag.name.toLowerCase().indexOf(inputStr)
+            if (index > -1) {
+              name = tag.name.slice(0,index)+'<b>'+tag.name.slice(index,index+inputStr.length)+'</b>'+tag.name.slice(index+inputStr.length)
+            } else {
+              name = tag.name
+            }
+            tagStr+='<span>#'+name+' </span>'
+          })
+          if(post.matchTitle) { // 标题
+            title = post.title.slice(0,post.titleIndex)
+            + '<b>' + post.title.slice(post.titleIndex, post.titleIndex+inputStr.length) + '</b>'
+            + post.title.slice(post.titleIndex+inputStr.length)
+          } else {
+            title = post.title
+          }
+          if(post.matchText) { // 内容
+            text = post.text.slice(post.textIndex-25,post.textIndex)
+            + '<b>' + post.text.slice(post.textIndex, post.textIndex+inputStr.length) + '</b>'
+            + post.text.slice(post.textIndex+inputStr.length,post.textIndex+inputStr.length+25)
+          } else {
+            text = post.text.slice(0,50)
+          }
+          htmlStr+='\
+          <li class="search-li">\
+            <a href="/'+post.path+'" class="search-title">\
+              <span>'+title+'</span>\
+            </a>\
+            <p class="search-result">\
+              '+text+'\
+            </p>\
+            <p class="search-time">\
+              <span>'+post.date.slice(0,10)+'</span>\
+            </p>\
+            <p class="search-tag">\
+              '+tagStr+'\
+            </p>\
+          </li>';
+        }
+      })
+      if (!findPost) {
+        htmlStr+='\
+        <li class="search-li">\
+          <p class="search-result">\
+            没有搜索到相关结果，请清除内容重新搜索或清除浏览器缓存后重试。\
+          </p>\
+        <\li>'
+      }
+      htmlStr += '<ul>'
+      let show = document.getElementById('local-search-result');
+      show.innerHTML=htmlStr
+    }
+  </script>
+ -->
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">时间线</a></li>
+		        
+					<li><a href="/categories">分类</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Renzehua1998" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-ze-hua-31" title="zhihu">zhihu</a>
+			        
+						<a class="CSDN" target="_blank" href="https://blog.csdn.net/Ricardo1998" title="CSDN">CSDN</a>
+			        
+						<a class="cnblogs" target="_blank" href="https://www.cnblogs.com/renzehua" title="cnblogs">cnblogs</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+<script>
+	// 特效开关
+	function animOnclick(){
+		if (localStorage.getItem('noanimation') === '1'){
+			$("#animation-button").attr('class','animation-off');
+			localStorage.setItem('noanimation','0');
+			if (localStorage.getItem('bright') === '1') {
+				var circlecolor={"value": ['#999']};
+				var linecolor="#999";
+				particlesJS0(circlecolor, linecolor);
+			}else{
+				var circlecolor={"value": ['#0fc', '#0ff', '#ccc', '#ffa500', '#7b5d5f', '#ff945c', '#cfb7c4']};
+				var linecolor="#00bfff";
+				particlesJS0(circlecolor, linecolor);
+			}
+		}else{
+			$("#animation-button").attr('class','animation-on');
+			localStorage.setItem('noanimation','1');
+			var canvas_el = document.querySelector('#particles-js > .particles-js-canvas-el');
+			canvas_el.remove();  // 清除特效
+		}
+	}
+	// 特效函数
+	function particlesJS0(circlecolor, linecolor) {
+		// require(['/js/particles.js'], function(particlesJS) {
+			window.particlesJS('particles-js',
+
+			{
+				"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+					"enable": true,
+					"value_area": 800
+					}
+				},
+				"color": circlecolor,
+				"shape": {
+					"type": "circle",
+					"stroke": {
+					"width": 0,
+					"color": "#000000"
+					},
+					"polygon": {
+					"nb_sides": 5
+					},
+					"image": {
+					"src": "img/github.svg",
+					"width": 100,
+					"height": 100
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+					"enable": false,
+					"speed": 1,
+					"opacity_min": 0.1,
+					"sync": false
+					}
+				},
+				"size": {
+					"value": 5,
+					"random": true,
+					"anim": {
+					"enable": false,
+					"speed": 40,
+					"size_min": 0.1,
+					"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": linecolor,
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"attract": {
+					"enable": false,
+					"rotateX": 600,
+					"rotateY": 1200
+					}
+				}
+				},
+				"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+					"enable": true,
+					"mode": "repulse"
+					},
+					"onclick": {
+					"enable": true,
+					"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+					"distance": 400,
+					"line_linked": {
+						"opacity": 1
+					}
+					},
+					"bubble": {
+					"distance": 400,
+					"size": 40,
+					"duration": 2,
+					"opacity": 8,
+					"speed": 3
+					},
+					"repulse": {
+					"distance": 200
+					},
+					"push": {
+					"particles_nb": 4
+					},
+					"remove": {
+					"particles_nb": 2
+					}
+				}
+				},
+				"retina_detect": true,
+				"config_demo": {
+				"hide_card": false,
+				"background_color": "#b61924",
+				"background_image": "",
+				"background_position": "50% 50%",
+				"background_repeat": "no-repeat",
+				"background_size": "cover"
+				}
+			}
+
+			);
+		// })
+	}
+</script>
+      <div class="body-wrap"><article id="post-数学建模校内赛" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/" class="article-date">
+  	<time datetime="2018-05-03T12:00:00.000Z" itemprop="datePublished">2018-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2018 西安交通大学数学建模竞赛
+      
+    </h1>
+  
+
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  全文共: </span>
+        <span class="post-count">6.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">26分</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matlab/" rel="tag">matlab</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/">本科课程</a><a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/%E6%9C%AC%E7%A7%91%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E4%B8%80/">大一</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="2018 西安交通大学数学建模竞赛">
+         &nbsp;
+        阅读
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <!-- Table of Contents -->
+
+          <!-- version1 -->
+          <!-- 
+            <div id="toc" class="toc-article">
+            <strong class="toc-title">文章目录</strong>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">一、问题重述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE"><span class="toc-number">3.</span> <span class="toc-text">二、模型假设</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">三、符号说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">四、问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E5%8F%8A%E6%B1%82%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">五、模型建立及求解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-1-%E9%9D%99%E6%80%81%E8%BD%A8%E9%81%93"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 问题 1 静态轨道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">6.1.1.</span> <span class="toc-text">5.1.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="toc-number">6.1.2.</span> <span class="toc-text">5.1.2 模型建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%82%B9%E9%97%B4%E8%B7%9D%E7%A6%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.1.</span> <span class="toc-text">5.1.2.1 两点间距离模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E6%AE%B5%E9%A3%9E%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.2.</span> <span class="toc-text">5.1.2. 2 发射段飞行模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8E%E7%A9%BA%E5%B7%A1%E8%88%AA%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.3.</span> <span class="toc-text">5.1.2.3 低空巡航模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2-%E8%AE%BE%E8%AE%A1%E5%AF%BC%E5%BC%B9%E9%A3%9E%E8%A1%8C%E7%9A%84%E4%B8%AD%E6%AE%B5%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B%E6%96%B9%E7%A8%8B%E5%92%8C%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 问题 2 设计导弹飞行的中段动态模型方程和算法步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">5.2.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B-1"><span class="toc-number">6.2.2.</span> <span class="toc-text">5.2.2 模型建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E6%AE%B5%E9%A3%9E%E8%A1%8C%E6%A8%A1%E5%9E%8B-1"><span class="toc-number">6.2.2.1.</span> <span class="toc-text">5.2.2.1 发射段飞行模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E5%90%91%E8%BF%BD%E5%87%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.2.2.2.</span> <span class="toc-text">5.2.2.2 定向追击模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%BD%AC%E6%8A%98%E7%82%B9%E5%9D%90%E6%A0%87"><span class="toc-number">6.2.2.3.</span> <span class="toc-text">5.2.2.3 主要转折点坐标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">6.2.2.4.</span> <span class="toc-text">5.2.2.4 模型示意图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-3-%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 问题 3 误差分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%97%A0%E8%87%AA%E4%B8%BB%E5%88%B6%E5%AF%BC-d6000m-%E6%97%B6-d-%E9%9A%8F-k-%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">6.3.1.</span> <span class="toc-text">5.3.1 分析无自主制导 d&lt;6000m 时 d 随 k 的变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%91%BD%E4%B8%AD%E7%B2%BE%E5%BA%A6%E4%B8%8E-t2-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.3.2.</span> <span class="toc-text">5.3.2 分析命中精度与 t2 的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-number">7.</span> <span class="toc-text">六、模型评价与改进</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text">七、参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">9.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80%E7%A8%8B%E5%BA%8F"><span class="toc-number">9.1.</span> <span class="toc-text">问题一程序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">9.2.</span> <span class="toc-text">问题二程序：</span></a></li></ol></li></ol>
+            </div>
+           -->
+
+          <!-- version2 -->
+          
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+            <strong class="btn-text">文章导航</strong>
+            </p>
+            <div id="toc-article" class="toc-article" style="display:none">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">一、问题重述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE"><span class="toc-number">3.</span> <span class="toc-text">二、模型假设</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">三、符号说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">四、问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E5%8F%8A%E6%B1%82%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">五、模型建立及求解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-1-%E9%9D%99%E6%80%81%E8%BD%A8%E9%81%93"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 问题 1 静态轨道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">6.1.1.</span> <span class="toc-text">5.1.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="toc-number">6.1.2.</span> <span class="toc-text">5.1.2 模型建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%82%B9%E9%97%B4%E8%B7%9D%E7%A6%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.1.</span> <span class="toc-text">5.1.2.1 两点间距离模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E6%AE%B5%E9%A3%9E%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.2.</span> <span class="toc-text">5.1.2. 2 发射段飞行模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8E%E7%A9%BA%E5%B7%A1%E8%88%AA%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.2.3.</span> <span class="toc-text">5.1.2.3 低空巡航模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2-%E8%AE%BE%E8%AE%A1%E5%AF%BC%E5%BC%B9%E9%A3%9E%E8%A1%8C%E7%9A%84%E4%B8%AD%E6%AE%B5%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B%E6%96%B9%E7%A8%8B%E5%92%8C%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 问题 2 设计导弹飞行的中段动态模型方程和算法步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">5.2.1 问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B-1"><span class="toc-number">6.2.2.</span> <span class="toc-text">5.2.2 模型建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E6%AE%B5%E9%A3%9E%E8%A1%8C%E6%A8%A1%E5%9E%8B-1"><span class="toc-number">6.2.2.1.</span> <span class="toc-text">5.2.2.1 发射段飞行模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E5%90%91%E8%BF%BD%E5%87%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.2.2.2.</span> <span class="toc-text">5.2.2.2 定向追击模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%BD%AC%E6%8A%98%E7%82%B9%E5%9D%90%E6%A0%87"><span class="toc-number">6.2.2.3.</span> <span class="toc-text">5.2.2.3 主要转折点坐标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">6.2.2.4.</span> <span class="toc-text">5.2.2.4 模型示意图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-3-%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 问题 3 误差分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%97%A0%E8%87%AA%E4%B8%BB%E5%88%B6%E5%AF%BC-d6000m-%E6%97%B6-d-%E9%9A%8F-k-%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">6.3.1.</span> <span class="toc-text">5.3.1 分析无自主制导 d&lt;6000m 时 d 随 k 的变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%91%BD%E4%B8%AD%E7%B2%BE%E5%BA%A6%E4%B8%8E-t2-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.3.2.</span> <span class="toc-text">5.3.2 分析命中精度与 t2 的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-number">7.</span> <span class="toc-text">六、模型评价与改进</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text">七、参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">9.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80%E7%A8%8B%E5%BA%8F"><span class="toc-number">9.1.</span> <span class="toc-text">问题一程序：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">9.2.</span> <span class="toc-text">问题二程序：</span></a></li></ol></li></ol>
+            </div>
+            <script type="text/javascript">
+              function showToc(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:block");
+                  show_toc_btn.setAttribute("style","display:none");
+                  };
+              function showBtn(){
+                  var toc_article = document.getElementById("toc-article");
+                  var show_toc_btn = document.getElementById("show-toc-btn");
+                  toc_article.setAttribute("style","display:none");
+                  show_toc_btn.setAttribute("style","display:block");
+                  };
+            </script>
+          
+          <p>大一下数学建模校内赛论文（二等奖存档）</p>
+<span id="more"></span>
+<center>
+<b>陆基导弹打击航母的数学建模问题</b>
+</center>
+<h1 id="摘要">摘要</h1>
+<p>本文主要研究陆基反舰导弹打击航母的动态轨道问题。为了精确快速打击敌方航母，同时避免导弹被敌方反导系统拦截，需要制定科学合理的进攻路线。通过对导弹发射过程的动态分析，并依据我国现役陆基反舰导弹（如鹰击 18）的各项参数，建立了一种适宜的轨道模型，使用 MATLAB 求解，得到了适合的轨道。</p>
+<p><strong>针对问题一：</strong>由于导弹发射点与航母所在点经纬度相差较小，故可以将地面其近似为平面求解。将导弹发射分为三个阶段：初始抛物线阶段、中段、末段加速阶段。中段起始于抛物线顶点，再细分为三个阶段：向下抛物线阶段、竖直方向减速阶段（最终竖直方向减速为 0）、超低空巡航段（为使导弹避开拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到 1000m/s，打中目标。</p>
+<p><strong>针对问题二：</strong>在问题一的基础上，导弹在中段的巡航段进行精确制导，即导弹的速度方向始终指向航母。经过计算，导弹在 20s 内从巡航速度加速到最高速度所走的路程约为 6 至 7km，故巡航阶段结束时导弹与航母距离 d＜6km，导弹可以通过自主导航在 20s 内击中目标。由此建立导弹运动的轨迹模型，分析中段结束时导弹能否飞到距航母 6km 以内。</p>
+<p><strong>针对问题三：</strong>在问题一、二的基础上，不经过末段自主制导，此时判断导弹与航母距离随时间的变化（从 6000m 到末尾处）。考察若不经过导弹自主制导而依靠中段导航能否击中目标。修改初始轨道参数，判断导弹打击航母的命中率。分析导弹在其他条件影响下的命中率。</p>
+<p><strong>关键词：</strong>导弹制导 最优路线 导弹突防 命中概率</p>
+<h1 id="一问题重述">一、问题重述</h1>
+<p>请根据如下的已知条件和有关数据，设计导弹运行的数学模型及其命中目标的算法：</p>
+<p>导弹发射车初始位置坐标已知为东经 120°30′0"，北纬 27°30′0",它可直接设为导弹打击航母的坐标系原点。</p>
+<p>(1)由海洋侦察卫星与高空长航时无人机侦察，传输给陆基导弹发射指挥中心计算确定的航母初始位置坐标 H (X0,Y0) 为东经 123°45′0"，北纬 25° 39′0"。航母的舰长为 335m,航速保持为 32 节(1 节=1.852km/h),航向始终为正南方向。航母的动态坐标数据 H(X0,Y0)由卫星和无人机动态提供给指挥中心，动态监控数据记为 Hi(X(ti),Y(ti)),i=1，2，...n...指挥中心由此可建模计算航母的速度和航行轨道，同时计算导弹打击航母命中的动态运行轨道。</p>
+<ol start="2" type="1">
+<li><p>导弹运行的轨道曲线划分为发射段，中段和末段。发射段通常为抛物线，发射速度为 500m/s。中段可设计为不同的飞行轨道，由导弹的飞行参数制导所确定。末段最高速度可达到 1000m/s。导弹末段飞行时间般不超过 20 秒。段曲线的衔接点是光滑的(即曲线连续且一阶导数存在)，也就是说导弹飞行的轨道曲线是连续和光滑的，不能折线飞行。</p></li>
+<li><p>导弹运行的轨道曲线需考虑应对敌方反导系统拦截问题，期望给出难以拦截的攻击曲线。</p></li>
+<li><p>地面指挥中心提供给导弹中段轨道的制导数据; 而末段则是由导弹自主攻击航母目标。</p></li>
+<li><p>其它复杂环境及气象等影响暂且简化</p></li>
+<li><p>解题可局部自主创新添加合理假设.</p></li>
+<li><p>在建模设计的算中，根据坐标计算距离时，设定地球半径为 6300km 距离的计算精度要求为 m 级。</p></li>
+</ol>
+<p>根据以上已知数据和条件要求，请你运筹帷幄，决胜千里，创新设计出你的陆基反舰导弹打击航母的运行轨道数学模型，论述你的算法步骤。包括:</p>
+<p><strong>问题 1:</strong> 建立初始状态下，反舰导弹打击航母的静态轨道模型。即 t=0 时，连接导弹初始位置与航母坐标之间的轨道曲线模型。</p>
+<p><strong>问题 2:</strong> 在航母按照已知条件(1)给出的航向和速度的航行状态下，设计导弹飞行的中段动态模型方程和算法步骤。中段通常以发射段的抛物线顶点为起始点。</p>
+<p><strong>问题 3:</strong> 讨论你所设计的导弹打击航母的轨道自线的误差分析和命中率分</p>
+<h1 id="二模型假设">二、模型假设</h1>
+<p>1.假设导弹初段末高度为 10km</p>
+<p>2.假设导弹在 75s 时启动推进器在竖直方向减速</p>
+<p>3.假设导弹末段加速度为 70m/s2</p>
+<p>4.假设导弹不受到其他因素（如风、电磁干扰等等）</p>
+<h1 id="三符号说明">三、符号说明</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">符号</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">t1</td>
+<td>导弹初段末时刻（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t2</td>
+<td>导弹开始竖直方向减速的时刻（s）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t3</td>
+<td>导弹进入超低空水平巡航的时刻（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x1 z1</td>
+<td>导弹初段末坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">x2 z2</td>
+<td>导弹开始竖直方向减速的坐标（m）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x3 z3</td>
+<td>导弹进入超低空水平巡航的坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">k</td>
+<td>导弹运动的总时间（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a(x,y,z)</td>
+<td>导弹巡航阶段追击的坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b(x,y,z)</td>
+<td>航母的坐标（m）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">d</td>
+<td>导弹与航母的距离（m）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="四问题分析">四、问题分析</h1>
+<p><strong>针对问题一：</strong>将导弹发射分成初段、中段、末段，中段再细分为抛物段、减速段、巡航段。为避免被反导雷达发现，将其布置为超低空巡航。并于末段加速到 1000m/s 打击目标。</p>
+<p><strong>针对问题二：</strong>在第一问的基础上，在中段巡航段令导弹速度始终指向航母，建立导弹的运行模型，经过计算，导弹在 20s 内从巡航速度加速到最高速度所走的路程约为 6 至 7km，故巡航阶段结束时导弹与航母距离 d＜6km，分析导弹能否运行至距航母 6000m 以内。</p>
+<p><strong>针对问题三：</strong>在一二问的基础上分析导弹能否在不经过末段自主导航就成功命中目标，并分析如何修改参数能使命中精度最高。分析其他条件对命中率的影响。</p>
+<h1 id="五模型建立及求解">五、模型建立及求解</h1>
+<h2 id="问题-1-静态轨道"><strong>5.1</strong> <strong>问题 1</strong> 静态轨道</h2>
+<h3 id="问题分析"><strong>5.1.1</strong> <strong>问题分析</strong></h3>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134715296.png" class="" title="image-20220509134715296">
+<p>图一 问题的分析过程</p>
+<h3 id="模型建立"><strong>5.1.2</strong> <strong>模型建立</strong></h3>
+<p>问题一为初始条件下，求解反舰导弹弹打击航母的静态轨道模型，由于导弹发射点与航母所在点经纬度相差较小，将模型建立在在二维平面内，并且是点对点的静态模型。分三段分析导弹的飞行过程，分别为发射段，中段和末段， 其中， 中段起始于抛物线顶点，再细分为三个阶段：<strong>向下抛物线阶段、竖直方向减速阶段（最终竖直方向减速为 0）、超低空巡航段（为使导弹避开拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到1000m/s，</strong>打中目标。</p>
+<h4 id="两点间距离模型"><strong>5.1.2.1</strong> <strong>两点间距离模型</strong></h4>
+<p>首先确定发射点和打击点的平面距离，将地球抽象为一个球体，两点即为球面上两点的直线距离。利用公式，设所求点 A ，纬度 β1 ，经度 α1 ；点 B ，纬度 β2 ，经度 α2。则距离 S=R·arc cos[cosβ1cosβ2cos（α1-α2）+sinβ1sinβ2]，其中 R 为球体半径。</p>
+<p>利用 matlab 求解此直线距离。</p>
+<h4 id="发射段飞行模型"><strong>5.1.2. 2</strong> <strong>发射段飞行模型</strong></h4>
+<p>根据资料表明[1]，导弹需发射到 10000m 的左右高度。故将初速度分为水平方向和竖直方向。水平速度为…√5×100,竖直方向速度为√21×100m/s</p>
+<p>（1）发射段为向上抛物线阶段。炮弹在竖直方向上做匀减速运动，竖直初速度为√20×100m/s,末速度为零。在水平方向上一直做匀速直线运动。轨迹为抛物线。</p>
+<p>（2）向下抛物线阶段。</p>
+<p>到最高点之后，炮弹先按原轨迹抛物线运动，仍以原加速度运动，竖直方向为自由落体运动，水平方向上，仍以原速度运动。</p>
+<p>（3）竖直方向减速阶段</p>
+<p>至 t=75s(时间为假设时间)时，改变运动轨迹，以向下的加速度 a=7m/s（根据资料查阅可知，导弹的减速加速度为 7m/s)水平速度不变。使至水平方向时竖直方向速度为 0。</p>
+<p>（4）根据已知数据及轨迹分析，利用公式 x=vt-1/2at^2 及 v=at，并用 matlab 绘制出图线。</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134841454.png" class="" title="image-20220509134841454">
+<p>图二 发射段轨迹图线</p>
+<p>（蓝线部分为抛物线轨迹，红线部分，改变加速度，水平速度不变，到贴近水平面的超低空飞行，以应对敌方导弹拦截。[2]）</p>
+<h4 id="低空巡航模型"><strong>5.1.2.3</strong> <strong>低空巡航模型</strong></h4>
+<p>在导弹飞行过程中，为躲避对方导弹拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到 1000m/s，打中目标。</p>
+<p>炮弹经过竖直减速阶段，竖直速度已经非常低几乎可以忽略不计。水平方向上，理论上（忽略风力，温度气象等阻力）仍是√5×100m/s 距离水平面60m/s。</p>
+<p>进行水平的直线运动。</p>
+<p>导弹末段飞行时间不超过 20s，且末段速度最大达到 1000m/s，所以要在水平阶段先保持 223.60m/s 的速度，水平方向上保持直线运动。经过查阅可知，导弹的加速度在加速阶段一般保持在 70m/s 左右，故水平加速度取为 70m/s，末段从 223.60m/s 加速到 1000m/s 。</p>
+<p>利用公式 v=at 及 matlab 绘图软件求得总体轨迹图线</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134929988.png" class="" title="image-20220509134929988">
+<p>图三 全过程打击图线</p>
+<h2 id="问题-2-设计导弹飞行的中段动态模型方程和算法步骤">5.2 <strong>问题 2 设计导弹飞行的中段动态模型方程和算法步骤</strong></h2>
+<h3 id="问题分析-1"><strong>5.2.1 问题分析</strong></h3>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509135204289.png" class="" title="image-20220509135204289">
+<p>图四 问题的分析过程</p>
+<h3 id="模型建立-1"><strong>5.2.2</strong> <strong>模型建立</strong></h3>
+<p>要求在已知航向和速度的航行状态下，设计导弹飞行的中段动态模型方程该问题的核心解决思路是导弹时刻对准敌机以及导弹尽量在超低空掠海航</p>
+<p>线上行驶会尽可能避免雷达的侦测和反导系统的拦截。</p>
+<h4 id="发射段飞行模型-1"><strong>5.2.2.1</strong> <strong>发射段飞行模型</strong></h4>
+<p>首先第一阶段的函数与问题一相同，从第一段抛物线顶点开始进行第二阶段，首先是开口向下抛物线改变轨迹，然后是开口向上抛物线让导弹的竖直速度降低为 0.两段抛物线轨迹为：</p>
+<p>1.x=Vx<em>t;z=Vz</em>t-(1/2)<em>(9.8)</em>t^2</p>
+<p>2.x=Vx<em>t;z=z2+Vz2</em>(t-t2)+0.5<em>a</em>(t-t2)^2</p>
+<h4 id="定向追击模型"><strong>5.2.2.2</strong> <strong>定向追击模型</strong></h4>
+<p>然后进行中段定向追击。中端追击过程中，需要导弹和航母的实时坐标，而导弹的方向及坐标由航母确定。考虑到xy平面是以静态航母和导弹初始位置连线为X轴，而航母运动方向为正南并不以x轴衡量，故需建立南方向与x轴y轴的方向关系。</p>
+<p>在北纬27.5°的纬度圈上，导弹与航母的经度差为3.25°。由RCos27.5°求得纬度圆半径为5651.2km。则该经度差对应球面上的距离为</p>
+<p>2π<em>5651.2</em>3.25/360=320.39km。由此得出正南方向与已知坐标系的想轴夹角的正弦值为0.8466，即夹角近似为58°。角度已知，则航母的正南方向运动能正确体现在坐标轴分量上。</p>
+<p>假设航母航行距离极短，则此时地球可视为平面，利用x=v*t，求得航母航向的距离，得到其位置坐标，从而求得航母与导弹之间的实时距离。</p>
+<p>这是超低空巡航的两个重要参数。通过初始状态下导弹坐标，实时母舰坐标推导出导弹到母舰的方向向量从而确定导弹接下来的轨迹与方向，从而实现导弹任意时刻朝向母舰，同时，为保证模型简化，并最终在第二阶段结束时靠近母舰使与其距离不大于 6km</p>
+<h4 id="主要转折点坐标"><strong>5.2.2.3 主要转折点坐标</strong></h4>
+<table>
+<thead>
+<tr class="header">
+<th>重要点</th>
+<th>k</th>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第二阶段起点</td>
+<td>k=46</td>
+<td>a(334392.97,5403.27,10202.11)</td>
+<td>b(0,740.80,0)</td>
+<td>d=334581.05</td>
+</tr>
+<tr class="even">
+<td>两抛物线交点</td>
+<td>k=5</td>
+<td>a(328586.85,8841.44,6362.48)</td>
+<td>b(0,1212.18,0)</td>
+<td>d=328736.98</td>
+</tr>
+<tr class="odd">
+<td>超低空巡航起点</td>
+<td>k=116</td>
+<td>a(320401.84,13688.29,78.35)</td>
+<td>b(0,1876.69,0)</td>
+<td>d=320619.49</td>
+</tr>
+<tr class="even">
+<td>超低空巡航终点</td>
+<td>k=1528</td>
+<td>a(5442.74,23686.95,1.07)</td>
+<td>b(0,25123.20,0)</td>
+<td>d=5852.66</td>
+</tr>
+</tbody>
+</table>
+<p>表一：主要转折点坐标</p>
+<h4 id="模型示意图"><strong>5.2.2.4 模型示意图</strong></h4>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144208435.png" class="" title="image-20220509144208435">
+<p>图五 全程模型</p>
+<h2 id="问题-3-误差分析">5.3 <strong>问题 3 误差分析</strong></h2>
+<h3 id="分析无自主制导-d6000m-时-d-随-k-的变化"><strong>5.3.1</strong> <strong>分析无自主制导 d&lt;6000m 时 d 随 k 的变化</strong></h3>
+<p>将停止条件设为导弹高度小于 0，此时判断导弹与航母距离随时间从 6000m 到末尾处的变化：</p>
+<table>
+<thead>
+<tr class="header">
+<th>k=1528</th>
+<th>a(5442.74,23686.95,1.07)</th>
+<th>b(0,25123.20,0)</th>
+<th>d=5852.66</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>k=1529</td>
+<td>a(5226.70,23744.61,1.02)</td>
+<td>b(0,25139.66,0)</td>
+<td>d=5633.28</td>
+</tr>
+<tr class="even">
+<td>k=1530</td>
+<td>a(5010.83,23802.91,0.98)</td>
+<td>b(0,25156.12,0)</td>
+<td>d=5413.94</td>
+</tr>
+<tr class="odd">
+<td>k=1531</td>
+<td>a(4795.13,23861.87,0.94)</td>
+<td>b(0,25172.59,0)</td>
+<td>d=5194.65</td>
+</tr>
+<tr class="even">
+<td>k=1532</td>
+<td>a(4579.63,23921.51,0.90)</td>
+<td>b(0,25189.05,0)</td>
+<td>d=4975.41</td>
+</tr>
+<tr class="odd">
+<td>k=1533</td>
+<td>a(4364.32,23981.88,0.86)</td>
+<td>b(0,25205.51,0)</td>
+<td>d=4756.22</td>
+</tr>
+<tr class="even">
+<td>k=1534</td>
+<td>a(4149.23,24043.00,0.81)</td>
+<td>b(0,25221.97,0)</td>
+<td>d=4537.09</td>
+</tr>
+<tr class="odd">
+<td>k=1535</td>
+<td>a(3934.36,24104.90,0.77)</td>
+<td>b(0,25238.44,0)</td>
+<td>d=4318.01</td>
+</tr>
+<tr class="even">
+<td>k=1536</td>
+<td>a(3719.74,24167.64,0.73)</td>
+<td>b(0,25254.90,0)</td>
+<td>d=4098.99</td>
+</tr>
+<tr class="odd">
+<td>k=1537</td>
+<td>a(3505.37,24231.24,0.69)</td>
+<td>b(0,25271.36,0)</td>
+<td>d=3880.03</td>
+</tr>
+<tr class="even">
+<td>k=1538</td>
+<td>a(3291.28,24295.78,0.65)</td>
+<td>b(0,25287.82,0)</td>
+<td>d=3661.14</td>
+</tr>
+<tr class="odd">
+<td>k=1539</td>
+<td>a(3077.48,24361.29,0.60)</td>
+<td>b(0,25304.28,0)</td>
+<td>d=3442.32</td>
+</tr>
+<tr class="even">
+<td>k=1540</td>
+<td>a(2864.01,24427.84,0.56)</td>
+<td>b(0,25320.75,0)</td>
+<td>d=3223.58</td>
+</tr>
+<tr class="odd">
+<td>k=1541</td>
+<td>a(2650.89,24495.51,0.52)</td>
+<td>b(0,25337.21,0)</td>
+<td>d=3004.91</td>
+</tr>
+<tr class="even">
+<td>k=1542</td>
+<td>a(2438.15,24564.38,0.48)</td>
+<td>b(0,25353.67,0)</td>
+<td>d=2786.33</td>
+</tr>
+<tr class="odd">
+<td>k=1543</td>
+<td>a(2225.84,24634.54,0.44)</td>
+<td>b(0,25370.13,0)</td>
+<td>d=2567.84</td>
+</tr>
+<tr class="even">
+<td>k=1544</td>
+<td>a(2014.00,24706.12,0.39)</td>
+<td>b(0,25386.60,0)</td>
+<td>d=2349.45</td>
+</tr>
+<tr class="odd">
+<td>k=1545</td>
+<td>a(1802.68,24779.24,0.35)</td>
+<td>b(0,25403.06,0)</td>
+<td>d=2131.17</td>
+</tr>
+<tr class="even">
+<td>k=1546</td>
+<td>a(1591.97,24854.08,0.31)</td>
+<td>b(0,25419.52,0)</td>
+<td>d=1913.01</td>
+</tr>
+<tr class="odd">
+<td>k=1547</td>
+<td>a(1381.96,24930.85,0.27)</td>
+<td>b(0,25435.98,0)</td>
+<td>d=1694.99</td>
+</tr>
+<tr class="even">
+<td>k=1548</td>
+<td>a(1172.75,25009.81,0.23)</td>
+<td>b(0,25452.44,0)</td>
+<td>d=1477.11</td>
+</tr>
+<tr class="odd">
+<td>k=1549</td>
+<td>a(964.53,25091.32,0.19)</td>
+<td>b(0,25468.91,0)</td>
+<td>d=1259.41</td>
+</tr>
+<tr class="even">
+<td>k=1550</td>
+<td>a(757.53,25175.89,0.15)</td>
+<td>b(0,25485.37,0)</td>
+<td>d=1041.92</td>
+</tr>
+<tr class="odd">
+<td>k=1551</td>
+<td>a(552.13,25264.27,0.11)</td>
+<td>b(0,25501.83,0)</td>
+<td>d=824.68</td>
+</tr>
+<tr class="even">
+<td>k=1552</td>
+<td>a(349.00,25357.73,0.07)</td>
+<td>b(0,25518.29,0)</td>
+<td>d=607.77</td>
+</tr>
+<tr class="odd">
+<td>k=1553</td>
+<td>a(149.58,25458.88,0.03)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=391.33</td>
+</tr>
+<tr class="even">
+<td>k=1554</td>
+<td>a(-40.69,25576.34,-0.01)</td>
+<td>b(0,25551.22,0)</td>
+<td>d=175.78</td>
+</tr>
+</tbody>
+</table>
+<p>表二：导弹与航母距离随时间从 6000m 到末尾处的变化</p>
+<p>由表格得知，当导弹距水面为 0.03m 时，距航母仍有 391.33m，大于航母的舰长 335m，故若无末段自主制导，将无法击中航母。</p>
+<h3 id="分析命中精度与-t2-的关系"><strong>5.3.2</strong> <strong>分析命中精度与</strong> <strong>t2</strong> <strong>的关系</strong></h3>
+<p>改变飞行参数再次运行，此时将初段抛物线轨道参数改变，将中段竖直向下减速段起始时间 75s 进行修改，在不同情况下的运行结果如下表：</p>
+<table>
+<thead>
+<tr class="header">
+<th>t2=60s</th>
+<th>k=1552s</th>
+<th>a(151.59,25440.48,1.54)</th>
+<th>b(0,25518.29,0)</th>
+<th>d=394.00m</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t2=61s</td>
+<td>k=1553</td>
+<td>a(-26.93,25551.16,-0.26)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=192.08m</td>
+</tr>
+<tr class="even">
+<td>t2=62s</td>
+<td>k=1553</td>
+<td>a(-15.41,25543.97,-0.14)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=205.66m</td>
+</tr>
+<tr class="odd">
+<td>t2=63s</td>
+<td>k=1553</td>
+<td>a(-3.74,25536.95,-0.03)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=219.27m</td>
+</tr>
+<tr class="even">
+<td>t2=64s</td>
+<td>k=1553</td>
+<td>a(8.07,25530.09,0.07)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=232.93m</td>
+</tr>
+<tr class="odd">
+<td>t2=65s</td>
+<td>k=1553s</td>
+<td>a(20.03,25523.34,0.15)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=246.66m</td>
+</tr>
+<tr class="even">
+<td>t2=70s</td>
+<td>k=1553s</td>
+<td>a(82.19,25490.81,0.35)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=316.81m</td>
+</tr>
+<tr class="odd">
+<td>t2=71s</td>
+<td>k=1553s</td>
+<td>a(95.18,25484.43,0.34)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=331.28m</td>
+</tr>
+<tr class="even">
+<td>t2=72s</td>
+<td>k=1553s</td>
+<td>a(108.40,25478.06,0.30)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=345.94m</td>
+</tr>
+<tr class="odd">
+<td>t2=73s</td>
+<td>k=1553s</td>
+<td>a(121.86,25471.68,0.24)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=360.82m</td>
+</tr>
+<tr class="even">
+<td>t2=74s</td>
+<td>k=1553s</td>
+<td>a(135.58,25465.30,0.15)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=375.94m</td>
+</tr>
+</tbody>
+</table>
+<p>表三：打击精度随 t2 的变化</p>
+<p>由表可知，当 t2=61s 时打击精度最高，二者距离仅为 192.08m</p>
+<p>导弹末端命中概率分析[3]：反舰导弹末段自主制导的命中概率，取决于制导雷达捕捉到目标的可能性，它与导弹雷达搜索区能覆盖到目标的概率与雷达能收到回波的概率有关。即 P 捕捉=P 覆盖·P 发现.且现代雷达比较灵敏，只要覆盖就能搜索到目标，故有 P 捕捉=P 覆盖，即 P 发现.=1。</p>
+<p>为方便分析,将导弹搜索区域简化成矩形区域，且设导弹的自控终点是一个</p>
+<p>沿 X 轴和 Z 轴方向分布的二维随机变量,服从平面上的正态分布律且互不相关时,计算 P 捕捉的公式可以简化为</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144812219.png" class="" title="image-20220509144812219">
+<p>式中：a 为导弹搜索区的距离半长，单位(m);b 为导弹搜索区的侧向半宽,单位(m);Ex 为纵向综合散布概率偏差,单位(m);Ez 为侧向综合散布概率偏差,单位(m);mx 为目标运动和常值风干扰引起的纵向概率偏差,单位(m);mz 为目标运动和常值风干扰引起的侧向概率偏差,单位(m)。</p>
+<p>由此可以计算出命中概率。</p>
+<h1 id="六模型评价与改进">六、模型评价与改进</h1>
+<p>该型未将风速及不同高度处的空气阻力考虑在内，同时在路程及范围较小情况下未考虑地心引力。会对模模型的精确度造成一定误差。除此之外，假设不变的参量还有母舰运行时距离极小，将距离与纬度近似成为正比关系；角度运算中将小数位四舍五入或忽略误差等。在算法方面，卫星及无人机的传输数据有一定的时间延后性，且进行导弹永远朝向母舰的拟合过程中，取 1 秒为间隔时间也对最终第三阶段的自主攻击增大了误差的可能性。</p>
+<p>但总的来说，该模型最大的优点是没有使用复杂曲线的方式来闪避反导拦截而是采用科技上惯用的躲避方式，使雷达不易勘测。除此之外，轨迹变换，速度</p>
+<p>变化，点对点定向等处理方式也体现了数学模型省略不必要因素，简单明了的表达被表达物体运行特性的特点。同时，该模型对一些未知参量的选取也尽可能满足现实和近期的科技发展。例如，在第一阶段抛物线的顶点高度设置为 10km，该高度为对流层高度，并且是一般陆基导弹的第一阶段能达到的高度。并且第二阶段整体的时间设定 6 到 8 分钟也符合现实陆基导弹攻击的第二阶段时间。这样的处理方式让依照时间推算出的速度变化有了更高的可信度。同时使超低空巡航阶段的速度不变有了一定得依据。最后，现在一般的路基导弹的第三阶段自主攻击时间一般为 20 秒左右或更少，这也是第二阶段拟合速度，高度，距离的依据。</p>
+<p>但该模型的缺点是远距离能避开雷达的侦测使导弹能相对安全的接近母舰附近，但近距离的反导拦截仍不能避免，该导弹在刚进入三阶段开始自主攻击时，有被拦截的危险。所以在二阶段的末端应增加一个小阶段，该阶段拥有较为复杂的轨迹而不是简单的点对点定向接近母舰。初步思路为在点对点定向之后导弹再次做类似于开口向上的抛物线运动在 z 轴方向远离母舰同时在 xy 轴方向靠近，闪避反导系统拦截，再做轨迹为开口向下的抛物线运动然后攻击母舰，期间导弹加速。这样的设计给雷达的侦测带来了困难同时也使一旦被雷达成功侦测后的闪避提供了更大可能，增加了成功率。同时，这一阶段的缓冲，也能让导弹更精确的攻击到舰体。</p>
+<h1 id="七参考文献">七、参考文献</h1>
+<p>[1] Honeywell，《世界七大反舰导弹：祖国排名第一》， https://m.baidu.com/paw/c/m.tiexue.net/touch/thread_8238501_1.html%3F mip ，2018.05.01。</p>
+<p>[2] 飞行员梦，《已发射的导弹如何反拦截》， https://zhidao.baidu.com/question/519956706.html ，2018.04.30。</p>
+<p>[3] 聂永芳、冯林平、施建礼，新误差分析方法对反舰导弹作战使用的影响，《舰船电子工程》，卷期号：2012 年第七期，总第 217 期，57-59，2012</p>
+<h1 id="附录">附录</h1>
+<h2 id="问题一程序">问题一程序：</h2>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="number">25.65</span>*<span class="built_in">pi</span>/<span class="number">180</span>;B=<span class="number">123.75</span>*<span class="built_in">pi</span>/<span class="number">180</span>;C=<span class="number">27.5</span>*<span class="built_in">pi</span>/<span class="number">180</span>;D=<span class="number">120.5</span>*</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">S=<span class="number">6300000</span>*<span class="built_in">acos</span>(<span class="built_in">cos</span>(A)*<span class="built_in">cos</span>(C)*<span class="built_in">cos</span>(B-D)+<span class="built_in">sin</span>(A)*<span class="built_in">sin</span>(C));</span><br><span class="line"></span><br><span class="line">Vx=<span class="built_in">sqrt</span>(<span class="number">5</span>)*<span class="number">100</span>;Vy=<span class="built_in">sqrt</span>(<span class="number">20</span>)*<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">t1=Vy/<span class="number">9.8</span>; x1=Vx*t1; y1=Vy*t1<span class="number">-0.5</span>*<span class="number">9.8</span>*t1^<span class="number">2</span>; x2=Vx*<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">y2=Vy*<span class="number">75</span><span class="number">-0.5</span>*<span class="number">9.8</span>*<span class="number">75</span>^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t2=<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:t2;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=Vy*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t.^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">a=<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">Vy2=Vy<span class="number">-9.8</span>*<span class="number">75</span>;t3=t2-Vy2/a;</span><br><span class="line"></span><br><span class="line">t=t2:t3;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=y2+Vy2*(t-t2)+<span class="number">0.5</span>*a*(t-t2).^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'r'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">Vy3=Vy2+a*(t3-t2);x3=Vx*t3; y3=y2+Vy2*(t3-t2)+<span class="number">0.5</span>*a*(t3-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'x1=%.4f y1=%.4f t1=%.4f\nx2=%.4f y2=%.4f t2=%.4f Vy2=%.4f\nx3=%.4f y3=%.4f t3=%.4f Vy3=%.4f \n '</span>,x1,y1,t1,x2,y2,t2,Vy2,x3,y3,t3,Vy3) Vx=<span class="number">223.6068</span>;</span><br><span class="line"></span><br><span class="line">t_5=(<span class="number">1000</span>-Vx)/<span class="number">70</span>; x_5=Vx*t_5+<span class="number">0.5</span>*<span class="number">70</span>*t_5^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t4=(S)/Vx;x4=Vx*t4</span><br><span class="line"></span><br><span class="line">t=t3:<span class="number">50</span>:t4;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=y3;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b*'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">t5=t4+t_5;</span><br><span class="line"></span><br><span class="line">t=t4:t5;</span><br><span class="line"></span><br><span class="line">x=x4+Vx*(t5-t4)+<span class="number">0.5</span>*<span class="number">70</span>*(t5-t4)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'Éä³Ì/m'</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">'¸ß¶È/m'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">'µã¶Ôµã´ò»÷'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="问题二程序">问题二程序：</h2>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="number">25.65</span>*<span class="built_in">pi</span>/<span class="number">180</span>;B=<span class="number">123.75</span>*<span class="built_in">pi</span>/<span class="number">180</span>;C=<span class="number">27.5</span>*<span class="built_in">pi</span>/<span class="number">180</span>;D=<span class="number">120.5</span>*</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">S=<span class="number">6300000</span>*<span class="built_in">acos</span>(<span class="built_in">cos</span>(A)*<span class="built_in">cos</span>(C)*<span class="built_in">cos</span>(B-D)+<span class="built_in">sin</span>(A)*<span class="built_in">sin</span>(C));</span><br><span class="line"></span><br><span class="line">Vx=<span class="built_in">sqrt</span>(<span class="number">5</span>)*<span class="number">100</span>;Vz=<span class="built_in">sqrt</span>(<span class="number">20</span>)*<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">t1=Vz/<span class="number">9.8</span>; x1=Vx*t1; z1=Vz*t1<span class="number">-0.5</span>*<span class="number">9.8</span>*t1^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t2=<span class="number">75</span>;x2=Vx*t2; z2=Vz*t2<span class="number">-0.5</span>*<span class="number">9.8</span>*t2^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">aa=<span class="number">7</span>;Vz2=Vz<span class="number">-9.8</span>*<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">t3=t2-Vz2/aa;x3=Vx*t3;z3=z2+Vz2*(t3-t2)+<span class="number">0.5</span>*aa*(t3-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">Vz3=Vz2+aa*(t3-t2);</span><br><span class="line"></span><br><span class="line">r=<span class="number">6300000</span>*<span class="built_in">sin</span>(<span class="number">27.5</span><span class="number">-25.65</span>);</span><br><span class="line"></span><br><span class="line">X=(<span class="number">123.75</span><span class="number">-120.5</span>)/<span class="number">360</span>*<span class="number">2</span>*r*<span class="built_in">pi</span>;Y=(<span class="number">27.5</span><span class="number">-25.65</span>)/<span class="number">360</span>*<span class="number">2</span>*<span class="number">6300000</span>*<span class="built_in">pi</span>;</span><br><span class="line"></span><br><span class="line">m=Y/S;n=X/S;</span><br><span class="line"></span><br><span class="line">k=<span class="number">0</span>;v=<span class="number">32</span>*<span class="number">1852</span>/<span class="number">3600</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=<span class="number">0</span>:<span class="number">1</span>:t1</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=Vz*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x^<span class="number">2</span>+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'27.5¡ãÎ³Ïß/m'</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">'123.75¡ã¾-Ïß/m'</span>);</span><br><span class="line"></span><br><span class="line">zlabel(<span class="string">'´ò»÷¸ß¶È/m'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">'´ò»÷¹ý³Ì'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=t1:<span class="number">1</span>:t2</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=Vz*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'m*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x^<span class="number">2</span>+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=t2:<span class="number">1</span>:t3</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=z2+Vz2*(t-t2)+<span class="number">0.5</span>*aa*(t-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'y*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x2+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">a=[(X-n*x3),(m*x3),z3];b=[<span class="number">0</span>,v*t3,<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">dt=<span class="number">1</span>;d=<span class="built_in">sqrt</span>(a(<span class="number">1</span>)^<span class="number">2</span>+(a(<span class="number">2</span>)-b(<span class="number">2</span>))^<span class="number">2</span>+a(<span class="number">3</span>)^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> d&gt;<span class="number">6000</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(a(<span class="number">1</span>),a(<span class="number">2</span>),a(<span class="number">3</span>),<span class="string">'r*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(b(<span class="number">1</span>),b(<span class="number">2</span>),b(<span class="number">3</span>),<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">b=b+[<span class="number">0</span>,v*dt,<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">e=b-a;</span><br><span class="line"></span><br><span class="line">d=norm(e); e0=e/d;</span><br><span class="line"></span><br><span class="line">a=a+Vx*dt*e0;</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,a(<span class="number">1</span>),a(<span class="number">2</span>),a(<span class="number">3</span>),b(<span class="number">2</span>),d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+        
+      
+      <!-- 
+        <p>大一下数学建模校内赛论文（二等奖存档）</p>
+<span id="more"></span>
+<center>
+<b>陆基导弹打击航母的数学建模问题</b>
+</center>
+<h1 id="摘要">摘要</h1>
+<p>本文主要研究陆基反舰导弹打击航母的动态轨道问题。为了精确快速打击敌方航母，同时避免导弹被敌方反导系统拦截，需要制定科学合理的进攻路线。通过对导弹发射过程的动态分析，并依据我国现役陆基反舰导弹（如鹰击 18）的各项参数，建立了一种适宜的轨道模型，使用 MATLAB 求解，得到了适合的轨道。</p>
+<p><strong>针对问题一：</strong>由于导弹发射点与航母所在点经纬度相差较小，故可以将地面其近似为平面求解。将导弹发射分为三个阶段：初始抛物线阶段、中段、末段加速阶段。中段起始于抛物线顶点，再细分为三个阶段：向下抛物线阶段、竖直方向减速阶段（最终竖直方向减速为 0）、超低空巡航段（为使导弹避开拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到 1000m/s，打中目标。</p>
+<p><strong>针对问题二：</strong>在问题一的基础上，导弹在中段的巡航段进行精确制导，即导弹的速度方向始终指向航母。经过计算，导弹在 20s 内从巡航速度加速到最高速度所走的路程约为 6 至 7km，故巡航阶段结束时导弹与航母距离 d＜6km，导弹可以通过自主导航在 20s 内击中目标。由此建立导弹运动的轨迹模型，分析中段结束时导弹能否飞到距航母 6km 以内。</p>
+<p><strong>针对问题三：</strong>在问题一、二的基础上，不经过末段自主制导，此时判断导弹与航母距离随时间的变化（从 6000m 到末尾处）。考察若不经过导弹自主制导而依靠中段导航能否击中目标。修改初始轨道参数，判断导弹打击航母的命中率。分析导弹在其他条件影响下的命中率。</p>
+<p><strong>关键词：</strong>导弹制导 最优路线 导弹突防 命中概率</p>
+<h1 id="一问题重述">一、问题重述</h1>
+<p>请根据如下的已知条件和有关数据，设计导弹运行的数学模型及其命中目标的算法：</p>
+<p>导弹发射车初始位置坐标已知为东经 120°30′0"，北纬 27°30′0",它可直接设为导弹打击航母的坐标系原点。</p>
+<p>(1)由海洋侦察卫星与高空长航时无人机侦察，传输给陆基导弹发射指挥中心计算确定的航母初始位置坐标 H (X0,Y0) 为东经 123°45′0"，北纬 25° 39′0"。航母的舰长为 335m,航速保持为 32 节(1 节=1.852km/h),航向始终为正南方向。航母的动态坐标数据 H(X0,Y0)由卫星和无人机动态提供给指挥中心，动态监控数据记为 Hi(X(ti),Y(ti)),i=1，2，...n...指挥中心由此可建模计算航母的速度和航行轨道，同时计算导弹打击航母命中的动态运行轨道。</p>
+<ol start="2" type="1">
+<li><p>导弹运行的轨道曲线划分为发射段，中段和末段。发射段通常为抛物线，发射速度为 500m/s。中段可设计为不同的飞行轨道，由导弹的飞行参数制导所确定。末段最高速度可达到 1000m/s。导弹末段飞行时间般不超过 20 秒。段曲线的衔接点是光滑的(即曲线连续且一阶导数存在)，也就是说导弹飞行的轨道曲线是连续和光滑的，不能折线飞行。</p></li>
+<li><p>导弹运行的轨道曲线需考虑应对敌方反导系统拦截问题，期望给出难以拦截的攻击曲线。</p></li>
+<li><p>地面指挥中心提供给导弹中段轨道的制导数据; 而末段则是由导弹自主攻击航母目标。</p></li>
+<li><p>其它复杂环境及气象等影响暂且简化</p></li>
+<li><p>解题可局部自主创新添加合理假设.</p></li>
+<li><p>在建模设计的算中，根据坐标计算距离时，设定地球半径为 6300km 距离的计算精度要求为 m 级。</p></li>
+</ol>
+<p>根据以上已知数据和条件要求，请你运筹帷幄，决胜千里，创新设计出你的陆基反舰导弹打击航母的运行轨道数学模型，论述你的算法步骤。包括:</p>
+<p><strong>问题 1:</strong> 建立初始状态下，反舰导弹打击航母的静态轨道模型。即 t=0 时，连接导弹初始位置与航母坐标之间的轨道曲线模型。</p>
+<p><strong>问题 2:</strong> 在航母按照已知条件(1)给出的航向和速度的航行状态下，设计导弹飞行的中段动态模型方程和算法步骤。中段通常以发射段的抛物线顶点为起始点。</p>
+<p><strong>问题 3:</strong> 讨论你所设计的导弹打击航母的轨道自线的误差分析和命中率分</p>
+<h1 id="二模型假设">二、模型假设</h1>
+<p>1.假设导弹初段末高度为 10km</p>
+<p>2.假设导弹在 75s 时启动推进器在竖直方向减速</p>
+<p>3.假设导弹末段加速度为 70m/s2</p>
+<p>4.假设导弹不受到其他因素（如风、电磁干扰等等）</p>
+<h1 id="三符号说明">三、符号说明</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">符号</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">t1</td>
+<td>导弹初段末时刻（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t2</td>
+<td>导弹开始竖直方向减速的时刻（s）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t3</td>
+<td>导弹进入超低空水平巡航的时刻（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x1 z1</td>
+<td>导弹初段末坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">x2 z2</td>
+<td>导弹开始竖直方向减速的坐标（m）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x3 z3</td>
+<td>导弹进入超低空水平巡航的坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">k</td>
+<td>导弹运动的总时间（s）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a(x,y,z)</td>
+<td>导弹巡航阶段追击的坐标（m）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b(x,y,z)</td>
+<td>航母的坐标（m）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">d</td>
+<td>导弹与航母的距离（m）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="四问题分析">四、问题分析</h1>
+<p><strong>针对问题一：</strong>将导弹发射分成初段、中段、末段，中段再细分为抛物段、减速段、巡航段。为避免被反导雷达发现，将其布置为超低空巡航。并于末段加速到 1000m/s 打击目标。</p>
+<p><strong>针对问题二：</strong>在第一问的基础上，在中段巡航段令导弹速度始终指向航母，建立导弹的运行模型，经过计算，导弹在 20s 内从巡航速度加速到最高速度所走的路程约为 6 至 7km，故巡航阶段结束时导弹与航母距离 d＜6km，分析导弹能否运行至距航母 6000m 以内。</p>
+<p><strong>针对问题三：</strong>在一二问的基础上分析导弹能否在不经过末段自主导航就成功命中目标，并分析如何修改参数能使命中精度最高。分析其他条件对命中率的影响。</p>
+<h1 id="五模型建立及求解">五、模型建立及求解</h1>
+<h2 id="问题-1-静态轨道"><strong>5.1</strong> <strong>问题 1</strong> 静态轨道</h2>
+<h3 id="问题分析"><strong>5.1.1</strong> <strong>问题分析</strong></h3>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134715296.png" class="" title="image-20220509134715296">
+<p>图一 问题的分析过程</p>
+<h3 id="模型建立"><strong>5.1.2</strong> <strong>模型建立</strong></h3>
+<p>问题一为初始条件下，求解反舰导弹弹打击航母的静态轨道模型，由于导弹发射点与航母所在点经纬度相差较小，将模型建立在在二维平面内，并且是点对点的静态模型。分三段分析导弹的飞行过程，分别为发射段，中段和末段， 其中， 中段起始于抛物线顶点，再细分为三个阶段：<strong>向下抛物线阶段、竖直方向减速阶段（最终竖直方向减速为 0）、超低空巡航段（为使导弹避开拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到1000m/s，</strong>打中目标。</p>
+<h4 id="两点间距离模型"><strong>5.1.2.1</strong> <strong>两点间距离模型</strong></h4>
+<p>首先确定发射点和打击点的平面距离，将地球抽象为一个球体，两点即为球面上两点的直线距离。利用公式，设所求点 A ，纬度 β1 ，经度 α1 ；点 B ，纬度 β2 ，经度 α2。则距离 S=R·arc cos[cosβ1cosβ2cos（α1-α2）+sinβ1sinβ2]，其中 R 为球体半径。</p>
+<p>利用 matlab 求解此直线距离。</p>
+<h4 id="发射段飞行模型"><strong>5.1.2. 2</strong> <strong>发射段飞行模型</strong></h4>
+<p>根据资料表明[1]，导弹需发射到 10000m 的左右高度。故将初速度分为水平方向和竖直方向。水平速度为…√5×100,竖直方向速度为√21×100m/s</p>
+<p>（1）发射段为向上抛物线阶段。炮弹在竖直方向上做匀减速运动，竖直初速度为√20×100m/s,末速度为零。在水平方向上一直做匀速直线运动。轨迹为抛物线。</p>
+<p>（2）向下抛物线阶段。</p>
+<p>到最高点之后，炮弹先按原轨迹抛物线运动，仍以原加速度运动，竖直方向为自由落体运动，水平方向上，仍以原速度运动。</p>
+<p>（3）竖直方向减速阶段</p>
+<p>至 t=75s(时间为假设时间)时，改变运动轨迹，以向下的加速度 a=7m/s（根据资料查阅可知，导弹的减速加速度为 7m/s)水平速度不变。使至水平方向时竖直方向速度为 0。</p>
+<p>（4）根据已知数据及轨迹分析，利用公式 x=vt-1/2at^2 及 v=at，并用 matlab 绘制出图线。</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134841454.png" class="" title="image-20220509134841454">
+<p>图二 发射段轨迹图线</p>
+<p>（蓝线部分为抛物线轨迹，红线部分，改变加速度，水平速度不变，到贴近水平面的超低空飞行，以应对敌方导弹拦截。[2]）</p>
+<h4 id="低空巡航模型"><strong>5.1.2.3</strong> <strong>低空巡航模型</strong></h4>
+<p>在导弹飞行过程中，为躲避对方导弹拦截，采用超低空巡航模式，高度约为 60m）。在末段从原速度加速到 1000m/s，打中目标。</p>
+<p>炮弹经过竖直减速阶段，竖直速度已经非常低几乎可以忽略不计。水平方向上，理论上（忽略风力，温度气象等阻力）仍是√5×100m/s 距离水平面60m/s。</p>
+<p>进行水平的直线运动。</p>
+<p>导弹末段飞行时间不超过 20s，且末段速度最大达到 1000m/s，所以要在水平阶段先保持 223.60m/s 的速度，水平方向上保持直线运动。经过查阅可知，导弹的加速度在加速阶段一般保持在 70m/s 左右，故水平加速度取为 70m/s，末段从 223.60m/s 加速到 1000m/s 。</p>
+<p>利用公式 v=at 及 matlab 绘图软件求得总体轨迹图线</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509134929988.png" class="" title="image-20220509134929988">
+<p>图三 全过程打击图线</p>
+<h2 id="问题-2-设计导弹飞行的中段动态模型方程和算法步骤">5.2 <strong>问题 2 设计导弹飞行的中段动态模型方程和算法步骤</strong></h2>
+<h3 id="问题分析-1"><strong>5.2.1 问题分析</strong></h3>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509135204289.png" class="" title="image-20220509135204289">
+<p>图四 问题的分析过程</p>
+<h3 id="模型建立-1"><strong>5.2.2</strong> <strong>模型建立</strong></h3>
+<p>要求在已知航向和速度的航行状态下，设计导弹飞行的中段动态模型方程该问题的核心解决思路是导弹时刻对准敌机以及导弹尽量在超低空掠海航</p>
+<p>线上行驶会尽可能避免雷达的侦测和反导系统的拦截。</p>
+<h4 id="发射段飞行模型-1"><strong>5.2.2.1</strong> <strong>发射段飞行模型</strong></h4>
+<p>首先第一阶段的函数与问题一相同，从第一段抛物线顶点开始进行第二阶段，首先是开口向下抛物线改变轨迹，然后是开口向上抛物线让导弹的竖直速度降低为 0.两段抛物线轨迹为：</p>
+<p>1.x=Vx<em>t;z=Vz</em>t-(1/2)<em>(9.8)</em>t^2</p>
+<p>2.x=Vx<em>t;z=z2+Vz2</em>(t-t2)+0.5<em>a</em>(t-t2)^2</p>
+<h4 id="定向追击模型"><strong>5.2.2.2</strong> <strong>定向追击模型</strong></h4>
+<p>然后进行中段定向追击。中端追击过程中，需要导弹和航母的实时坐标，而导弹的方向及坐标由航母确定。考虑到xy平面是以静态航母和导弹初始位置连线为X轴，而航母运动方向为正南并不以x轴衡量，故需建立南方向与x轴y轴的方向关系。</p>
+<p>在北纬27.5°的纬度圈上，导弹与航母的经度差为3.25°。由RCos27.5°求得纬度圆半径为5651.2km。则该经度差对应球面上的距离为</p>
+<p>2π<em>5651.2</em>3.25/360=320.39km。由此得出正南方向与已知坐标系的想轴夹角的正弦值为0.8466，即夹角近似为58°。角度已知，则航母的正南方向运动能正确体现在坐标轴分量上。</p>
+<p>假设航母航行距离极短，则此时地球可视为平面，利用x=v*t，求得航母航向的距离，得到其位置坐标，从而求得航母与导弹之间的实时距离。</p>
+<p>这是超低空巡航的两个重要参数。通过初始状态下导弹坐标，实时母舰坐标推导出导弹到母舰的方向向量从而确定导弹接下来的轨迹与方向，从而实现导弹任意时刻朝向母舰，同时，为保证模型简化，并最终在第二阶段结束时靠近母舰使与其距离不大于 6km</p>
+<h4 id="主要转折点坐标"><strong>5.2.2.3 主要转折点坐标</strong></h4>
+<table>
+<thead>
+<tr class="header">
+<th>重要点</th>
+<th>k</th>
+<th>a</th>
+<th>b</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第二阶段起点</td>
+<td>k=46</td>
+<td>a(334392.97,5403.27,10202.11)</td>
+<td>b(0,740.80,0)</td>
+<td>d=334581.05</td>
+</tr>
+<tr class="even">
+<td>两抛物线交点</td>
+<td>k=5</td>
+<td>a(328586.85,8841.44,6362.48)</td>
+<td>b(0,1212.18,0)</td>
+<td>d=328736.98</td>
+</tr>
+<tr class="odd">
+<td>超低空巡航起点</td>
+<td>k=116</td>
+<td>a(320401.84,13688.29,78.35)</td>
+<td>b(0,1876.69,0)</td>
+<td>d=320619.49</td>
+</tr>
+<tr class="even">
+<td>超低空巡航终点</td>
+<td>k=1528</td>
+<td>a(5442.74,23686.95,1.07)</td>
+<td>b(0,25123.20,0)</td>
+<td>d=5852.66</td>
+</tr>
+</tbody>
+</table>
+<p>表一：主要转折点坐标</p>
+<h4 id="模型示意图"><strong>5.2.2.4 模型示意图</strong></h4>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144208435.png" class="" title="image-20220509144208435">
+<p>图五 全程模型</p>
+<h2 id="问题-3-误差分析">5.3 <strong>问题 3 误差分析</strong></h2>
+<h3 id="分析无自主制导-d6000m-时-d-随-k-的变化"><strong>5.3.1</strong> <strong>分析无自主制导 d&lt;6000m 时 d 随 k 的变化</strong></h3>
+<p>将停止条件设为导弹高度小于 0，此时判断导弹与航母距离随时间从 6000m 到末尾处的变化：</p>
+<table>
+<thead>
+<tr class="header">
+<th>k=1528</th>
+<th>a(5442.74,23686.95,1.07)</th>
+<th>b(0,25123.20,0)</th>
+<th>d=5852.66</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>k=1529</td>
+<td>a(5226.70,23744.61,1.02)</td>
+<td>b(0,25139.66,0)</td>
+<td>d=5633.28</td>
+</tr>
+<tr class="even">
+<td>k=1530</td>
+<td>a(5010.83,23802.91,0.98)</td>
+<td>b(0,25156.12,0)</td>
+<td>d=5413.94</td>
+</tr>
+<tr class="odd">
+<td>k=1531</td>
+<td>a(4795.13,23861.87,0.94)</td>
+<td>b(0,25172.59,0)</td>
+<td>d=5194.65</td>
+</tr>
+<tr class="even">
+<td>k=1532</td>
+<td>a(4579.63,23921.51,0.90)</td>
+<td>b(0,25189.05,0)</td>
+<td>d=4975.41</td>
+</tr>
+<tr class="odd">
+<td>k=1533</td>
+<td>a(4364.32,23981.88,0.86)</td>
+<td>b(0,25205.51,0)</td>
+<td>d=4756.22</td>
+</tr>
+<tr class="even">
+<td>k=1534</td>
+<td>a(4149.23,24043.00,0.81)</td>
+<td>b(0,25221.97,0)</td>
+<td>d=4537.09</td>
+</tr>
+<tr class="odd">
+<td>k=1535</td>
+<td>a(3934.36,24104.90,0.77)</td>
+<td>b(0,25238.44,0)</td>
+<td>d=4318.01</td>
+</tr>
+<tr class="even">
+<td>k=1536</td>
+<td>a(3719.74,24167.64,0.73)</td>
+<td>b(0,25254.90,0)</td>
+<td>d=4098.99</td>
+</tr>
+<tr class="odd">
+<td>k=1537</td>
+<td>a(3505.37,24231.24,0.69)</td>
+<td>b(0,25271.36,0)</td>
+<td>d=3880.03</td>
+</tr>
+<tr class="even">
+<td>k=1538</td>
+<td>a(3291.28,24295.78,0.65)</td>
+<td>b(0,25287.82,0)</td>
+<td>d=3661.14</td>
+</tr>
+<tr class="odd">
+<td>k=1539</td>
+<td>a(3077.48,24361.29,0.60)</td>
+<td>b(0,25304.28,0)</td>
+<td>d=3442.32</td>
+</tr>
+<tr class="even">
+<td>k=1540</td>
+<td>a(2864.01,24427.84,0.56)</td>
+<td>b(0,25320.75,0)</td>
+<td>d=3223.58</td>
+</tr>
+<tr class="odd">
+<td>k=1541</td>
+<td>a(2650.89,24495.51,0.52)</td>
+<td>b(0,25337.21,0)</td>
+<td>d=3004.91</td>
+</tr>
+<tr class="even">
+<td>k=1542</td>
+<td>a(2438.15,24564.38,0.48)</td>
+<td>b(0,25353.67,0)</td>
+<td>d=2786.33</td>
+</tr>
+<tr class="odd">
+<td>k=1543</td>
+<td>a(2225.84,24634.54,0.44)</td>
+<td>b(0,25370.13,0)</td>
+<td>d=2567.84</td>
+</tr>
+<tr class="even">
+<td>k=1544</td>
+<td>a(2014.00,24706.12,0.39)</td>
+<td>b(0,25386.60,0)</td>
+<td>d=2349.45</td>
+</tr>
+<tr class="odd">
+<td>k=1545</td>
+<td>a(1802.68,24779.24,0.35)</td>
+<td>b(0,25403.06,0)</td>
+<td>d=2131.17</td>
+</tr>
+<tr class="even">
+<td>k=1546</td>
+<td>a(1591.97,24854.08,0.31)</td>
+<td>b(0,25419.52,0)</td>
+<td>d=1913.01</td>
+</tr>
+<tr class="odd">
+<td>k=1547</td>
+<td>a(1381.96,24930.85,0.27)</td>
+<td>b(0,25435.98,0)</td>
+<td>d=1694.99</td>
+</tr>
+<tr class="even">
+<td>k=1548</td>
+<td>a(1172.75,25009.81,0.23)</td>
+<td>b(0,25452.44,0)</td>
+<td>d=1477.11</td>
+</tr>
+<tr class="odd">
+<td>k=1549</td>
+<td>a(964.53,25091.32,0.19)</td>
+<td>b(0,25468.91,0)</td>
+<td>d=1259.41</td>
+</tr>
+<tr class="even">
+<td>k=1550</td>
+<td>a(757.53,25175.89,0.15)</td>
+<td>b(0,25485.37,0)</td>
+<td>d=1041.92</td>
+</tr>
+<tr class="odd">
+<td>k=1551</td>
+<td>a(552.13,25264.27,0.11)</td>
+<td>b(0,25501.83,0)</td>
+<td>d=824.68</td>
+</tr>
+<tr class="even">
+<td>k=1552</td>
+<td>a(349.00,25357.73,0.07)</td>
+<td>b(0,25518.29,0)</td>
+<td>d=607.77</td>
+</tr>
+<tr class="odd">
+<td>k=1553</td>
+<td>a(149.58,25458.88,0.03)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=391.33</td>
+</tr>
+<tr class="even">
+<td>k=1554</td>
+<td>a(-40.69,25576.34,-0.01)</td>
+<td>b(0,25551.22,0)</td>
+<td>d=175.78</td>
+</tr>
+</tbody>
+</table>
+<p>表二：导弹与航母距离随时间从 6000m 到末尾处的变化</p>
+<p>由表格得知，当导弹距水面为 0.03m 时，距航母仍有 391.33m，大于航母的舰长 335m，故若无末段自主制导，将无法击中航母。</p>
+<h3 id="分析命中精度与-t2-的关系"><strong>5.3.2</strong> <strong>分析命中精度与</strong> <strong>t2</strong> <strong>的关系</strong></h3>
+<p>改变飞行参数再次运行，此时将初段抛物线轨道参数改变，将中段竖直向下减速段起始时间 75s 进行修改，在不同情况下的运行结果如下表：</p>
+<table>
+<thead>
+<tr class="header">
+<th>t2=60s</th>
+<th>k=1552s</th>
+<th>a(151.59,25440.48,1.54)</th>
+<th>b(0,25518.29,0)</th>
+<th>d=394.00m</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t2=61s</td>
+<td>k=1553</td>
+<td>a(-26.93,25551.16,-0.26)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=192.08m</td>
+</tr>
+<tr class="even">
+<td>t2=62s</td>
+<td>k=1553</td>
+<td>a(-15.41,25543.97,-0.14)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=205.66m</td>
+</tr>
+<tr class="odd">
+<td>t2=63s</td>
+<td>k=1553</td>
+<td>a(-3.74,25536.95,-0.03)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=219.27m</td>
+</tr>
+<tr class="even">
+<td>t2=64s</td>
+<td>k=1553</td>
+<td>a(8.07,25530.09,0.07)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=232.93m</td>
+</tr>
+<tr class="odd">
+<td>t2=65s</td>
+<td>k=1553s</td>
+<td>a(20.03,25523.34,0.15)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=246.66m</td>
+</tr>
+<tr class="even">
+<td>t2=70s</td>
+<td>k=1553s</td>
+<td>a(82.19,25490.81,0.35)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=316.81m</td>
+</tr>
+<tr class="odd">
+<td>t2=71s</td>
+<td>k=1553s</td>
+<td>a(95.18,25484.43,0.34)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=331.28m</td>
+</tr>
+<tr class="even">
+<td>t2=72s</td>
+<td>k=1553s</td>
+<td>a(108.40,25478.06,0.30)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=345.94m</td>
+</tr>
+<tr class="odd">
+<td>t2=73s</td>
+<td>k=1553s</td>
+<td>a(121.86,25471.68,0.24)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=360.82m</td>
+</tr>
+<tr class="even">
+<td>t2=74s</td>
+<td>k=1553s</td>
+<td>a(135.58,25465.30,0.15)</td>
+<td>b(0,25534.76,0)</td>
+<td>d=375.94m</td>
+</tr>
+</tbody>
+</table>
+<p>表三：打击精度随 t2 的变化</p>
+<p>由表可知，当 t2=61s 时打击精度最高，二者距离仅为 192.08m</p>
+<p>导弹末端命中概率分析[3]：反舰导弹末段自主制导的命中概率，取决于制导雷达捕捉到目标的可能性，它与导弹雷达搜索区能覆盖到目标的概率与雷达能收到回波的概率有关。即 P 捕捉=P 覆盖·P 发现.且现代雷达比较灵敏，只要覆盖就能搜索到目标，故有 P 捕捉=P 覆盖，即 P 发现.=1。</p>
+<p>为方便分析,将导弹搜索区域简化成矩形区域，且设导弹的自控终点是一个</p>
+<p>沿 X 轴和 Z 轴方向分布的二维随机变量,服从平面上的正态分布律且互不相关时,计算 P 捕捉的公式可以简化为</p>
+<img src="/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/image-20220509144812219.png" class="" title="image-20220509144812219">
+<p>式中：a 为导弹搜索区的距离半长，单位(m);b 为导弹搜索区的侧向半宽,单位(m);Ex 为纵向综合散布概率偏差,单位(m);Ez 为侧向综合散布概率偏差,单位(m);mx 为目标运动和常值风干扰引起的纵向概率偏差,单位(m);mz 为目标运动和常值风干扰引起的侧向概率偏差,单位(m)。</p>
+<p>由此可以计算出命中概率。</p>
+<h1 id="六模型评价与改进">六、模型评价与改进</h1>
+<p>该型未将风速及不同高度处的空气阻力考虑在内，同时在路程及范围较小情况下未考虑地心引力。会对模模型的精确度造成一定误差。除此之外，假设不变的参量还有母舰运行时距离极小，将距离与纬度近似成为正比关系；角度运算中将小数位四舍五入或忽略误差等。在算法方面，卫星及无人机的传输数据有一定的时间延后性，且进行导弹永远朝向母舰的拟合过程中，取 1 秒为间隔时间也对最终第三阶段的自主攻击增大了误差的可能性。</p>
+<p>但总的来说，该模型最大的优点是没有使用复杂曲线的方式来闪避反导拦截而是采用科技上惯用的躲避方式，使雷达不易勘测。除此之外，轨迹变换，速度</p>
+<p>变化，点对点定向等处理方式也体现了数学模型省略不必要因素，简单明了的表达被表达物体运行特性的特点。同时，该模型对一些未知参量的选取也尽可能满足现实和近期的科技发展。例如，在第一阶段抛物线的顶点高度设置为 10km，该高度为对流层高度，并且是一般陆基导弹的第一阶段能达到的高度。并且第二阶段整体的时间设定 6 到 8 分钟也符合现实陆基导弹攻击的第二阶段时间。这样的处理方式让依照时间推算出的速度变化有了更高的可信度。同时使超低空巡航阶段的速度不变有了一定得依据。最后，现在一般的路基导弹的第三阶段自主攻击时间一般为 20 秒左右或更少，这也是第二阶段拟合速度，高度，距离的依据。</p>
+<p>但该模型的缺点是远距离能避开雷达的侦测使导弹能相对安全的接近母舰附近，但近距离的反导拦截仍不能避免，该导弹在刚进入三阶段开始自主攻击时，有被拦截的危险。所以在二阶段的末端应增加一个小阶段，该阶段拥有较为复杂的轨迹而不是简单的点对点定向接近母舰。初步思路为在点对点定向之后导弹再次做类似于开口向上的抛物线运动在 z 轴方向远离母舰同时在 xy 轴方向靠近，闪避反导系统拦截，再做轨迹为开口向下的抛物线运动然后攻击母舰，期间导弹加速。这样的设计给雷达的侦测带来了困难同时也使一旦被雷达成功侦测后的闪避提供了更大可能，增加了成功率。同时，这一阶段的缓冲，也能让导弹更精确的攻击到舰体。</p>
+<h1 id="七参考文献">七、参考文献</h1>
+<p>[1] Honeywell，《世界七大反舰导弹：祖国排名第一》， https://m.baidu.com/paw/c/m.tiexue.net/touch/thread_8238501_1.html%3F mip ，2018.05.01。</p>
+<p>[2] 飞行员梦，《已发射的导弹如何反拦截》， https://zhidao.baidu.com/question/519956706.html ，2018.04.30。</p>
+<p>[3] 聂永芳、冯林平、施建礼，新误差分析方法对反舰导弹作战使用的影响，《舰船电子工程》，卷期号：2012 年第七期，总第 217 期，57-59，2012</p>
+<h1 id="附录">附录</h1>
+<h2 id="问题一程序">问题一程序：</h2>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="number">25.65</span>*<span class="built_in">pi</span>/<span class="number">180</span>;B=<span class="number">123.75</span>*<span class="built_in">pi</span>/<span class="number">180</span>;C=<span class="number">27.5</span>*<span class="built_in">pi</span>/<span class="number">180</span>;D=<span class="number">120.5</span>*</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">S=<span class="number">6300000</span>*<span class="built_in">acos</span>(<span class="built_in">cos</span>(A)*<span class="built_in">cos</span>(C)*<span class="built_in">cos</span>(B-D)+<span class="built_in">sin</span>(A)*<span class="built_in">sin</span>(C));</span><br><span class="line"></span><br><span class="line">Vx=<span class="built_in">sqrt</span>(<span class="number">5</span>)*<span class="number">100</span>;Vy=<span class="built_in">sqrt</span>(<span class="number">20</span>)*<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">t1=Vy/<span class="number">9.8</span>; x1=Vx*t1; y1=Vy*t1<span class="number">-0.5</span>*<span class="number">9.8</span>*t1^<span class="number">2</span>; x2=Vx*<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">y2=Vy*<span class="number">75</span><span class="number">-0.5</span>*<span class="number">9.8</span>*<span class="number">75</span>^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t2=<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:t2;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=Vy*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t.^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">a=<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">Vy2=Vy<span class="number">-9.8</span>*<span class="number">75</span>;t3=t2-Vy2/a;</span><br><span class="line"></span><br><span class="line">t=t2:t3;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=y2+Vy2*(t-t2)+<span class="number">0.5</span>*a*(t-t2).^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'r'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">Vy3=Vy2+a*(t3-t2);x3=Vx*t3; y3=y2+Vy2*(t3-t2)+<span class="number">0.5</span>*a*(t3-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'x1=%.4f y1=%.4f t1=%.4f\nx2=%.4f y2=%.4f t2=%.4f Vy2=%.4f\nx3=%.4f y3=%.4f t3=%.4f Vy3=%.4f \n '</span>,x1,y1,t1,x2,y2,t2,Vy2,x3,y3,t3,Vy3) Vx=<span class="number">223.6068</span>;</span><br><span class="line"></span><br><span class="line">t_5=(<span class="number">1000</span>-Vx)/<span class="number">70</span>; x_5=Vx*t_5+<span class="number">0.5</span>*<span class="number">70</span>*t_5^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t4=(S)/Vx;x4=Vx*t4</span><br><span class="line"></span><br><span class="line">t=t3:<span class="number">50</span>:t4;</span><br><span class="line"></span><br><span class="line">x=Vx*t;y=y3;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'b*'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">t5=t4+t_5;</span><br><span class="line"></span><br><span class="line">t=t4:t5;</span><br><span class="line"></span><br><span class="line">x=x4+Vx*(t5-t4)+<span class="number">0.5</span>*<span class="number">70</span>*(t5-t4)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'Éä³Ì/m'</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">'¸ß¶È/m'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">'µã¶Ôµã´ò»÷'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="问题二程序">问题二程序：</h2>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="number">25.65</span>*<span class="built_in">pi</span>/<span class="number">180</span>;B=<span class="number">123.75</span>*<span class="built_in">pi</span>/<span class="number">180</span>;C=<span class="number">27.5</span>*<span class="built_in">pi</span>/<span class="number">180</span>;D=<span class="number">120.5</span>*</span><br><span class="line"></span><br><span class="line"><span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">S=<span class="number">6300000</span>*<span class="built_in">acos</span>(<span class="built_in">cos</span>(A)*<span class="built_in">cos</span>(C)*<span class="built_in">cos</span>(B-D)+<span class="built_in">sin</span>(A)*<span class="built_in">sin</span>(C));</span><br><span class="line"></span><br><span class="line">Vx=<span class="built_in">sqrt</span>(<span class="number">5</span>)*<span class="number">100</span>;Vz=<span class="built_in">sqrt</span>(<span class="number">20</span>)*<span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">t1=Vz/<span class="number">9.8</span>; x1=Vx*t1; z1=Vz*t1<span class="number">-0.5</span>*<span class="number">9.8</span>*t1^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">t2=<span class="number">75</span>;x2=Vx*t2; z2=Vz*t2<span class="number">-0.5</span>*<span class="number">9.8</span>*t2^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">aa=<span class="number">7</span>;Vz2=Vz<span class="number">-9.8</span>*<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">t3=t2-Vz2/aa;x3=Vx*t3;z3=z2+Vz2*(t3-t2)+<span class="number">0.5</span>*aa*(t3-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">Vz3=Vz2+aa*(t3-t2);</span><br><span class="line"></span><br><span class="line">r=<span class="number">6300000</span>*<span class="built_in">sin</span>(<span class="number">27.5</span><span class="number">-25.65</span>);</span><br><span class="line"></span><br><span class="line">X=(<span class="number">123.75</span><span class="number">-120.5</span>)/<span class="number">360</span>*<span class="number">2</span>*r*<span class="built_in">pi</span>;Y=(<span class="number">27.5</span><span class="number">-25.65</span>)/<span class="number">360</span>*<span class="number">2</span>*<span class="number">6300000</span>*<span class="built_in">pi</span>;</span><br><span class="line"></span><br><span class="line">m=Y/S;n=X/S;</span><br><span class="line"></span><br><span class="line">k=<span class="number">0</span>;v=<span class="number">32</span>*<span class="number">1852</span>/<span class="number">3600</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=<span class="number">0</span>:<span class="number">1</span>:t1</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=Vz*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x^<span class="number">2</span>+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'27.5¡ãÎ³Ïß/m'</span>);</span><br><span class="line"></span><br><span class="line">ylabel(<span class="string">'123.75¡ã¾-Ïß/m'</span>);</span><br><span class="line"></span><br><span class="line">zlabel(<span class="string">'´ò»÷¸ß¶È/m'</span>);</span><br><span class="line"></span><br><span class="line">title(<span class="string">'´ò»÷¹ý³Ì'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=t1:<span class="number">1</span>:t2</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=Vz*t<span class="number">-0.5</span>*<span class="number">9.8</span>*t^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'m*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x^<span class="number">2</span>+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t=t2:<span class="number">1</span>:t3</span><br><span class="line"></span><br><span class="line">x=X-n*Vx*t;y=m*Vx*t;z=z2+Vz2*(t-t2)+<span class="number">0.5</span>*aa*(t-t2)^<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">'y*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line">s=v*t;</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(<span class="number">0</span>,s,<span class="number">0</span>,<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">d=<span class="built_in">sqrt</span>(x2+(y-s)^<span class="number">2</span>+z^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,x,y,z,s,d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">a=[(X-n*x3),(m*x3),z3];b=[<span class="number">0</span>,v*t3,<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">dt=<span class="number">1</span>;d=<span class="built_in">sqrt</span>(a(<span class="number">1</span>)^<span class="number">2</span>+(a(<span class="number">2</span>)-b(<span class="number">2</span>))^<span class="number">2</span>+a(<span class="number">3</span>)^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> d&gt;<span class="number">6000</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(a(<span class="number">1</span>),a(<span class="number">2</span>),a(<span class="number">3</span>),<span class="string">'r*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot3</span>(b(<span class="number">1</span>),b(<span class="number">2</span>),b(<span class="number">3</span>),<span class="string">'b*'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%pause(0.2);</span></span><br><span class="line"></span><br><span class="line">k=k+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">b=b+[<span class="number">0</span>,v*dt,<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">e=b-a;</span><br><span class="line"></span><br><span class="line">d=norm(e); e0=e/d;</span><br><span class="line"></span><br><span class="line">a=a+Vx*dt*e0;</span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'k=%.0f a(%.2f,%.2f,%.2f) b(0,%.2f,0) d=%.2f\n'</span>,k,a(<span class="number">1</span>),a(<span class="number">2</span>),a(<span class="number">3</span>),b(<span class="number">2</span>),d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+       -->
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/02/%E6%95%B0%E5%AD%A6%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          数学实验报告
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/28/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E4%B9%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">职业生涯规划书</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="数学建模校内赛" data-title="2018 西安交通大学数学建模竞赛" data-url="https://renzehua1998.github.io/2018/05/03/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%A0%A1%E5%86%85%E8%B5%9B/"  data-images="/img/avatar.jpeg" data-content="2018 西安交通大学数学建模竞赛">
+    <div class="ds-share-inline">
+      <!-- <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul> -->
+      <!-- <div class="ds-share-icons-more">
+      </div> -->
+    </div>
+ </div>
+ 
+
+
+
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;}}
+    </style>
+    <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- 上一个cdn也挂了,换成网上找的这一个 -->
+
+<script src="/js/av-min.js"></script>
+
+
+<script src="/js/Valine.min.js"></script>
+
+
+<div id="vcomment" class="comment"></div> 
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "aRj0IyORTJLLeGJu8NCvPFIX-gzGzoHsz",
+            app_key: "pLwQN2GAclg4a0tNAzc3VqLP",
+            placeholder: "因为开发版云服务器存在休眠的可能，可以多评论一次以便我尽快收到哦~\n您也可以选择留下邮箱，收到回复后会及时发邮件通知您",
+            avatar:"monsterid",
+            requiredFields: "nick,mail".split(',')
+        });
+    }
+</script>
+</section>
+
+
+
+
+  <!--  修改 开始位置-->
+
+<script src="/js/mermaid/mermaid.min.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022-2025 Zehua Ren
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Renzehua1998/hexo-theme-magnificent" target="_blank">Magnificent</a>
+        </div>
+    </div>
+  </div>
+  
+    <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+    <!-- 官方cdn在第二次打开网页的时候次数统计会变成none，我把相关代码去掉了放在本地。 -->
+    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_uv"></span>位访客
+    </span>
+  
+</footer>
+    </div>
+    
+
+<script>
+	var yiliaConfig = {
+		//mathjax: [object Object],
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+
+	//是否开启动画
+	if(yiliaConfig.animate === true){
+
+		// require(['/js/jquery.lazyload.js'], function(){
+		// 	//avatar
+		// 	$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+		// 	$(".js-avatar")[0].onload = function(){
+		// 		$(".profilepic").addClass("show");
+		// 	}
+		// });
+
+		if(yiliaConfig.isHome === true){
+			//content
+			function showArticle(){
+				$(".article").each(function(){
+					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
+						$(this).removeClass("hidden").addClass("show");
+						$(this).addClass("is-hiddened");
+					}else{
+						if(!$(this).hasClass("is-hiddened")){
+							$(this).addClass("hidden");
+						}
+					}
+				});
+			}
+			$(window).on('scroll', function(){
+				showArticle();
+			});
+			showArticle();
+		}
+
+	}
+
+	//是否新窗口打开链接
+	if(yiliaConfig.open_in_new == true){
+		$(".article a[href]").attr("target", "_blank")
+	}
+</script>
+
+<script src="/js/particles.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+
+<div id="progress" class="sidebutton" style="position:fixed;bottom:120px;right:0px;cursor: pointer;">
+    <div class="progressbar">
+        <div class="left-container">
+            <div class="left-circle"></div>
+        </div>
+        <div class="right-container">
+            <div class="right-circle"></div>
+        </div>
+    </div>
+    <div id="progress-rate"
+        title="浏览进度"
+        style="color:#fff; font-size: 15px;text-align: center;padding-top: 8px;">
+    </div>
+</div>
+<div id="changebg" class="sidebutton" style="position:fixed;bottom:70px;right:0px;cursor: pointer;">
+    <a title="背景颜色"><img class="iconimg" src="/img/change.png"/></a>
+</div>
+<div id="totop" class="sidebutton" style="position:fixed;bottom:40px;right:0px;cursor: pointer;">
+    <a title="返回顶部"><img class="iconimg" src="/img/scrollup.png"/></a>
+</div>
+<div id="todown" class="sidebutton" style="position:fixed;bottom:10px;right:0px;cursor: pointer;">
+    <a title="到达底部"><img class="iconimg" src="/img/scrolldown.png"/></a>
+</div>
+<script src="/js/sidebutton.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/1koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":50,"vOffset":-40},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script>
+  var hide = false;
+  function myFunction(x) {
+      x.classList.toggle("change");
+      if(hide == false){
+          $(".left-col").css('display', 'none');
+          $(".mid-col").css("left", 6);
+          $(".tools-col").css('display', 'none');
+          $(".tools-col.hide").css('display', 'none');
+          hide = true;
+          $(".mymenucontainer").css('left', '0');
+      }else{
+          $(".left-col").css('display', '');
+          $(".mid-col").css("left", 300);
+          $(".tools-col").css('display', '');
+          $(".tools-col.hide").css('display', '');
+          hide = false;
+          $(".mymenucontainer").css('left', '280px');
+      }
+  }
+  if (localStorage.getItem('bright') === '1') {
+    document.body.classList.add('bright');
+  }
+  // else if (new Date().getHours() >= 7 && new Date().getHours() < 22) {
+  //   document.body.classList.add('bright');
+  // }
+  // else if (matchMedia('(prefers-color-scheme: light)').matches) {
+  //   document.body.classList.add('bright');
+  // }
+</script>
+</html>
